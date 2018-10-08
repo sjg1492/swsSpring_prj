@@ -18,6 +18,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @Controller
 public class UserController {
 	
+	@RequestMapping(value="index.do", method=GET)
+	public String Index() {
+		return "indexNonMember";
+	}
 	@RequestMapping(value="signUp.do", method=GET)
 	public String Signup() {
 		return "signUp";
