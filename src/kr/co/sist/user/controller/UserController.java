@@ -30,10 +30,7 @@ public class UserController {
 	public String Categories() {
 		return "categories";
 	}
-	@RequestMapping(value="Ticket.do", method=GET)
-	public String Ticket() {
-		return "Ticket";
-	}
+
 	@RequestMapping(value="Company_info.do", method=GET)
 	public String Company_info() {
 		return "Company_info";
@@ -43,10 +40,10 @@ public class UserController {
 //	public String Company_info() {
 //		return "Company_info";
 //	} // ∞Ì∞¥ºæ≈Õ 
-	@RequestMapping(value="login.do", method=GET)
+/*	@RequestMapping(value="login.do", method=GET)
 	public String login() {
 		return "login";
-	}
+	}*/
 	@RequestMapping(value="signUpTerms.do", method=GET)
 	public String signUpTerms() {
 		return "signUpTerms";
