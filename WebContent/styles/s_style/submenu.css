@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+#aside {
+	width: 297px;
+	height: 1000px;
+	background-color: #F0F0EB;
+	float: left;
+
+}
+
+#line {
+ 	border: 2px solid #094d8b;
+	margin-top: -20px;
+	margin-left: 30px;
+	width: 240px;
+}
+
+#submenu {
+	font-size: 25px;
+	letter-spacing: 2px;
+	position: absolute;
+	padding-left: 60px;
+}
+
+li{margin-top: 20px;}
+.images{width:10px; margin-bottom:8px;}

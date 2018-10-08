@@ -1,0 +1,59 @@
+@charset "UTF-8";
+.topBox{
+	position: relative;
+	width: 1150px;
+	margin: 10px auto;
+	border: 1px solid #000000;
+}
+.title{ 
+	font-family: 'Lucida', serif;
+	font-size: 28px;
+	text-transform: uppercase;
+	color: #2f2f2f;
+	
+	width: 1150px;
+	text-align: center;
+	font-family: 고딕;
+}
+
+.test{
+	porsition: absolute;
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+	height: 100px;
+	width: 200px;
+	margin-left: 20px;
+	float: left;
+
+}
+.test2{
+	porsition: absolute;
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+	height: 100px;
+	width: 200px;
+	margin-right: 20px;
+	float: right;
+}
+
+footer{
+	margin-bottom: 10px;
+	margin-top: 80px;
+
+	height: 180px;
+	
+	border-top: 2px solid #F0F0F0;
+}
+.footerLogo{
+	float: left;
+	left: 40px;
+	top: 15px;
+	margin: 0px auto;
+}
+.text{
+	position: absolute;
+	float: left;
+	top:30px;
+	left: 300px;
+	margin: 0px auto;
+}
