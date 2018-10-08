@@ -13,6 +13,17 @@
 <link rel="stylesheet" type="text/css" href="styles/checkout.css">
 <link rel="stylesheet" type="text/css" href="styles/checkout_responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
+<script type="text/javascript">
+$(function(){
+	$("#btn1").click(function(){
+		location.href="login.do"
+	});
+	$("#btn2").click(function(){
+		location.href="ticketCheckout.do"
+	});
+});
+
+</script>
 </head>
 <body>
 
@@ -332,7 +343,7 @@
 	</div>
 	<!--약관 -->
 	<div style="margin: 0px auto; height: 200px;margin-top: 100px;">
-			<input type="button" value="이용권 구매하기" style="width: 250px; height: 50px; background-color: #0E6EB8; color: #FAFAFA; margin-left:830px; ">
+			<input type="button" value="이용권 구매하기" id="" name="" style="width: 250px; height: 50px; background-color: #0E6EB8; color: #FAFAFA; margin-left:830px; ">
 	</div>
 
 	

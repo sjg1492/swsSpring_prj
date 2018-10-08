@@ -16,7 +16,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
 @Controller
-public class TicketController {
+public class ticketController {
 	@RequestMapping(value="ticket.do", method=GET)
 	public String ticket() {
 		return "ticket";
@@ -25,6 +25,11 @@ public class TicketController {
 	@RequestMapping(value="login.do", method=GET)
 	public String login() {
 		return "login";
+	}
+	
+	@RequestMapping(value="ticketCheckout.do", method=GET)
+	public String ticketCheckout() {
+		return "ticketCheckout";
 	}
 	
 	

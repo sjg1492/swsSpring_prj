@@ -32,7 +32,7 @@ $(function(){
 		location.href="login.do"
 	});
 	$("#btn2").click(function(){
-		location.href="login.do"
+		location.href="ticketCheckout.do"
 	});
 });
 
