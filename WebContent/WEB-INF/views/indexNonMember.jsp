@@ -35,7 +35,7 @@
 	
 	<header class="header">
 		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-		<a href="#">
+		<a href="index.do">
 			<div class="logo"><img style="width:190px;" src="images/BILRIM.jpg" ></div>
 		</a>
 			<nav class="main_nav">
@@ -58,7 +58,7 @@
 							<img style="margin-top: 8px" src="images/login.png" alt="이미지를 불러오지 못하였습니다">
 							</a>
 							<!-- 회원가입 -->
-						<a href="signUpTerms.html">
+						<a href="signUp.do">
 							<img src="images/signUp.png" alt="이미지를 불러오지 못하였습니다">
 						</a>
 					</div>
