@@ -43,7 +43,7 @@
 					<li><a href="categories.html">가방</a></li>
 					<li><a href="categories.html">시계/악세사리</a></li>
 					<li><a href="categories.html">지갑</a></li>
-					<li><a href="#">이용권</a></li>
+					<li><a href="ticket.do">이용권</a></li>
 					<li><a href="Company_info.html">BILRIM</a></li>
 					<li><a href="#">고객센터</a></li>
 				</ul>

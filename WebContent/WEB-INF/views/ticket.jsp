@@ -26,6 +26,18 @@
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
+<script type="text/javascript">
+$(function(){
+	$("#btn1").click(function(){
+		location.href="login.do"
+	});
+	$("#btn2").click(function(){
+		location.href="login.do"
+	});
+});
+
+
+</script>
 </head>
 <body>
 
@@ -41,7 +53,7 @@
 					<li><a href="categories.html">가방</a></li>
 					<li><a href="categories.html">시계/악세사리</a></li>
 					<li><a href="categories.html">지갑</a></li>
-					<li><a href="Ticket.html">이용권</a></li>
+					<li><a href="ticket.do">이용권</a></li>
 					<li><a href="#">BILRIM</a></li>
 					<li><a href="#">고객센터</a></li>
 				</ul>
@@ -80,7 +92,7 @@
 			월 1회 무료 교환 / 모든 제품 활인율 10%<br/>
 			월 40,000원<br/>
 			</div>
-			<input type="button" value="이용권 구매" style="margin-left:260px; margin-top:15px; width: 100px;height: 40px;  color:#0E6EB8; border-color:#0E6EB8; background-color:#FFFFFF ">
+			<input type="button" value="이용권 구매" id="btn1" name="btn1" style="margin-left:260px; margin-top:15px; width: 100px;height: 40px;  color:#0E6EB8; border-color:#0E6EB8; background-color:#FFFFFF ">
 		</div>
 		<div style="margin-top:250px; margin-left:60px; float: left; width: 400px; height:400px;border: 1px solid #d7d5d5;">
 			<img  style="margin-left: 42px; margin-top: 30px;" src="images/noShortTicket.png">
@@ -90,7 +102,7 @@
 			원하는 아이템 무엇이든 단기간 렌트 가능<br/>
 			일 4,900원<br/>
 			</div>
-			<input type="button" value="이용권 구매" style="margin-left:260px; margin-top:15px; width: 100px;height: 40px; color:#0E6EB8; border-color:#0E6EB8; background-color:#FFFFFF  " >
+			<input type="button" value="이용권 구매" id="btn2" name="btn2"  style="margin-left:260px; margin-top:15px; width: 100px;height: 40px; color:#0E6EB8; border-color:#0E6EB8; background-color:#FFFFFF  " >
 		</div>
 	</div>
 	<!-- 빌림이용권  -->
