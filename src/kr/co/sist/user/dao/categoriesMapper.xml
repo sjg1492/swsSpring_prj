@@ -9,5 +9,10 @@
    SELECT SC_name FROM second_category
    where fc_num=#{fc_num}
 </select>
+<select id="selecetMainCategori" resultType="String" parameterType="String">
+
+   select fc_name from first_category
+   where fc_num=#{fc_num}
+</select>
 
 </mapper>

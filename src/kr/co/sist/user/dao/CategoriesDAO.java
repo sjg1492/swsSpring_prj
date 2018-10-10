@@ -20,6 +20,12 @@ public class CategoriesDAO {
 		System.out.println("list_size : "+list.size());
 		return list;
 	}
+	public String selectMainCategori(String fc_num) throws SQLException {
+		String mainCate=null;
+		mainCate=sst.selectOne("sws.categoriesMapper.selecetMainCategori",fc_num);
+		
+		return mainCate;
+	}
 	
 
 }

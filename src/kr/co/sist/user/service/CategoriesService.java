@@ -26,6 +26,19 @@ public class CategoriesService {
 		System.out.println("service: "+list.size());
 		return list;
 	}
+
+	public String serchMainCategori(String fc_num) {
+		String mainCate=null;
+		
+		try {
+			mainCate=c_dao.selectMainCategori(fc_num);
+		} catch (SQLException e) {
+			System.err.println("DB조회중 error가 발생하였습니다 : subCategori Select");
+			e.printStackTrace();
+		}
+		
+		return mainCate;
+	}
 	
 	
 }

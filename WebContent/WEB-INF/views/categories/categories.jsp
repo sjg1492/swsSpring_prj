@@ -67,7 +67,7 @@
 							<div class="sidebar_section_content">
 								<ul>
 									<c:forEach var="list" items="${sub_categori_list }">
-									<li><a href="index.html">${list }</a></li>
+									<li><a href="index.html">${list}</a></li>
 									</c:forEach>
 								</ul>
 							</div>

@@ -30,9 +30,8 @@ public class CategoriesController {
 		
 		if("bag".equals(target)||"accessories".equals(target)||"wallet".equals(target)) {
 			
-			String upCategoriName=target.toUpperCase();
-			String loCategoriName=target.toLowerCase();
 			String fc_num="";
+			
 			if("bag".equals(target)) {
 				fc_num="1";
 			}
@@ -42,7 +41,14 @@ public class CategoriesController {
 			if("wallet".equals(target)) {
 				fc_num="3";
 			}
+			
+			
 			List<String> list=cs.searchSubCategori(fc_num);
+			String fc_name=cs.serchMainCategori(fc_num);
+			
+			String upCategoriName=fc_name.toUpperCase();
+			String loCategoriName=fc_name.toLowerCase();
+			
 			System.out.println("controller :: "+ list.size());
 			m.addAttribute("categori_name",upCategoriName);
 			m.addAttribute("categori_name_side",loCategoriName);
