@@ -51,7 +51,7 @@
     // 제출
     document.lFrm.submit();		
 });//function  */ 
-	/* function checkIt() {
+	/*  function checkIt() {
 	var id=$("#id").val()
 	var pass=$("#pass").val()
 	var form_data = {
@@ -83,19 +83,27 @@
 	});//ajax	
 
 	
-}  */
+}   */
 	
 	
-	
+ 	
   $(function() {
-	var id=$("#id").val()
-	var pass=$("#pass").val()	
+
 	
 		$("#login_btn").click(function() {
+			var id=$("#id").val()
+			var pass=$("#pass").val()	
+				
 			var form_data = {
 			        id: $('#id').val(),
 			        pass: $('#pass').val()
-			   };
+			 };
+			
+			if(id=="" || pass==""){
+				alert("아이디 또는 비밀번호가 입력되지 않았습니다.")
+				$("#id").focus()
+				return false;
+			}
 			$.ajax({
 				async : true,
 				type : 'POST',
@@ -105,6 +113,7 @@
 				success : function(data) {
 					if (data.loginResult > 0) {
 						alert("로그인 성공")
+						$("#lFrm").submit()
 					} else {
 						alert("로그인 실패")
 					}
@@ -113,7 +122,7 @@
 			});//ajax
 		});//click
 			
-	});//function
+	});//function 
 </script>
 
 
@@ -174,10 +183,10 @@
 
 	<div style="height:1000px; top:150px">
 	
-	<form id="lFrm" method="post" name="lFrm" >
-	<div style="margin: 0px auto;width: 450px; height: 600px; border: 1px solid #d7d5d5;  top:30px; " >
-		<div style="top:55px; width: 100px; height: 70px; margin:0px auto; font-size: 30px">
-		<img style="width:190px; position:relative;left: -50px" src="images/BILRIM.jpg" >
+	<form id="lFrm" method="post" name="lFrm" action="indexMember.do"  >
+		<div style="margin: 0px auto;width: 450px; height: 600px; border: 1px solid #d7d5d5;  top:30px; " >
+			<div style="top:55px; width: 100px; height: 70px; margin:0px auto; font-size: 30px">
+			<img style="width:190px; position:relative;left: -50px" src="images/BILRIM.jpg" >
 		</div>
 		<div style="margin: 0px auto; width: 300px; height: 70px; top:60px; left:70px; font-size: 23px; font-family: 고딕; font-weight: bold;" >사용자 로그인</div>
 		<div style="top:80px; width: 350px; height: 90px;  margin:0px auto;">
