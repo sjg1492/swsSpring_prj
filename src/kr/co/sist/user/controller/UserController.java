@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.sist.user.service.UserService;
+import kr.co.sist.user.vo.SignUpVO;
 import kr.co.sist.user.vo.loginVO;
 
 @Controller
@@ -91,6 +92,15 @@ public class UserController {
 			return loginData.toJSONString();
 		}
 	
+		@RequestMapping(value="signUpInsert.do",method= GET)
+		@ResponseBody
+		public String signUpInsert(SignUpVO suv){
+			System.out.println("이거는 로그인체크에서 아이디 받아온거 :"+suv);
+			JSONObject signUpDate=us.signUpUserInsert(suv);
+			return signUpDate.toJSONString();
+		}
+	
+		
 //	@RequestMapping(value="indexMember.do")
 //	public ModelAndView openId() throws Exception{
 //		ModelAndView mav = new ModelAndView();

@@ -27,117 +27,8 @@ td{
 //아이디 체크여부 확인 ( 아이디 중복일경우 = 0 , 중복이 아닐경우 = 1)
 var idck=0;
 
-function checkIt() {
-	
-	var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
-    var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
-    var getName= RegExp(/^[가-힣]+$/);
-	
-	var id=$("#id").val(); // 아이디
-	var pass=$("#pass").val();//비밀번호
-	var confirm_pass=$("#confirm_pass").val();//비밀번호확인
-	var name=$("#name").val(); //성별
-	
-	var pw_hint=$("#pw_hint").val(); //비밀번호 힌트 (option의 벨류값이 담김)
-	var pw_answer=$("#pw_answer").val(); //비밀번호 힌트 답변
-	//var id=$("#id").val() // 전화번호 들어갈자리 셀렉트라서 확인필요 또한 phone 1,2,3 모두 더해서 phone 하나로
-	var zip=$("#zip").val(); //우편번호
-	var addr=$("#addr").val(); //주소
-	var addr_detail=$("#addr_detail").val(); //상세주소
-	var email=$("#email").val(); //이메일
-	var gender=$('input:radio[name=gender]').is(':checked'); //성별 미체크시 false
-		
-
-	//성별체크
-	if (!gender) {
-		 alert("성별을 체크해주세요.");
-	        return false;
-	}
-	
-	 //아이디 공백 확인,아이디의 유효성 검사
-	 if(id==""){
-		alert("아이디 입력해주세요.");
-		return false;
-   	 	if(!getCheck.test(id)){
-      		alert("아이디를 형식에 맞게 입력해주세요");
-      		$("#id").val("");
-      		$("#id").focus();
-      		return false;
-    	}
-	}
-    //비밀번호
-    if(pass==""){
-    	alert("비밀번호를 입력해주세요.");
-    	return false;
-	    if(!getCheck.test(pass)) {
-	    alert("형식에 맞춰서 비밀번호를 입력해주세요.");
-	    $("#pass").val("");
-	    $("#pass").focus();
-	    return false;
-	    }
-    }
-
-    //아이디랑 비밀번호랑 같은지
-    if (id==pass) {
-    alert("아이디와 비밀번호는 다르게 입력해주세요.");
-    $("#pass").val("");
-    $("#pass").focus();
-    	return false;
-  	}
-
-    //비밀번호 똑같은지
-    if(pass != confirm_pass){ 
-    alert("비밀번호가 일치하지 않습니다 다시 입력해주세요.");
-    $("#pass").val("");
-    $("#confirm_pass").val("");
-    $("#pass").focus();
-    return false;
-   }
-
-   //이메일 공백 확인
-    if(email == ""){
-      alert("이메일을 입력해주세요");
-      $("#email").focus();
-      return false;
-    }
-         
-    //이메일 유효성 검사
-    if(!getMail.test(email)){
-      alert("이메일형식에 맞게 입력해주세요")
-      $("#email").val("");
-      $("#email").focus();
-      return false;
-    }
-
-    //이름 유효성
-    if (!getName.test(name)) {
-      alert("이름을 형식에 맞게 입력해주세요.");
-      $("#name").val("");
-      $("#name").focus();
-      return false;
-    }
-    
-   
-	if(window.confirm("회원가입을 하시겠습니까?")){
-			
-		
-	}
-    
-    
-	//데이터 확인
-	/* 
-	alert("아이디 : "+id+" / 비번 : "+pass+" / 비번확인 : "+confirm_pass+
-			" / 비번힌트 : "+pw_hint+" / 비번힌트확인 : "
-	+pw_answer+" / 우편번호 :  "+zip+" / 주소 : "+addr+" / 상세주소 : "+addr_detail+
-	" / 이메일 : "+email+" / 이름 : "+name)
-	*/
-	//return false;// 폼테그 이동 막는것
-	
-}
-
-
 $(function(){
-	
+	var idck = 0;// 중복확인 여부 판단 0 일경우 회원가입 불가
 	//중복체크 클릭
 	$("#doubleCheck").click(function(){
 		var id=$("#id").val();
@@ -150,16 +41,17 @@ $(function(){
 			dataType : "json",
 			
 			success : function(data){
+			/* 	alert(data.cnt)
 				if(data.cnt > 0){
 					alert("아이디가 존재합니다, 다른아이디를 입력해주세요.")
 				}else{
-					alert("사용가능한 아이디입\니다.")
-					//아이디가 중복하지 않으면 idck=1
-					//idck=1;
-				}
+				} */
+					alert("사용가능한 아이디입니다.")
+					//아이디가 중복하지 않을경우
+					idck=1;
 			},
 			error : function(error){
-				alert("error : "+error);
+				alert("아이디가 존재합니다, 다른아이디를 입력해주세요.")
 			}
 			
 		});
@@ -208,6 +100,139 @@ $(function(){
 		}).open();
 	});
 	
+	
+	$("#signUpCancel").click(function(){
+		if(window.confirm("초기화면으로 이동합니다  정말 취소하시겠습니까?")){
+			location.href="index.do";
+		}
+	});
+	$("#signUpBtn").click(function(){
+		var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+	    var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
+	    var getName= RegExp(/^[가-힣]+$/);
+		
+		var id=$("#id").val(); // 아이디
+		var pass=$("#pass").val();//비밀번호
+		var confirm_pass=$("#confirm_pass").val();//비밀번호확인
+		var name=$("#name").val(); //성별
+		
+		var pw_hint=$("#pw_hint").val(); //비밀번호 힌트 (option의 벨류값이 담김)
+		var pw_answer=$("#pw_answer").val(); //비밀번호 힌트 답변
+		var phone=$("#phone1").val()+$("#phone2").val()+$("#phone3").val();
+		//var id=$("#id").val() // 전화번호 들어갈자리 셀렉트라서 확인필요 또한 phone 1,2,3 모두 더해서 phone 하나로
+		var zip=$("#zip").val(); //우편번호
+		var addr=$("#addr").val(); //주소
+		var addr_detail=$("#addr_detail").val(); //상세주소
+		var email=$("#email").val(); //이메일
+		var gender_check=$('input:radio[name=gender]').is(':checked'); //성별 미체크시 false
+		var gender=$("#gender").val();
+	
+		//성별체크
+		if (!gender_check) {
+			 alert("성별을 체크해주세요.");
+		        return;
+		}//end if
+		
+		 //아이디 공백 확인,아이디의 유효성 검사
+		 if(id==""){
+			alert("아이디 입력해주세요.");
+			return;
+	   	 	if(!getCheck.test(id)){
+	      		alert("아이디를 형식에 맞게 입력해주세요");
+	      		$("#id").val("");
+	      		$("#id").focus();
+	      		return;
+	    	}//end if
+		}//end if
+		
+	    //비밀번호
+	    if(pass==""){
+	    	alert("비밀번호를 입력해주세요.");
+	    	return;
+		    if(!getCheck.test(pass)) {
+			    alert("형식에 맞춰서 비밀번호를 입력해주세요.");
+			    $("#pass").val("");
+			    $("#pass").focus();
+			    return;
+		    }//end if
+	    }//end if
+	
+	    //아이디랑 비밀번호랑 같은지
+	    if (id==pass) {
+		    alert("아이디와 비밀번호는 다르게 입력해주세요.");
+		    $("#pass").val("");
+		    $("#pass").focus();
+		    	return;
+	  	}//end if
+	
+	    //비밀번호 똑같은지
+	    if(pass != confirm_pass){ 
+		    alert("비밀번호가 일치하지 않습니다 다시 입력해주세요.");
+		    $("#pass").val("");
+		    $("#confirm_pass").val("");
+		    $("#pass").focus();
+		    return;
+	    }//end if
+	
+	   //이메일 공백 확인
+	    if(email == ""){
+	      alert("이메일을 입력해주세요");
+	      $("#email").focus();
+	      return;
+	    }//end if
+	         
+	    //이메일 유효성 검사
+	    if(!getMail.test(email)){
+	      alert("이메일형식에 맞게 입력해주세요")
+	      $("#email").val("");
+	      $("#email").focus();
+	      return ;
+	    }//end if
+	
+	    //이름 유효성
+	    if (!getName.test(name)) {
+	      alert("이름을 형식에 맞게 입력해주세요.");
+	      $("#name").val("");
+	      $("#name").focus();
+	      return;
+	    }//end if
+			
+	    if(idck != 0){
+			if(window.confirm("회원가입을 하시겠습니까?")){//예를 누를경우 true		
+				var form_data = {
+					        id: id,
+					        pass: pass,
+					        name: name,
+					        pw_hint: pw_hint,
+					        pw_answer: pw_answer,
+					        phone:  phone,
+					        zip: zip,
+					        addr: addr,
+					        addr_detail: addr_detail,
+					        email: email,
+					        gender: gender
+					 };
+			
+				$.ajax({
+					type : 'get',
+					data : form_data,
+					url : 'signUpInsert.do',
+					dataType : 'json',
+					success : function(data) {
+							if(data.result >0){	
+								alert("회원가입에 성공하셨습니다.")
+								$("#sFrm").submit()
+							}//end if
+					}
+				});//ajax 
+			}//end if
+	    }else{
+	    	alert("아이디 중복체크를 해주세요")
+	    	return;
+	    }
+		
+		
+	});//로그인 버튼
 	
 });
 
@@ -265,7 +290,7 @@ $(function(){
 		</div>
 	</header>
 	
-	<form name="sFrm" method="get" action="login.do" onSubmit="return checkIt()">
+	<form id="sFrm" method="get" action="login.do" >
 		<div style="margin: 0px auto;  top:130px; border: 1px solid #d7d5d5; left: 70px"></div>
 		<div style="margin-left:100px; margin-top:200px; height:800px "><!--signUp  -->
 		<div id="wrap">
@@ -298,10 +323,10 @@ $(function(){
 				<td><label> 비밀번호 확인 질문</label></td>
 				<td>
 					<select  id="pw_hint" style="width:160px">
-						<option value="hintOne">가장기억에남는장소는?</option>
-						<option value="hintTwo">출신한 초등학교 이름은?</option>
-						<option value="hintThree">어린시절 별명은?</option>
-						<option value="hintFour">아버님의 성함은?</option>
+						<option value="1">가장기억에남는장소는?</option>
+						<option value="2">출신한 초등학교 이름은?</option>
+						<option value="3">어린시절 별명은?</option>
+						<option value="4">아버님의 성함은?</option>
 					</select>
 				</td>
 			</tr>
@@ -362,15 +387,15 @@ $(function(){
 			<tr>
 				<td><label>성별</label></td>
 				<td>
-				<input type="radio"  id="gender" name="gender" value="남자"/>남 
-				<input type="radio"  id="gender" name="gender" value="여자"/>여<br/>
+				<input type="radio"  id="gender" name="gender" value="1"/>남 
+				<input type="radio"  id="gender" name="gender" value="2"/>여<br/>
 				</td>
 			</tr>
 		
 			<tr>
 				<td colspan="2" style="text-align: center;">
-					<input type="submit" value="회원가입"  style="width: 60px"/>
-					<input type="button" value="가입 취소" style="width: 60px; margin-left: 10px"/>
+					<input type="button" id="signUpBtn" value="회원가입"  style="width: 60px"/>
+					<input type="button" id="signUpCancel"value="가입 취소" style="width: 60px; margin-left: 10px"/>
 				</td>
 			</tr>
 		</table>
