@@ -26,10 +26,6 @@ public class UserController {
 	public String Signup() {
 		return "signUp";
 	}
-	@RequestMapping(value="categories.do", method=GET)
-	public String Categories() {
-		return "categories";
-	}
 
 	@RequestMapping(value="Company_info.do", method=GET)
 	public String Company_info() {

@@ -21,49 +21,8 @@
 <div class="super_container">
 	
 	<!-- Header -->
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<a href="indexNonMember.html">
-			<div class="logo"><img style="width:190px;" src="images/BILRIM.jpg" ></div>
-			</a>
-			<nav class="main_nav">
-				<ul>
-					<li><a href="categories.html">가방</a></li>
-					<li><a href="categories.html">시계/악세사리</a></li>
-					<li><a href="categories.html">지갑</a></li>
-					<li><a href="Ticket.html">이용권</a></li>
-					<li><a href="#">BILRIM</a></li>
-					<li><a href="#">고객센터</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				<div class="shopping">
-					<!-- 장바구니 -->
-					<a href="#">
-						<div class="cart">
-							<img src="images/shopping-bag.svg" alt="">
-						</div>
-					</a>
-					
-					<!-- 위시리스트 -->
-					<a href="#">
-						<div class="wish">
-							<img src="images/wish.png" alt="">
-						</div>
-					</a>
-					
-					<!-- 사용자정보 -->
-					<a href="#">
-						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
-						</div>
-					</a>
-					<span> 사용자님 </span>
-				</div>
-			</div>
-		</div>
-	</header>
-
+	<jsp:include page="../header/header.html"></jsp:include>
+	<!-- Header -->
 	
 	<!-- Home -->
 
@@ -74,7 +33,7 @@
 				<div class="col">
 					<div class="home_container">
 						<div class="home_content">
-							<div class="home_title">BAG</div>
+							<div class="home_title">${categori_name}</div>
 							<div class="breadcrumbs">
 								<ul>
 									<li><a href="index.html">TOTE</a></li>
@@ -103,7 +62,7 @@
 						
 						<!-- Categories -->
 						<div class="sidebar_section">
-							<div class="sidebar_title">Bag Categories</div>
+							<div class="sidebar_title">${categori_name} Categories</div>
 							<div class="sidebar_section_content">
 								<ul>
 									<li><a href="#">TOTE</a></li>
@@ -117,7 +76,7 @@
 						<!-- Best Sellers -->
 
 					</div>
-					<div class="current_page">BAG                                                                                                                                  </div>
+					<div class="current_page">${categori_name}                                                                                                                                 </div>
 				</div>
 				<div class="col-12">
 					<div class="product_sorting clearfix">
