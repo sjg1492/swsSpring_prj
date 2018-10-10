@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="sws.categoriesMapper">
+
+<select id="selecetSubCategori" resultType="String" parameterType="String">
+
+   SELECT SC_name FROM second_category
+   where fc_num=#{fc_num}
+</select>
+
+</mapper>
