@@ -4,13 +4,16 @@ package kr.co.sist.user.controller;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import javax.activation.CommandMap;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.sist.user.service.UserService;
 import kr.co.sist.user.vo.loginVO;
@@ -79,20 +82,24 @@ public class UserController {
 		
 		@RequestMapping(value="loginCheck.do",method= POST)
 		@ResponseBody
-		public String loginCheck(loginVO lvo,HttpSession session){
+		public String loginCheck(loginVO lvo,Model m,HttpSession session){
 			System.out.println("이거는 로그인체크에서 아이디 받아온거 :"+lvo.getId());
 			JSONObject loginData=us.checkloginUser(lvo,session);
+			m.addAttribute("user_id",lvo.getId());
+			//m.addAttributes("user_id",lvo.getId());
 			
 			return loginData.toJSONString();
 		}
 	
-//	@RequestMapping(value="/signUp.do")
-//	public ModelAndView openSignUp(CommandMap commandMap) throws Exception{
-//		ModelAndView mav = new ModelAndView("signUp");
+//	@RequestMapping(value="indexMember.do")
+//	public ModelAndView openId() throws Exception{
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("indexMember");
+//		mav.addObject("user_id",lvo.getId())
 //		
 //		return mav;
 //	}
-//	
+	
 	
 		
 }

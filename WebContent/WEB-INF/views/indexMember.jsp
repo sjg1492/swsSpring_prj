@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +59,7 @@
 							<img src="images/avatar.svg" alt="">
 						</div>
 					</a>
-					<span> 사용자님 </span>
+					<span id="userName">   ${sessionScope.id} 님 </span>
 				</div>
 			</div>
 		</div>
