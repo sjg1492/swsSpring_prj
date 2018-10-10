@@ -14,20 +14,106 @@
 <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
 <script src="js/custom.js"></script>
 <script type="text/javascript">
-function checkIt() {
+
+/* $(document).ready(function(){
+	var id=$("#id").val()
+	var pass=$("#pass").val()	
+	if(id=="" || pass==""){
+		alert("아이디 또는 비밀번호가 입력되지 않았습니다.")
+		$("#id").focus()
+		return;
+	}
+	
+	
+	$("#login_btn").click(function() {
+		var form_data = {
+			     id: $('#id').val(),
+		       pass: $('#pass').val()
+	   };
+		$.ajax({
+			async : true,
+			type : 'POST',
+			data : form_data,
+			url : 'loginCheck.do',
+			dataType : 'json',
+			success : function(data) {
+				if (data.loginResult > 0) {
+					alert("로그인 성공")
+				} else {
+					alert("로그인 실패")
+				}
+			}
+
+		});//ajax
+	});//click
+	  // 폼 내부의 데이터를 전송할 주소
+    document.lFrm.action="${path}/swsSpring_prj/loginCheck.do" // git 내려받기 후 에러 날때 메이븐 전체 삭제 후 다시 받고 여기 위치 수정
+    // 제출
+    document.lFrm.submit();		
+});//function  */ 
+	/* function checkIt() {
 	var id=$("#id").val()
 	var pass=$("#pass").val()
+	var form_data = {
+		        id: $('#id').val(),
+		        pass: $('#pass').val()
+		   };
 	if(id=="" || pass==""){
 		alert("아이디 또는 비밀번호가 입력되지 않았습니다.")
 		$("#id").focus()
 		return false;
 	}
-	
-	
-	
+	$.ajax({
+		async : true,
+		type : 'POST',
+		data : form_data,
+		url : 'loginCheck.do',
+		dataType : 'json',
+		success : function(data) {
+			if (data.loginResult > 0) {
+				alert("로그인 성공")
+			} else {
+				alert("로그인 실패")
+			}
+		},
+		error : function(error){
+			alert("error : "+error);
+		}
 
-}
+	});//ajax	
 
+	
+}  */
+	
+	
+	
+  $(function() {
+	var id=$("#id").val()
+	var pass=$("#pass").val()	
+	
+		$("#login_btn").click(function() {
+			var form_data = {
+			        id: $('#id').val(),
+			        pass: $('#pass').val()
+			   };
+			$.ajax({
+				async : true,
+				type : 'POST',
+				data : form_data,
+				url : 'loginCheck.do',
+				dataType : 'json',
+				success : function(data) {
+					if (data.loginResult > 0) {
+						alert("로그인 성공")
+					} else {
+						alert("로그인 실패")
+					}
+				}
+
+			});//ajax
+		});//click
+			
+	});//function
 </script>
 
 
@@ -88,7 +174,7 @@ function checkIt() {
 
 	<div style="height:1000px; top:150px">
 	
-	<form name="lFrm" method="post" action="indexMember.do" onSubmit="return checkIt()">
+	<form id="lFrm" method="post" name="lFrm" >
 	<div style="margin: 0px auto;width: 450px; height: 600px; border: 1px solid #d7d5d5;  top:30px; " >
 		<div style="top:55px; width: 100px; height: 70px; margin:0px auto; font-size: 30px">
 		<img style="width:190px; position:relative;left: -50px" src="images/BILRIM.jpg" >
@@ -105,7 +191,7 @@ function checkIt() {
 				<a href="#" style="font-size: 7px; float: right; color: #C0C0C0">아이디/비밀번호를 잊으셨습니까?</a>
 		</div>
 		<div style=" top:20px; width: 350px; height: 50px;  margin:0px auto;">
-			<input type="submit" value="로그인" style="width: 100%;height: 100%" >
+			<input type="button" id="login_btn" value="로그인" style="width: 100%;height: 100%" >
 		</div>
 		<div style=" top:25px; width: 350px; height: 50px;  margin:0px auto;">
 			<input type="button" value="회원가입" style="width: 100%;height: 100%;">

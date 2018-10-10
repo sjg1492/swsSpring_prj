@@ -9,5 +9,9 @@
 	from	testmember
 	where 	id= #{ id }
 </select>
+<select id="loginCheck" resultType="String" parameterType="kr.co.sist.user.vo.loginVO">
+
+   SELECT id  FROM testmember
+   WHERE ID = #{id} AND PW = #{pass}</select>
 
 </mapper>

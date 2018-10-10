@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import kr.co.sist.user.vo.loginVO;
+
 
 @Component
 public class UserDAO {
@@ -40,6 +42,12 @@ public class UserDAO {
 		//result = (String)selectOne("id",id);
 		//"Select COUNT(*) from 회원 where id = #{id}";
 		return result;
+	}
+	
+	public String selectLogin(loginVO lv) {
+		 String id = sst.selectOne("loginCheck", lv);
+		 System.out.println("유저다오 확인 : "+id);
+	     return id; // 
 	}
 	
 	 
