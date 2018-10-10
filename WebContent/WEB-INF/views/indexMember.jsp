@@ -59,7 +59,7 @@
 							<img src="images/avatar.svg" alt="">
 						</div>
 					</a>
-					<span id="userName">   ${sessionScope.id} 님 </span>
+					<span id="userName">   ${sessionScope.id}  님 </span>
 				</div>
 			</div>
 		</div>
