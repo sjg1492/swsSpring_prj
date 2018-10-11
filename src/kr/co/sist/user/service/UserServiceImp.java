@@ -30,8 +30,7 @@ public class UserServiceImp implements UserService{
 		JSONObject jo = new JSONObject();
 		int result = userDAO.selectID(id);
 		System.out.println("�̰Ŵ� �������� üũ���� : "+result);
-		jo.put("cnt",result);// cnt �� ��Ʈ��
-//		System.out.println("���̽� ������Ʈ Ȯ�� : "+jo.get("cnt")+30+"\n ����Ʈ�� Ȯ�� : "+jo.toJSONString());
+		jo.put("cnt",result);
 		return jo;
 	}
 
@@ -55,6 +54,18 @@ public class UserServiceImp implements UserService{
 		JSONObject jo=new JSONObject();
 		jo.put("result", signUpResult);
 		return jo;
+	}
+	
+	@Override
+	public boolean loginSessionCheck(HttpSession session) {
+		boolean flag=false;
+		
+		String id=(String)session.getAttribute("id");
+		System.out.println("loginSessionCheck : "+id);
+		if(id!=null) {
+			flag=true;
+		}
+		return flag;
 	}
 	
 	

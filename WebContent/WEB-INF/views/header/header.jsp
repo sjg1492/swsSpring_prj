@@ -17,7 +17,11 @@
 			</nav>
 			
 			<div class="header_content ml-auto">
+				<%
 				
+					if(session.getAttribute("id")==null){
+				
+				%>
 				<div class="loginSignup" style="width:300px; height:50px;">
 					<!-- 로그인 -->
 					<div>
@@ -30,6 +34,31 @@
 						</a>
 					</div>
 				</div><!--shopping  -->
+				<%}else{ %>
+				<div class="shopping">
+					<!-- 장바구니 -->
+					<a href="#">
+						<div class="cart">
+							<img src="images/shopping-bag.svg" alt="">
+						</div>
+					</a>
+					
+					<!-- 위시리스트 -->
+					<a href="#">
+						<div class="wish">
+							<img src="images/wish.png" alt="">
+						</div>
+					</a>
+					
+					<!-- 사용자정보 -->
+					<a href="Modify_password.do">
+						<div class="avatar">
+							<img src="images/avatar.svg" alt="">
+						</div>
+					</a>
+					<span id="userName">   ${sessionScope.id}  님 </span>
+				</div>
+				<%} %>
 			</div><!--header_content ml-auto  -->
 		</div>
 	</header>

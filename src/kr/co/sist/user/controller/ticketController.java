@@ -22,10 +22,7 @@ public class ticketController {
 		return "ticket";
 	}
 	
-	@RequestMapping(value="login.do", method=GET)
-	public String login() {
-		return "login";
-	}
+	
 	
 	@RequestMapping(value="ticketCheckout.do", method=GET)
 	public String ticketCheckout() {

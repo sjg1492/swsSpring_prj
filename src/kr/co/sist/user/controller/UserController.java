@@ -33,7 +33,10 @@ public class UserController {
 		return "Modify_info";
 	}
 	@RequestMapping(value="index.do", method=GET)
-	public String Index() {
+	public String Index(HttpSession session) {
+		boolean flag=false;
+		flag=us.loginSessionCheck(session);
+		
 		return "indexNonMember";
 	}
 	@RequestMapping(value="signUp.do", method=GET)
@@ -64,13 +67,19 @@ public class UserController {
 		return "faq1";
 	}
 	
-	@RequestMapping(value="indexMember.do", method=POST)
-	public String indexMember() {
-		return "indexMember";
-	}
+//	@RequestMapping(value="indexMember.do", method=POST)
+//	public String indexMember(HttpSession session) {
+//		boolean flag=false;
+//		flag=us.loginSessionCheck(session);
+//		return "indexMember";
+//	}
 	@RequestMapping(value="inquiry1.do", method=GET)
 	public String inquiry1() {
 		return "inquiry1";
+	}
+	@RequestMapping(value="login.do", method=GET)
+	public String login() {
+		return "login";
 	}
 	
 	
