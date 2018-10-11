@@ -24,6 +24,14 @@ import kr.co.sist.user.vo.loginVO;
 @SessionAttributes({"id","pass"})
 public class UserController {
 	
+	@RequestMapping(value="Modify_password.do", method=GET)
+	public String Modify_password() {
+		return "Modify_password";
+	}
+	@RequestMapping(value="Modify_info.do", method=GET)
+	public String Modify_info() {
+		return "Modify_info";
+	}
 	@RequestMapping(value="index.do", method=GET)
 	public String Index() {
 		return "indexNonMember";

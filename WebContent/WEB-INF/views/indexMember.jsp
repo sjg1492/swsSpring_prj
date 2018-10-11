@@ -54,7 +54,7 @@
 					</a>
 					
 					<!-- 사용자정보 -->
-					<a href="#">
+					<a href="Modify_password.do">
 						<div class="avatar">
 							<img src="images/avatar.svg" alt="">
 						</div>

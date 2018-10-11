@@ -116,7 +116,7 @@ p,a{color: black;}
 							<img src="images/avatar.svg" alt="">
 						</div>
 					</a>
-					<span> 사용자님 </span>
+					<span>  ${sessionScope.id}  님 </span>
 				</div>
 			</div>
 		</div>
@@ -152,7 +152,7 @@ p,a{color: black;}
 보다 다양한 서비스를 받으시려면 정확한 정보를 항상 유지해 주셔야 합니다.</li>
 </ul>
 
-
+<form id="mFrm" method="post" name="lFrm" action="indexMember.do"  >
 <p style="font-weight: bold;font-size: 25px;margin-top: 20px;margin-left: 150px">비밀번호 재확인</p>
 
 
@@ -163,7 +163,7 @@ p,a{color: black;}
 	<tr >
 			<td><label>아이디</label></td>
 			<td>
-			<label>아이디보이는 위치</label>
+			<label>${sessionScope.id}</label>
 			</td>
 	</tr>
 	<tr>
@@ -181,7 +181,7 @@ p,a{color: black;}
  <input type="button" value="취소" class="btn" id="btn_cancle" name="btn_cancle" />
  <input type="submit" value="확인" class="btn" id="btn_ok" name="btn_ok" />
 </div>
-
+</form>
 
 </div>
 

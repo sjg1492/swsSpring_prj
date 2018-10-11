@@ -36,7 +36,7 @@
 				url : 'loginCheck.do',
 				dataType : 'json',
 				success : function(data) {
-					if (data.loginResult > 0) {
+					if (data.loginResult = "1") {
 						alert(id+"님 환영합니다")
 						$("#lFrm").submit()
 					} else {
