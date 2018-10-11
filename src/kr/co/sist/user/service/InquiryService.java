@@ -1,24 +1,22 @@
-package kr.co.sist.user.dao;
+package kr.co.sist.user.service;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import kr.co.sist.user.dao.InquiryDAO;
 import kr.co.sist.user.domain.Inquiry;
 
 @Component
-public class InquiryDAO {
+public class InquiryService {
 	@Autowired
-	private SqlSessionTemplate sst;
+	private InquiryDAO i_dao;
 
-	public List<Inquiry> selectAllInq() throws SQLException {
+	public List<Inquiry> searchAllInq() throws SQLException {
 		List<Inquiry> list = null;
-
-		list = sst.selectList("selectAllInq");
-
+		list = i_dao.selectAllInq();
 		return list;
-	}// selectAllInq
+	}// searchAllInq
 }
