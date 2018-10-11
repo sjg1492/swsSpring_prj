@@ -22,7 +22,7 @@
 <div class="super_container">
 	
 	<!-- Header -->
-	<jsp:include page="../header/header.html"></jsp:include>
+	<jsp:include page="../header/header.jsp"></jsp:include>
 	<!-- Header -->
 	
 	<!-- Home -->

@@ -28,9 +28,9 @@ public class UserServiceImp implements UserService{
 	public JSONObject checkUser(String id) {
 		JSONObject jo = new JSONObject();
 		int result = userDAO.selectID(id);
-		System.out.println("ÀÌ°Å´Â À¯Àú¼­ºñ½º Ã¼Å©À¯Àú : "+result);
-		jo.put("cnt",result);// cnt ´Â ½ºÆ®¸µ
-//		System.out.println("Á¦ÀÌ½¼ ¿ÀºêÁ§Æ® È®ÀÎ : "+jo.get("cnt")+30+"\n Åõ½ºÆ®¸µ È®ÀÎ : "+jo.toJSONString());
+		System.out.println("ï¿½Ì°Å´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ : "+result);
+		jo.put("cnt",result);// cnt ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½
+//		System.out.println("ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½ : "+jo.get("cnt")+30+"\n ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ È®ï¿½ï¿½ : "+jo.toJSONString());
 		return jo;
 	}
 
