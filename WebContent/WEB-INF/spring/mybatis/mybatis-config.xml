@@ -5,9 +5,7 @@
 <configuration>
   <mappers>
  	<mapper resource="kr/co/sist/user/dao/userIdMapper.xml"/>
+ 	<mapper resource="kr/co/sist/user/dao/ticketMapper.xml"/>
  	<mapper resource="kr/co/sist/user/dao/categoriesMapper.xml"/>
- 	<mapper resource="kr/co/sist/user/dao/noticeMapper.xml"/>
- 	<mapper resource="kr/co/sist/user/dao/basketMapper.xml"/>
- 	<mapper resource="kr/co/sist/user/dao/inquiryMapper.xml"/>
   </mappers>
 </configuration>

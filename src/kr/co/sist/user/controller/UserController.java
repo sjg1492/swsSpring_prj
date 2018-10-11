@@ -104,6 +104,13 @@ public class UserController {
 			JSONObject signUpDate=us.signUpUserInsert(suv);
 			return signUpDate.toJSONString();
 		}
+		@RequestMapping(value="userinfo.do",method= POST)
+		@ResponseBody
+		public String userInfo(SignUpVO suv){
+			System.out.println("이거는 로그인체크에서 아이디 받아온거 :"+suv);
+			JSONObject signUpDate=us.signUpUserInsert(suv);
+			return signUpDate.toJSONString();
+		}
 	
 		
 //	}

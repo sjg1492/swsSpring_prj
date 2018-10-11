@@ -7,6 +7,7 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import kr.co.sist.user.dao.UserDAO;
 import kr.co.sist.user.vo.SignUpVO;
@@ -40,7 +41,7 @@ public class UserServiceImp implements UserService{
 		JSONObject jo= new JSONObject();
 		int loginResult=0;
 		if(id!=null) {
-			loginResult=1;
+			loginResult=1; 
 			session.setAttribute("id", id);
 		}
 		jo.put("loginResult", loginResult);
