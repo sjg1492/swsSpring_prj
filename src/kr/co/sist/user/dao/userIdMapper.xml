@@ -6,12 +6,18 @@
 
 <select id="signId" resultType="String" parameterType="String">
 	select 	id
-	from	testmember
+	from	member
 	where 	id= #{ id }
 </select>
 <select id="loginCheck" resultType="String" parameterType="kr.co.sist.user.vo.loginVO">
 
-   SELECT id  FROM testmember
-   WHERE ID = #{id} AND PW = #{pass}</select>
+   SELECT id  FROM member
+   WHERE ID = #{id} AND PASSWORD = #{pass}
+</select>
+
+<insert id="userInsert" parameterType="kr.co.sist.user.vo.SignUpVO">
+	insert into member(MEMBER_NUMBER, ID, NAME, PASSWORD, PHONE, EMAIL, ZIPCODE, ADDRESS,INPUT_DATE, ANSWER, QUESTION_NUM, STATUS,gender)
+	values('MEM-'||to_char(mem_seq.nextval,'0000000'),#{id},#{name},#{pass},#{phone},#{email},#{zip},#{addr}||' '||#{addr_detail},sysdate,#{pw_answer},#{pw_hint},'0',#{gender})
+</insert>
 
 </mapper>

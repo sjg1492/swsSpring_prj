@@ -14,89 +14,15 @@
 <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
 <script src="js/custom.js"></script>
 <script type="text/javascript">
-
-/* $(document).ready(function(){
-	var id=$("#id").val()
-	var pass=$("#pass").val()	
-	if(id=="" || pass==""){
-		alert("아이디 또는 비밀번호가 입력되지 않았습니다.")
-		$("#id").focus()
-		return;
-	}
-	
-	
-	$("#login_btn").click(function() {
-		var form_data = {
-			     id: $('#id').val(),
-		       pass: $('#pass').val()
-	   };
-		$.ajax({
-			async : true,
-			type : 'POST',
-			data : form_data,
-			url : 'loginCheck.do',
-			dataType : 'json',
-			success : function(data) {
-				if (data.loginResult > 0) {
-					alert("로그인 성공")
-				} else {
-					alert("로그인 실패")
-				}
-			}
-
-		});//ajax
-	});//click
-	  // 폼 내부의 데이터를 전송할 주소
-    document.lFrm.action="${path}/swsSpring_prj/loginCheck.do" // git 내려받기 후 에러 날때 메이븐 전체 삭제 후 다시 받고 여기 위치 수정
-    // 제출
-    document.lFrm.submit();		
-});//function  */ 
-	/*  function checkIt() {
-	var id=$("#id").val()
-	var pass=$("#pass").val()
-	var form_data = {
-		        id: $('#id').val(),
-		        pass: $('#pass').val()
-		   };
-	if(id=="" || pass==""){
-		alert("아이디 또는 비밀번호가 입력되지 않았습니다.")
-		$("#id").focus()
-		return false;
-	}
-	$.ajax({
-		async : true,
-		type : 'POST',
-		data : form_data,
-		url : 'loginCheck.do',
-		dataType : 'json',
-		success : function(data) {
-			if (data.loginResult > 0) {
-				alert("로그인 성공")
-			} else {
-				alert("로그인 실패")
-			}
-		},
-		error : function(error){
-			alert("error : "+error);
-		}
-
-	});//ajax	
-
-	
-}   */
-	
-	
- 	
   $(function() {
-
 	
 		$("#login_btn").click(function() {
 			var id=$("#id").val()
 			var pass=$("#pass").val()	
 				
 			var form_data = {
-			        id: $('#id').val(),
-			        pass: $('#pass').val()
+			        id: id,
+			        pass: pass
 			 };
 			
 			if(id=="" || pass==""){
@@ -105,14 +31,13 @@
 				return false;
 			}
 			$.ajax({
-				async : true,
 				type : 'POST',
 				data : form_data,
 				url : 'loginCheck.do',
 				dataType : 'json',
 				success : function(data) {
 					if (data.loginResult > 0) {
-						alert("로그인 성공")
+						alert(id+"님 환영합니다")
 						$("#lFrm").submit()
 					} else {
 						alert("로그인 실패")

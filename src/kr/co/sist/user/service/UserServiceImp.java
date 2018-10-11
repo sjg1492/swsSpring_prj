@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import kr.co.sist.user.dao.UserDAO;
+import kr.co.sist.user.vo.SignUpVO;
 import kr.co.sist.user.vo.loginVO;
 
 @Service("userService")
@@ -43,6 +44,14 @@ public class UserServiceImp implements UserService{
 		}
 		jo.put("loginResult", loginResult);
 //		session.setAttribute("id", arg1);
+		return jo;
+	}
+
+	@Override
+	public JSONObject signUpUserInsert(SignUpVO suv) {
+		int signUpResult=userDAO.insertUser(suv);
+		JSONObject jo=new JSONObject();
+		jo.put("result", signUpResult);
 		return jo;
 	}
 	
