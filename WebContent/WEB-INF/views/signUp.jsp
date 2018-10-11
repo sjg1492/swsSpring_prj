@@ -41,14 +41,13 @@ $(function(){
 			dataType : "json",
 			
 			success : function(data){
-			/* 	alert(data.cnt)
-				if(data.cnt > 0){
+				if(data.cnt=="1"){
 					alert("아이디가 존재합니다, 다른아이디를 입력해주세요.")
 				}else{
-				} */
 					alert("사용가능한 아이디입니다.")
 					//아이디가 중복하지 않을경우
 					idck=1;
+				}
 			},
 			error : function(error){
 				alert("아이디가 존재합니다, 다른아이디를 입력해주세요.")

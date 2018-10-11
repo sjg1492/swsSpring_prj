@@ -40,10 +40,6 @@ public class UserController {
 //	public String Company_info() {
 //		return "Company_info";
 //	} // 고객센터 
-/*	@RequestMapping(value="login.do", method=GET)
-	public String login() {
-		return "login";
-	}*/
 	@RequestMapping(value="signUpTerms.do", method=GET)
 	public String signUpTerms() {
 		return "signUpTerms";
@@ -87,7 +83,6 @@ public class UserController {
 			System.out.println("이거는 로그인체크에서 아이디 받아온거 :"+lvo.getId());
 			JSONObject loginData=us.checkloginUser(lvo,session);
 			m.addAttribute("user_id",lvo.getId());
-			//m.addAttributes("user_id",lvo.getId());
 			
 			return loginData.toJSONString();
 		}
@@ -101,13 +96,6 @@ public class UserController {
 		}
 	
 		
-//	@RequestMapping(value="indexMember.do")
-//	public ModelAndView openId() throws Exception{
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("indexMember");
-//		mav.addObject("user_id",lvo.getId())
-//		
-//		return mav;
 //	}
 	
 	
