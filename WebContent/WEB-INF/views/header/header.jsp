@@ -25,7 +25,7 @@
 							<img style="margin-top: 8px" src="images/login.png" alt="이미지를 불러오지 못하였습니다">
 							</a>
 							<!-- 회원가입 -->
-						<a href="signUp.do">
+						<a href="signUpTerms.do">
 							<img src="images/signUp.png" alt="이미지를 불러오지 못하였습니다">
 						</a>
 					</div>
