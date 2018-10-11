@@ -22,10 +22,10 @@
 //
 //	@RequestMapping(value = "search_basket.do", method = GET)
 //	public String seachBasket(Model model) throws SQLException {
-//		List<CpEmp> list = es.searchAllEmp();
+//		List<inq> list = bs.searchAllEmp();
 //
-//		model.addAttribute("emp_list", list);
-//		return "day0928/search_emp";
+//		model.addAttribute("inq_list", list);
+//		return "inquiry1";
 //	}// seachEmp
 //
 //	@ExceptionHandler(SQLException.class)

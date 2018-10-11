@@ -6,6 +6,6 @@
 	<select id="selectAllNotice" resultType="kr.co.sist.domain.Basket">
 		select N_NUMBER, TITLE, CONTENTS, INPUT_DATE, NOTICE_FLAG, ID, MANAGER_NUMBER
 		from notice
-		order by n_number;
+		order by n_number
 	</select>
 </mapper>

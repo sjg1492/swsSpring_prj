@@ -1,22 +1,22 @@
 package kr.co.sist.user.vo;
 
 public class InquiryVO {
-	private int i_number, title, member_number, manager_number;
-	private String content, i_type, input_date, answer_date, answer_check;
+	private int i_number, member_number, manager_number;
+	private String content, title, i_type, input_date, answer_date, answer_check;
 
 	public InquiryVO() {
-		super();
+		super(); 
 		// TODO Auto-generated constructor stub
 	}
 
-	public InquiryVO(int i_number, int title, int member_number, int manager_number, String content, String i_type,
+	public InquiryVO(int i_number, int member_number, int manager_number, String content, String title, String i_type,
 			String input_date, String answer_date, String answer_check) {
 		super();
 		this.i_number = i_number;
-		this.title = title;
 		this.member_number = member_number;
 		this.manager_number = manager_number;
 		this.content = content;
+		this.title = title;
 		this.i_type = i_type;
 		this.input_date = input_date;
 		this.answer_date = answer_date;
@@ -29,14 +29,6 @@ public class InquiryVO {
 
 	public void setI_number(int i_number) {
 		this.i_number = i_number;
-	}
-
-	public int getTitle() {
-		return title;
-	}
-
-	public void setTitle(int title) {
-		this.title = title;
 	}
 
 	public int getMember_number() {
@@ -61,6 +53,14 @@ public class InquiryVO {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getI_type() {
@@ -94,5 +94,5 @@ public class InquiryVO {
 	public void setAnswer_check(String answer_check) {
 		this.answer_check = answer_check;
 	}
-
+	
 }

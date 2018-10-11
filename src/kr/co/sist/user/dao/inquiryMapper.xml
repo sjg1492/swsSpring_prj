@@ -2,10 +2,10 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="kr.co.sist.dao.inquiryMapper">
-	<select id="selectAllInq" resultType="kr.co.sist.domain.Inquiry">
-		select I_NUMBER, CONTENT, I_TYPE, TITLE, INPUT_DATE, ANSWER_CHECK, ANSWER_DATE, MEMBER_NUMBER, MANAGER_NUMBER
-		from inquiry
-		order by i_number;
+<mapper namespace="kr.co.sist.user.dao.inquiryMapper">
+	<select id="selectAllInq" resultType="kr.co.sist.user.domain.Inquiry">
+		select	title, to_char(input_date, 'yyyy-MM-dd') input_date, answer_check
+		from	inquiry
+		order	by input_date
 	</select>
 </mapper>

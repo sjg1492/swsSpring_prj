@@ -17,6 +17,7 @@ public class InquiryService {
 	public List<Inquiry> searchAllInq() throws SQLException {
 		List<Inquiry> list = null;
 		list = i_dao.selectAllInq();
+		System.out.println(list);
 		return list;
 	}// searchAllInq
 }

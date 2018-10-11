@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,19 +38,16 @@
 /* 가운데 구역(왼쪽,오른쪽) */
 #contents{width: 1400px;height: 1000px;}
 
-
 /* 오른쪽 구역 */
 #section{width:1100px; height:1000px; float:left;}
 
-
 /* 테이블 */
-#article_table{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
+#tab{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
 				border-top:2px solid #094d8b;text-align: center; }
-#number{width: 50px;}
-#voucher{width: 120px;}
-#buy_Date{width: 120px;}
-#use_Date{width: 120px;}
-#times{width: 120px;}
+#number{width:80px}
+#title{width:320px}
+#ans_Date{width:180px}
+#ans_State{width:180px}
 
 /* 페이지번호 */
 #article_number{margin-left:435px; margin-top: 60px;}
@@ -136,52 +134,28 @@ p,a{color: black;}
 	<li><img class="images"  src="images/mark.png"  >  <a href="#">문의 내역</a>  </li>  
 	<li><img class="images"  src="images/mark.png" >  <a href="#">정보 수정</a>  </li>  
 </ul>  
-
-  
-  
-
 </div>
-
-
 
 <div id="section" >
 	<p style="font-size:40px;font-weight:bold;margin-top: 60px;margin-left: 50px;letter-spacing:3px;">1:1 문의</p>
 
-<table id="article_table"  >
+<table id="tab"  >
 <thead>
  <tr>
-   <th class="number">No</th>
-   <th class="voucher"  style="width: 320px;">제목</th>
-   <th class="buy_Date" style="width: 180px;">작성일</th>
-   <th class="use_Date" style="width: 180px;">답변상태</th>
+   <th id="number">No</th>
+   <th id="title">제목</th>
+   <th id="ans_Date">작성일</th>
+   <th id="ans_State">답변상태</th>
  </tr>
-</thead>
-
-<tbody>
- <tr>
-   <td>1</td>
-   <td>Premium 정기이용권</td>
-   <td>2018/08/31</td>
-   <td>2018/09/30</td>
- </tr>
- <tr>
-   <td>1</td>
-   <td>Premium 정기이용권</td>
-   <td>2018/08/31</td>
-   <td>2018/09/30</td>
- </tr>
- <tr>
-   <td>1</td>
-   <td>Premium 정기이용권</td>
-   <td>2018/08/31</td>
-   <td>2018/09/30</td>
- </tr>
- <tr>
-   <td>1</td>
-   <td>Premium 정기이용권</td>
-   <td>2018/08/31</td>
-   <td>2018/09/30</td>
- </tr>
+ <c:forEach var="inq" items="${inq_list }">
+			<c:set var="i" value="${i+1 }"/>
+			<tr>
+				<td><c:out value="${i }"/></td>
+				<td><c:out value="${inq.title }"/></td>
+				<td><c:out value="${inq.input_date }"/></td>
+				<td><c:out value="${inq.answer_check }"/></td>
+			</tr>
+		</c:forEach>
 </tbody>
 </table><br/>
 <div style="float: right; padding-right: 100px;">
