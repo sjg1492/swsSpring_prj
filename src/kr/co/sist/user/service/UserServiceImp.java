@@ -29,8 +29,8 @@ public class UserServiceImp implements UserService{
 		JSONObject jo = new JSONObject();
 		int result = userDAO.selectID(id);
 		System.out.println("이거는 유저서비스 체크유저 : "+result);
-		jo.put("cnt",result);
-		System.out.println("제이슨 오브젝트 확인 : "+jo.get("cnt")+30+"\n 투스트링 확인 : "+jo.toJSONString());
+		jo.put("cnt",result);// cnt 는 스트링
+//		System.out.println("제이슨 오브젝트 확인 : "+jo.get("cnt")+30+"\n 투스트링 확인 : "+jo.toJSONString());
 		return jo;
 	}
 
