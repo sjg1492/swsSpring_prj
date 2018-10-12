@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,6 @@
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
 <script src="js/custom.js"></script>
-<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Wish shop project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,56 +75,8 @@ p,a{color: black;}
 <div class="super_container">
 
 	<!-- Header -->
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><img style="width:190px;" src="images/BILRIM.jpg" ></div>
-			<nav class="main_nav">
-				<ul>
-					<li><a href="#">가방</a></li>
-					<li><a href="categories.html">시계/악세사리</a></li>
-					<li><a href="#">지갑</a></li>
-					<li><a href="#">이용권</a></li>
-					<li><a href="#">BILRIM</a></li>
-					<li><a href="#">고객센터</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				<div class="search header_search">
-					<form action="#">
-						<input type="search" class="search_input" required="required" style="left:250px; top:-22px">
-						<button type="submit" id="search_button" class="search_button" style="left:470px; top:-5px"><img src="images/magnifying-glass.svg" alt=""></button>
-					</form>
-				</div>
-				<div class="shopping">
-				
-					<!-- 장바구니 -->
-					<a href="#">
-						<div class="cart">
-							<img src="images/shopping-bag.svg" alt="">
-						</div>
-					</a>
-					
-					<!-- 위시리스트 -->
-					<a href="#">
-						<div class="wish">
-							<img src="images/wish.png" alt="">
-						</div>
-					</a>
-					
-					<!-- 사용자정보 -->
-					<a href="#">
-						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
-						</div>
-					</a>
-					<span> 사용자님 </span>
-				</div>
-			</div>
-		</div>
-		
-		
-		
-	</header>
+	<jsp:include page="header/header.jsp"></jsp:include>
+	<!-- Header -->
 	
 </div><!-- super_container -->
 
@@ -141,7 +93,7 @@ p,a{color: black;}
 </div>	  
 
 <ul id="submenu" >  
-	<li><img class="images" src="images/mark.png"  >  <a href="#">이용권 내역</a>  </li>  
+	<li><img class="images" src="images/mark.png"  >  <a href="ticket_history.do">이용권 내역</a>  </li>  
 	<li><img class="images" src="images/mark.png"  >  <a href="#">대여 내역</a>  </li>  
 	<li><img class="images"  src="images/mark.png"  >  <a href="#">문의 내역</a>  </li>  
 	<li><img class="images"  src="images/mark.png" >  <a href="#">정보 수정</a>  </li>  
@@ -160,7 +112,7 @@ p,a{color: black;}
 <table id="article_table"  >
 <thead>
 	<tr>
-			<th id="number">No</th>
+			<th id="number">번호</th>
 			<th id="voucher">이용권명</th>
 			<th id="buy_Date">구매날짜</th>
 			<th id="use_Date">사용기간</th>
@@ -169,41 +121,18 @@ p,a{color: black;}
 </thead>
 
 <tbody>
+	<c:forEach var="ticket" items="${ticket_list}">
+		<c:set var="i" value="${i+1 }"/>
 	<tr>
-			<td>1</td>
-			<td>Premium 정기이용권</td>
-			<td>2018/08/31</td>
-			<td>2018/09/30</td>
+			<td><c:out value="${i}"/></td>
+			<td><c:out value="${ticket.v_name }"/></td>
+			<td><c:out value="${ticket.start_date }"/></td>
+			<td><c:out value="${ticket.end_date }"/></td>
 			<td>1/2</td>
 	</tr>
-	<tr>
-			<td>1</td>
-			<td>Premium 정기이용권</td>
-			<td>2018/08/31</td>
-			<td>2018/09/30</td>
-			<td>1/2</td>
-	</tr>
-	<tr>
-			<td>1</td>
-			<td>Premium 정기이용권</td>
-			<td>2018/08/31</td>
-			<td>2018/09/30</td>
-			<td>1/2</td>
-	</tr>
-	<tr>
-			<td>1</td>
-			<td>Premium 정기이용권</td>
-			<td>2018/08/31</td>
-			<td>2018/09/30</td>
-			<td>1/2</td>
-	</tr>
-	<tr>
-			<td>5</td>
-			<td>Premium 정기이용권</td>
-			<td>2018/08/31</td>
-			<td>2018/09/30</td>
-			<td>1/2</td>
-	</tr>
+	</c:forEach>
+	
+	
 </tbody>
 </table>
 

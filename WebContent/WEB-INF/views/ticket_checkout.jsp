@@ -14,14 +14,19 @@
 <link rel="stylesheet" type="text/css" href="styles/checkout_responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
 <script type="text/javascript">
-$(function(){
+window.onload=function(){
 	$("#btn1").click(function(){
 		location.href="login.do"
 	});
 	$("#btn2").click(function(){
-		location.href="ticketCheckout.do"
+		location.href="ticket_checkout.do"
 	});
-});
+	
+	$("#usable").click(function(){
+		window.open('payment.do','id','width=400,height=300,top=100 ,left=100');
+	});
+	
+};
 
 </script>
 </head>
@@ -30,37 +35,8 @@ $(function(){
 <div class="super_container">
 	
 	<!-- Header -->
-	
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo" ><img style="width:190px;" src="images/BILRIM.jpg" ></div>
-			<nav class="main_nav">
-				<ul>
-					<li><a href="categories.html">가방</a></li>
-					<li><a href="categories.html">시계/악세사리</a></li>
-					<li><a href="categories.html">지갑</a></li>
-					<li><a href="Ticket.html">이용권</a></li>
-					<li><a href="#">BILRIM</a></li>
-					<li><a href="#">고객센터</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				
-				<div class="loginSignup" style="width:300px; height:50px; right:10px; position: absolute; top:-15px">
-					<!-- 로그인 -->
-					<div>
-						<a href="#">
-							<img style="margin-top: 8px" src="images/login.png" alt="이미지를 불러오지 못하였습니다">
-							</a>
-							<!-- 회원가입 -->
-						<a href="#">
-							<img src="images/signUp.png" alt="이미지를 불러오지 못하였습니다">
-						</a>
-					</div>
-				</div><!--shopping  -->
-			</div><!--header_content ml-auto  -->
-		</div>
-	</header>
+	<jsp:include page="header/header.jsp"></jsp:include>
+	<!-- Header -->
 
 	<!-- Home -->
 
@@ -343,7 +319,7 @@ $(function(){
 	</div>
 	<!--약관 -->
 	<div style="margin: 0px auto; height: 200px;margin-top: 100px;">
-			<input type="button" value="이용권 구매하기" id="" name="" style="width: 250px; height: 50px; background-color: #0E6EB8; color: #FAFAFA; margin-left:830px; ">
+			<input type="button" value="이용권 구매하기" id="usable" name="" style="width: 250px; height: 50px; background-color: #0E6EB8; color: #FAFAFA; margin-left:830px; ">
 	</div>
 
 	
