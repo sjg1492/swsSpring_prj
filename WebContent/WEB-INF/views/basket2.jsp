@@ -92,6 +92,11 @@
 	장바구니<img src="images/cart.png" width=100px; height="100px"/><br/>
 	<table style="width:700px; border:1px solid #333">
 		<tr>
+		   <th id="item">상품</th>
+		   <th id="item_info">상품 정보</th>
+		   <th id="price">가격 정보</th>
+ 		</tr>
+		<tr>
 			<td style="width:30px;">
 				&nbsp;&nbsp;<input type="checkbox" style="float: middle"/>
 			</td>

@@ -40,7 +40,7 @@
 			<div class="header_content ml-auto">
 				<div class="shopping">
 					<!-- 장바구니 -->
-					<a href="#">
+					<a href="basket.do">
 						<div class="cart">
 							<img src="images/shopping-bag.svg" alt="">
 						</div>
