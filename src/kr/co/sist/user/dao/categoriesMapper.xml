@@ -4,15 +4,25 @@
     
 <mapper namespace="sws.categoriesMapper">
 
-<select id="selecetSubCategori" resultType="String" parameterType="String">
+<select id="selecetSubCategori" resultType="kr.co.sist.user.domain.SubCategory" parameterType="String">
 
-   SELECT SC_name FROM second_category
+   select sc_name,sc_num from second_category
    where fc_num=#{fc_num}
 </select>
 <select id="selecetMainCategori" resultType="String" parameterType="String">
 
    select fc_name from first_category
    where fc_num=#{fc_num}
+</select>
+<select id="selectCategoriProductAll" resultType="kr.co.sist.user.domain.Product" parameterType="String">
+   select product_num, category, brand, prd_name, price, rental_fee, input_date, 
+   img1, img2, img3, img4, product_count, fc_num, sc_num from product
+   where fc_num=#{fc_num}
+</select>
+<select id="selectCategoriProduct" resultType="kr.co.sist.user.domain.Product" parameterType="String">
+   select product_num, category, brand, prd_name, price, rental_fee, input_date, 
+   img1, img2, img3, img4, product_count, fc_num, sc_num from product
+   where sc_num=#{sc_num}
 </select>
 
 </mapper>
