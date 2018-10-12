@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,11 +18,29 @@
 <link rel="stylesheet" type="text/css" href="styles/categories.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <% if(session.getAttribute("prd_list")==null){%>
 <style type="text/css">
 	#products_container{min-height:1300px;}
 </style>
 <%}%>
+<script type="text/javascript">
+$(function(){
+	$("#sorting_6").click(function(){
+		var sorting=$("#sorting_6");
+		sortingProd(sorting);
+	});
+	$("#sorting_12").click(function(){
+		var sorting=$("#sorting_12");
+		sortingProd(sorting);
+	});
+});
+function sortingProd(sorting){
+	location.href="categories.do?target=${target}"<%if(request.getAttribute("sub_cate")!=null){%>
+	+"&sub_cate=${sub_cate}"<%}%>+"&sorting="+sorting.text();
+}
+
+</script>
 </head>
 <body>
 
@@ -111,8 +130,8 @@
 									<span class="num_sorting_text">12</span>
 									<i class="fa fa-caret-down" aria-hidden="true"></i>
 									<ul>
-										<li class="num_sorting_btn"><span>6</span></li>
-										<li class="num_sorting_btn"><span>12</span></li>
+										<li class="num_sorting_btn"><span id="sorting_6">6</span></li>
+										<li class="num_sorting_btn"><span id="sorting_12">12</span></li>
 									</ul>
 								</li>
 							</ul>
@@ -126,7 +145,7 @@
 					
 					<!-- Products -->
 					<c:if test="${not empty prd_list }">
-										<div class="product_grid">
+					<div class="product_grid">
 
 						<!-- Product -->
 						<div class="product">

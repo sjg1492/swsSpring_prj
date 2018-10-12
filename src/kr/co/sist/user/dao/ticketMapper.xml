@@ -4,10 +4,5 @@
     
 <mapper namespace="sws.ticketMapper">
 
-<select id="signId" resultType="String" parameterType="String">
-	select 	id
-	from	testmember
-	where 	id= #{ id }
-</select>
 
 </mapper>

@@ -68,16 +68,20 @@ public class CategoriesController {
 				
 			}
 			
+			//이름 대문자와 소문자 설정
 			String upCategoriName=fc_name.toUpperCase();
 			String loCategoriName=fc_name.toLowerCase();
 			
+			
+			//model에 El을 설정
 			m.addAttribute("categori_name",upCategoriName); //대문자 카테고리 명(main이미지에 들어갈 카테고리명)
 			m.addAttribute("categori_name_side",loCategoriName);//소문자 카테고리명 (side메뉴에 들어갈 카테고리명)
 			m.addAttribute("target",target);//target 파라메터명
+			m.addAttribute("sub_cate",subCate);//subCate 파라메터명
 			m.addAttribute("sub_categori_list",subCatelist);//main category에 대한 sub카테고리
-			
-			System.out.println("controller :: "+ prdlist.size());
+			System.out.println("controller :: "+ prdlist.size());//확인하기 위한 syso(추후 삭제)
 			m.addAttribute("prd_list",prdlist);//main category에 대한 sub카테고리
+			
 			returnURL="categories/categories";
 		}
 		
