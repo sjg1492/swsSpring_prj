@@ -1,7 +1,7 @@
 package kr.co.sist.user.domain;
 
 import lombok.Data;
-
+ 
 @Data
 public class TicketDo {
 	private String v_name,start_date,end_date ;

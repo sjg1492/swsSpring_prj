@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.sist.user.domain.TicketDo;
 import kr.co.sist.user.service.TicketService;
 import kr.co.sist.user.vo.CardInfoVO;
+import kr.co.sist.user.vo.TicketInsertVO;
 
 @Controller
 public class TicketController {
@@ -39,9 +41,10 @@ public class TicketController {
 	public String payment() {
 		return "payment";
 	}
-
+	
+	//카드결제
 	@RequestMapping(value = "payment_process.do", method = POST)
-	public String paymentProcess(Model model, CardInfoVO civ, HttpSession session) {
+	public String paymentProcess(Model model, CardInfoVO civ, HttpSession session, TicketInsertVO tiv, HttpServletRequest request ) {
 
 		// String m_num=(String)session.getAttribute("num");
 		String m_num = "2222";
@@ -62,6 +65,9 @@ public class TicketController {
 
 	}
 
+	
+	
+	
 	@RequestMapping(value = "ticket_history.do", method = GET)
 	public String ticket_history(Model model) throws SQLException {
 		List<TicketDo> list = ts.searchAllTicket();

@@ -51,11 +51,14 @@ function winClose(){
 <div id="wrap">
 <c:if test="${result}" > 
 
-<label style="text-align: center;">결제가 완료되었습니다.</label>
 </c:if>
+<div style="text-align: center;">
+<label>결제가 완료되었습니다.</label>
+</div>
+
 <div>
 	 <input type="button" value="확인" class="btn" id="btn" name="btn" onclick="winClose()"
-	 			style="width:60px; font-size:16px; font-weight: bold; font-family: 맑은고딕"/>
+	 			style="width:60px; font-size:16px; font-weight: bold; font-family: 맑은고딕 ;"/>
 </div>
 
 

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wish</title>
+<title>이용권</title>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
@@ -58,20 +58,20 @@ $(function(){
 		<div style="margin: 0px auto; margin-top:250px; margin-left: 460px; float: left; width: 400px; height:400px;border: 1px solid #d7d5d5;">
 			<img style="margin-left: 42px; margin-top: 30px;" src="images/noPremiumTicket.png">
 			<div style="margin-left: 52px; margin-top: 10px;">
-			Premium 정기 이용권<br/>
+			빌림 2주 이용권<br/>
 			-<br/>
-			월 1회 무료 교환 / 모든 제품 활인율 10%<br/>
-			월 40,000원<br/>
+			2주동안 빌림의 모든 제품을 렌트하실 수 있습니다.<br/>
+			19,900원<br/>
 			</div>
 			<input type="button" value="이용권 구매" id="btn1" name="btn1" style="margin-left:260px; margin-top:15px; width: 100px;height: 40px;  color:#0E6EB8; border-color:#0E6EB8; background-color:#FFFFFF ">
 		</div>
 		<div style="margin-top:250px; margin-left:60px; float: left; width: 400px; height:400px;border: 1px solid #d7d5d5;">
 			<img  style="margin-left: 42px; margin-top: 30px;" src="images/noShortTicket.png">
 			<div style="margin-left: 52px; margin-top: 10px;">
-			단기 이용권<br/>
+			빌림 1주 이용권<br/>
 			-<br/>
-			원하는 아이템 무엇이든 단기간 렌트 가능<br/>
-			일 4,900원<br/>
+			1주동안 빌림의 모든 제품을 렌트하실 수 있습니다.<br/>
+			9,900원<br/>
 			</div>
 			<input type="button" value="이용권 구매" id="btn2" name="btn2"  style="margin-left:260px; margin-top:15px; width: 100px;height: 40px; color:#0E6EB8; border-color:#0E6EB8; background-color:#FFFFFF  " >
 		</div>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Checkout</title>
+<title>이용권구매창</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Wish shop project">
@@ -14,19 +14,38 @@
 <link rel="stylesheet" type="text/css" href="styles/checkout_responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
 <script type="text/javascript">
-window.onload=function(){
+function ch_contract(){
+ 	if(!($("#agree1").prop("checked"))){
+		alert("이용권 구매약관에 동의해주시기 바랍니다.")
+		return false;
+	};
+	if(!($("#agree2").prop("checked"))){
+		alert("개인정보 수십목적 약관에 동의해주시기 바랍니다.")
+		return false;
+	}; 
+	
+
+
+}//ch_contract
+
+
+//순서
+ window.onload=function(){ 
+		
 	$("#btn1").click(function(){
 		location.href="login.do"
 	});
 	$("#btn2").click(function(){
 		location.href="ticket_checkout.do"
 	});
-	
+
 	$("#usable").click(function(){
 		window.open('payment.do','id','width=400,height=300,top=100 ,left=100');
 	});
-	
 };
+	
+
+
 
 </script>
 </head>
@@ -40,6 +59,8 @@ window.onload=function(){
 
 	<!-- Home -->
 
+<form id="ticket_Buy" name="ticket_Buy" action="payment_process.do" method="post" onsubmit="return ch_contract()">
+	
 	<div class="home">
 		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/backTicket.jpg" data-speed="0.8"></div>
 		<div class="container">
@@ -68,10 +89,10 @@ window.onload=function(){
 		<div style="float: left; margin-left:70px; margin-top: 50px;">
 			<div style="float: left;margin-top: 20px;">
 				<div style="font-weight: bold; font-size: 25px;">
-				단기 이용권
+				2주 이용권
 				</div>
 				<div style="font-size: 18px; margin-top: 10px;">	
-				원하는 아이템 무엇이든 단기간 이용 가능
+				2주간 원하는 아이템 무엇이든 이용 가능
 				</div>
 			</div>
 			<div style="float: left; text-align: center; margin-left: 340px; margin-top: 20px;">
@@ -79,20 +100,17 @@ window.onload=function(){
 				주문금액
 				</div>
 				<div style="font-weight: bold; font-size: 25px;">	
-				49,000원
-				</div>
-				<div style="font-size: 13px; margin-top: 0px;">	
-					(4,900원x10일)			
+				19,900원
 				</div>
 			</div>
 		</div>
 	</div>
 	<div style="height: 600px;">
 	<div style="margin: 0px auto; left: 50px">
-		<!--쇼핑몰 이용약관-->
+		<!--이용권 이용약관-->
 		<div style="float:left; margin-left: 100px ">
 			<div style=" left:200px;  font-size: 20px; top:50px;  font-weight: bold;">
-				쇼핑몰 이용약관 동의
+				이용권 구매약관 동의
 			</div>
 			<!--text-->
 			<div style="margin-top:15px; border: 1px solid #d7d5d5; overflow-y: scroll; width:450px; height:350px;  top:50px;left:200px;  font-size: 15px;  ">
@@ -254,7 +272,7 @@ window.onload=function(){
 		⑤ 회원은 현재 이용 중인 멤버십에서 제안한 최대 대여 가능 제품 개수보다 더 많은 제품을 대여하길 원할 경우, 새로운 주문을 할 때 추가 요금을 지불하고 추가 대여할 수 있습니다. 다른 제품을 대여하기 위할 때는 대여를 원하는 제품 개수만큼 대여 중인 제품을 반납해야 합니다. 해지일 이후 반납을 해야할 때 대여중인 모든 제품에 대한 반납이 이루어져야 합니다
 		</div>
 			<div style=" left:200px; font-size: 16px; top:57px; color: #606060; font-weight: bold;">
-			이용약관에 동의하십니까? &nbsp;<input type="checkbox" name="yes" value="동의"/>
+			이용약관에 동의하십니까? &nbsp;<input type="checkbox" id="agree1" value="동의"/>
 			</div>
 		</div>
 		<!--쇼핑몰 이용약관-->
@@ -307,7 +325,7 @@ window.onload=function(){
 				라. 가방 및 잡화의 손상 및 분실 발생시 원인 규명 및 처리를 위한 수집 및 이용
 			</div>
 			<div style=" left:200px; font-size: 16px; top:57px; color: #606060; font-weight: bold;">
-			이용약관에 동의하십니까?&nbsp;<input type="checkbox" name="yes" value="동의"/>
+			이용약관에 동의하십니까?&nbsp;<input type="checkbox" id="agree2" value="동의"/>
 			</div>
 		</div>
 		<!--개인정보 수집목적-->
@@ -315,13 +333,14 @@ window.onload=function(){
 	
 </div>
 	<div style="margin: 0px auto; height: 60px; text-align: center; background-color: #d7d5d5; padding-top:10px; font-size: 22px; font-weight: bold;">
-		결제금액 : 49,000원
+		결제금액 : 19,900원
 	</div>
 	<!--약관 -->
 	<div style="margin: 0px auto; height: 200px;margin-top: 100px;">
-			<input type="button" value="이용권 구매하기" id="usable" name="" style="width: 250px; height: 50px; background-color: #0E6EB8; color: #FAFAFA; margin-left:830px; ">
+			<input type="submit" value="이용권 구매하기" id="usable" name="" style="width: 250px; height: 50px; background-color: #0E6EB8; color: #FAFAFA; margin-left:830px; ">
 	</div>
-
+	
+</form>
 	
 	<!-- Footer -->
 	<footer>

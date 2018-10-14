@@ -1,7 +1,7 @@
 package kr.co.sist.user.vo;
 
 import lombok.Data;
-
+ 
 @Data
 public class TicketInsertVO {
 	private String m_num, v_num, start_date, end_date;

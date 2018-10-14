@@ -47,6 +47,60 @@ function winClose(){
 $(document).ready(function(){
 	$("#btn_payment").click(function(){
 		//유효성검증
+		var regexp=/^[0-9]*$/
+		var card=$('input:radio[name=card]').is(':checked');
+		var month=$("#month").val()
+		var year=$("#year").val()
+		var pass=$("#password").val()
+		
+		if(!card){
+			alert("결제하실 카드의 종류를 선택하세요.")
+			return;
+		}
+		if($("#cardNumber_1").val()==""||$("#cardNumber_2").val()==""||$("#cardNumber_3").val()==""||$("#cardNumber_4").val()==""){
+			alert("카드번호를 입력하세요.")
+			return;
+		}
+		//숫자만입력되게
+		if(month==""){
+			alert("월을 입력하세요.")
+			$("#month").focus();
+			return;
+		}
+		if(!regexp.test(month)){
+			alert("숫자만 입력하세요.");
+			$("#month").val("");
+			$("#month").focus;
+			return;
+		}
+		
+		if(year==""){
+			alert("년을 입력하세요.")
+			$("#year").focus();
+			return;
+		}
+		if(!regexp.test(year)){
+			alert("숫자만 입력하세요.");
+			$("#year").val("");
+			$("#year").focus;
+			return;
+		}
+		
+		if(pass==""){
+			alert("비밀번호를 입력하세요.")
+			$("#password").focus();
+			return;
+		}
+		if(!regexp.test(pass)){
+			alert("숫자만 입력하세요.");
+			$("#password").val("");
+			$("#password").focus;
+			return;
+		}
+		
+		
+		
+		
 		$("#card_Info").submit();
 		
 	});//click
@@ -62,54 +116,54 @@ $(document).ready(function(){
 <table>
 
 	<tr>
-	<td id="table">
-	<input type="radio" id="NH" name="card" value="NH농협"/>NH농협
-	<input type="radio" id="SH"  name="card" value="신한" />신한 
-	<input type="radio" id="KB"  name="card" value="KB국민" />KB국민 
-	<input type="radio" id="HD"  name="card" value="현대" />현대 <br/>
-	<input type="radio" id="WR"  name="card" value="우리" />우리 
-	<input type="radio" id="HN"  name="card" value="하나" />하나
-	<input type="radio" id="BC"  name="card" value="비씨" />비씨
-	<input type="radio" id="SC"  name="card" value="SC리워드" />SC리워드
+	<td id="table" style="padding-top: 20px;">
+	<input type="radio" id="card" name="card" value="NH농협"/>NH농협
+	<input type="radio" id="card"  name="card" value="신한" />신한 
+	<input type="radio" id="card"  name="card" value="KB국민" />KB국민 
+	<input type="radio" id="card"  name="card" value="현대" />현대 <br/>
+	<input type="radio" id="card"  name="card" value="우리" />우리 
+	<input type="radio" id="card"  name="card" value="하나" />하나
+	<input type="radio" id="card"  name="card" value="비씨" />비씨
+	<input type="radio" id="card"  name="card" value="SC리워드" />SC리워드
 	</td>
 	</tr>
 	
 	<tr>
-	<td><label style="font-size: 15px;font-family: 맑은 고딕">카드번호</label>
+	<td><label style="font-size: 15px;font-family: 맑은 고딕; padding-top: 20px;">카드번호</label>
 		
-		<input type="text" id="card" class="inputBox" style="width:45px; " name="cardNumber1"  maxlength="4"/>
+		<input type="text" id="cardNumber_1" class="inputBox" style="width:45px; " name="cardNumber1"  maxlength="4"/>
 		<label>-</label>
-		<input type="text" class="inputBox" style="width:45px" name="cardNumber2" maxlength="4"/>
+		<input type="text" id="cardNumber_2"  class="inputBox" style="width:45px" name="cardNumber2" maxlength="4"/>
 		<label>-</label>
-		<input type="text"  class="inputBox" style="width:45px" name="cardNumber3" maxlength="4"/>
+		<input type="text" id="cardNumber_3"   class="inputBox" style="width:45px" name="cardNumber3" maxlength="4"/>
 		<label>-</label>
-		<input type="text"  class="inputBox" style="width:45px" name="cardNumber4" maxlength="4"/>
+		<input type="text" id="cardNumber_4"   class="inputBox" style="width:45px" name="cardNumber4" maxlength="4"/>
 		</td>
 	</tr>
 	<tr>
-		<td><label id="exp" style="font-size: 15px;font-family: 맑은 고딕">유효기간</label>
+		<td><label style="font-size: 15px;font-family: 맑은 고딕;padding-top: 10px;">유효기간</label>
 		<input type="text" id="month" name="month" maxlength="2" style="width:35px" >월
 		<input type="text" id="year" name="year" maxlength="4" style="width:45px">년
 		</td>
 	</tr>
 	
 	<tr>
-		<td><label id="password" style="font-size: 15px;font-family: 맑은 고딕">비밀번호</label>
-		<input type="text" name="password" style="width:35px" maxlength="2" />**
+		<td><label  style="font-size: 15px;font-family: 맑은 고딕; padding-top: 10px;">비밀번호</label>
+		<input type="password" id="password" name="password" style="width:35px" maxlength="2" />**
 		</td>
 	</tr>
 	
 	<tr>
-		<td><label style="font-size: 15px;font-family: 맑은 고딕">결제금액&nbsp;<span></span> 원</label>
+		<td><label style="font-size: 15px;font-family: 맑은 고딕;padding-top:10px;">결제금액&nbsp;<span></span> 원</label>
 		<input type="hidden" name="price" value=""/></td>
 	</tr>
 	
 </table>
 </form>
-<div>
+<div style="padding-top: 25px;padding-left: 80px;">
 	 <input type="button" value="취소" class="btn" id="btn_cancle" 
 	 				name="btn_cancle" onclick="winClose()" 
-	 				style="width:60px; font-size:16px; font-weight: bold;font-family: 맑은고딕"/>
+	 				style="width:60px; font-size:16px; font-weight: bold;font-family: 맑은고딕 ; "/>&nbsp;&nbsp;
 	 <input type="button" value="결제" class="btn" id="btn_payment" name="btn_payment"
 	 				style="width:60px; font-size:16px; font-weight: bold;font-family: 맑은고딕"/>
 </div>

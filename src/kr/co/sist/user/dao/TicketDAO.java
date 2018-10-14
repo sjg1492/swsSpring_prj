@@ -9,52 +9,36 @@ import org.springframework.stereotype.Component;
 
 import kr.co.sist.user.domain.TicketDo;
 import kr.co.sist.user.vo.CardInfoVO;
+import kr.co.sist.user.vo.TicketInsertVO;
 
 @Component
 public class TicketDAO {
 	@Autowired
 	private SqlSessionTemplate sst;
-	
+
 	public List<TicketDo> selectAllTicket() throws SQLException {
-		List<TicketDo> list=null;
-		
-		list=sst.selectList("selectAllTicket");
-		
+		List<TicketDo> list = null;
+
+		list = sst.selectList("selectAllTicket");
+
 		return list;
-	}//selectAllTicket
-	
-	
-		public int insertCardInfo(CardInfoVO civ) throws SQLException {
-			
-		System.out.println("----"+ civ);
-			int cont=sst.insert("insertCardInfo",civ);
+	}// selectAllTicket
+
+	public int insertCardInfo(CardInfoVO civ) throws SQLException {
+
+		// System.out.println("----"+ civ);
+		int cont = sst.insert("insertCardInfo", civ);
+
+		return cont;
+
+	}// insertCardInfo
+
+	public int insertTicket(TicketInsertVO tiv) throws SQLException {
 		
+		 System.out.println("----"+ tiv);
+		int cont = sst.insert("insertTicket", tiv);
 		
 		return cont;
-			
-		}//selectAllTicket
-		/*		boolean flag=false;
-		int cont=sst.insert("insertCardInfo");
-		if(cont==0) {
-			System.out.println("티켓구매 실패");
-		}else {
-			flag=true;
-		}
-		return flag;*/
+	}// insertTicket
 
-	
-/*	public boolean insertAllTicket(TicketInsertVO tivo, CardInfoVO civo) throws SQLException {
-		boolean flag=false;
-		int cont=sst.insert("insertTicket");
-		if(cont==0) {
-			System.out.println("티켓구매 실패");
-		}else {
-			flag=true;
-		}
-		return flag;
-	}//selectAllTicket
-*/	
-	
-	
-
-}//class
+}// class

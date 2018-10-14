@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CardInfoVO {
-	
+	 
 	private String m_num,card, cardNumber1,cardNumber2,cardNumber3,cardNumber4,
 	month,year,password;
 
