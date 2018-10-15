@@ -13,7 +13,7 @@ import kr.co.sist.user.vo.TicketInsertVO;
 
 @Component	
 public class TicketService {
-	
+	 
 	@Autowired
 	private TicketDAO t_dao;
 	

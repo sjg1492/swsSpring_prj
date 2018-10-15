@@ -13,25 +13,11 @@
 <link rel="stylesheet" type="text/css" href="styles/checkout.css">
 <link rel="stylesheet" type="text/css" href="styles/checkout_responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-function ch_contract(){
- 	if(!($("#agree1").prop("checked"))){
-		alert("이용권 구매약관에 동의해주시기 바랍니다.")
-		return false;
-	};
-	if(!($("#agree2").prop("checked"))){
-		alert("개인정보 수십목적 약관에 동의해주시기 바랍니다.")
-		return false;
-	}; 
-	
-
-
-}//ch_contract
-
 
 //순서
- window.onload=function(){ 
-		
+$(function(){
 	$("#btn1").click(function(){
 		location.href="login.do"
 	});
@@ -40,9 +26,17 @@ function ch_contract(){
 	});
 
 	$("#usable").click(function(){
+		if(!($("#agree1").is(":checked"))){
+			alert("이용권 구매약관에 동의해주시기 바랍니다.")
+			return false;
+		};
+		if(!($("#agree2").is(":checked"))){
+			alert("개인정보 수십목적 약관에 동의해주시기 바랍니다.")
+			return false;
+		}; 
 		window.open('payment.do','id','width=400,height=300,top=100 ,left=100');
 	});
-};
+});
 	
 
 
@@ -84,15 +78,15 @@ function ch_contract(){
 	<!--이용권 구매 상단 -->
 	<div style="margin-top:50px; border: 1px solid #d7d5d5; height: 250px;">
 		<div style="float: left; margin-left:350px; margin-top: 55px;">
-		 <img src="images/ShortTicket.png" alt="">
+		 <img src="images/ticket1.png" alt="">
 		</div>
 		<div style="float: left; margin-left:70px; margin-top: 50px;">
 			<div style="float: left;margin-top: 20px;">
 				<div style="font-weight: bold; font-size: 25px;">
-				2주 이용권
+				일주일 이용권
 				</div>
 				<div style="font-size: 18px; margin-top: 10px;">	
-				2주간 원하는 아이템 무엇이든 이용 가능
+				일주간 원하는 아이템 무엇이든 이용 가능
 				</div>
 			</div>
 			<div style="float: left; text-align: center; margin-left: 340px; margin-top: 20px;">
@@ -100,7 +94,7 @@ function ch_contract(){
 				주문금액
 				</div>
 				<div style="font-weight: bold; font-size: 25px;">	
-				19,900원
+				9,900원
 				</div>
 			</div>
 		</div>
@@ -333,11 +327,11 @@ function ch_contract(){
 	
 </div>
 	<div style="margin: 0px auto; height: 60px; text-align: center; background-color: #d7d5d5; padding-top:10px; font-size: 22px; font-weight: bold;">
-		결제금액 : 19,900원
+		결제금액 : 9,900원
 	</div>
 	<!--약관 -->
 	<div style="margin: 0px auto; height: 200px;margin-top: 100px;">
-			<input type="submit" value="이용권 구매하기" id="usable" name="" style="width: 250px; height: 50px; background-color: #0E6EB8; color: #FAFAFA; margin-left:830px; ">
+			<input type="button" value="이용권 구매하기" id="usable" name="" style="width: 250px; height: 50px; background-color: #0E6EB8; color: #FAFAFA; margin-left:830px; ">
 	</div>
 	
 </form>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>결제완료</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:8080/final_prj/common/css/main.css"/>

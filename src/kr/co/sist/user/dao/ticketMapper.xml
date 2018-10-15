@@ -6,7 +6,7 @@
 
 	<select id="selectAllTicket"
 		resultType="kr.co.sist.user.domain.TicketDo">
-		select v.v_name, vb.start_date, vb.end_date
+		select v.v_name, to_char(vb.start_date,'yyyy-mm-dd')start_date,to_char(vb.end_date,'yyyy-mm-dd')end_date
 		from voucher v, voucher_buying vb
 		where v.v_num=vb.v_num
 
@@ -14,7 +14,7 @@
 
  	<insert id="insertTicket" parameterType="kr.co.sist.user.vo.TicketInsertVO">
 		insert into voucher_buying(member_number, v_num, start_date, end_date)
-		values(#{m_num},ticket_seq.nextval,to_char(#{start_date},'yyyy-mm-dd'),#{end_date})
+		values(#{m_num},'1',sysdate ,sysdate+${ ticket_type })
 	</insert> 
 	
 	<insert id="insertCardInfo" parameterType="kr.co.sist.user.vo.CardInfoVO">

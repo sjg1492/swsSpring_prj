@@ -31,7 +31,7 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/submenu.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <style type="text/css">
 	#wrap{width:300px; height:320px; margin: 0px auto;}
 	
@@ -114,9 +114,9 @@ $(document).ready(function(){
 <div id="wrap">
 <form id="card_Info" name="card_Info" action="payment_process.do" method="post">
 <table>
-
 	<tr>
 	<td id="table" style="padding-top: 20px;">
+	<input type="hidden" id="card" name="ticket_type" value="${ticket_type * 7}"/>
 	<input type="radio" id="card" name="card" value="NH농협"/>NH농협
 	<input type="radio" id="card"  name="card" value="신한" />신한 
 	<input type="radio" id="card"  name="card" value="KB국민" />KB국민 
@@ -154,7 +154,7 @@ $(document).ready(function(){
 	</tr>
 	
 	<tr>
-		<td><label style="font-size: 15px;font-family: 맑은 고딕;padding-top:10px;">결제금액&nbsp;<span></span> 원</label>
+		<td><label style="font-size: 15px;font-family: 맑은 고딕;padding-top:10px;">결제금액&nbsp;&nbsp; 9,900 원</label>
 		<input type="hidden" name="price" value=""/></td>
 	</tr>
 	

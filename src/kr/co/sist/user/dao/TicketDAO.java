@@ -28,6 +28,7 @@ public class TicketDAO {
 
 		// System.out.println("----"+ civ);
 		int cont = sst.insert("insertCardInfo", civ);
+		int contt = sst.insert("insertTicket", civ);
 
 		return cont;
 

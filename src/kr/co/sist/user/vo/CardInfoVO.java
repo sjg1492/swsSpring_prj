@@ -7,13 +7,14 @@ public class CardInfoVO {
 	 
 	private String m_num,card, cardNumber1,cardNumber2,cardNumber3,cardNumber4,
 	month,year,password;
+	private int ticket_type;
 
 	public CardInfoVO() {
 		super();
 	}
 
 	public CardInfoVO(String m_num, String card, String cardNumber1, String cardNumber2, String cardNumber3,
-			String cardNumber4, String month, String year, String password) {
+			String cardNumber4, String month, String year, String password, int ticket_type) {
 		super();
 		this.m_num = m_num;
 		this.card = card;
@@ -24,7 +25,10 @@ public class CardInfoVO {
 		this.month = month;
 		this.year = year;
 		this.password = password;
+		this.ticket_type = ticket_type;
 	}
+
+	
 
 
 	

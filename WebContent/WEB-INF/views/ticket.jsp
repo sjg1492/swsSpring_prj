@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>      
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,20 +27,24 @@
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	$("#btn1").click(function(){
-		location.href="login.do"
-	});
-	$("#btn2").click(function(){
-		location.href="ticket_checkout.do"
-	});
+	
+	$("#btn").click(function(){
+		$("#ticket_type").val("2")
+		$("#frm").submit();
+	});	
 });
 
 
 </script>
 </head>
 <body>
+<form name="frm" action="ticket_checkout.do" id="frm" method="post">
+	<input type="hidden" id="ticket_type" name="ticket_type"/>
+
+</form>
 
 <div class="super_container" style="width:1819px;height:1400px">
 
@@ -55,26 +60,15 @@ $(function(){
 		<div style="margin: 0px auto; top:180px; font-size: 23px; font-weight: bold; text-align: center;">
 		빌림을 즐기는 2가지방법
 		</div>
-		<div style="margin: 0px auto; margin-top:250px; margin-left: 460px; float: left; width: 400px; height:400px;border: 1px solid #d7d5d5;">
-			<img style="margin-left: 42px; margin-top: 30px;" src="images/noPremiumTicket.png">
-			<div style="margin-left: 52px; margin-top: 10px;">
-			빌림 2주 이용권<br/>
-			-<br/>
-			2주동안 빌림의 모든 제품을 렌트하실 수 있습니다.<br/>
-			19,900원<br/>
+		<div style="margin: 0px auto; margin-top:250px; margin-left: 615px; float: left; width: 600px; height:380px;border: 1px solid #d7d5d5;">
+			<img style="margin-left: 62px; margin-top: 30px;" src="images/ticket.png">
+			<div style="margin-left: 62px; margin-top: 10px;">
+			빌림 7Days 이용권<br/>
+			일주일동안 빌림의 모든 제품을 렌트하실 수 있습니다.<br/>
 			</div>
-			<input type="button" value="이용권 구매" id="btn1" name="btn1" style="margin-left:260px; margin-top:15px; width: 100px;height: 40px;  color:#0E6EB8; border-color:#0E6EB8; background-color:#FFFFFF ">
+			<input type="button" value="이용권 구매" id="btn" name="btn" style="margin-left:260px; margin-top:15px; width: 110px;height: 45px;  color:#0E6EB8; border-color:#0E6EB8; background-color:#FFFFFF;font-weight: bold; font-size: 17px; ">
 		</div>
-		<div style="margin-top:250px; margin-left:60px; float: left; width: 400px; height:400px;border: 1px solid #d7d5d5;">
-			<img  style="margin-left: 42px; margin-top: 30px;" src="images/noShortTicket.png">
-			<div style="margin-left: 52px; margin-top: 10px;">
-			빌림 1주 이용권<br/>
-			-<br/>
-			1주동안 빌림의 모든 제품을 렌트하실 수 있습니다.<br/>
-			9,900원<br/>
-			</div>
-			<input type="button" value="이용권 구매" id="btn2" name="btn2"  style="margin-left:260px; margin-top:15px; width: 100px;height: 40px; color:#0E6EB8; border-color:#0E6EB8; background-color:#FFFFFF  " >
-		</div>
+		
 	</div>
 	<!-- 빌림이용권  -->
 	

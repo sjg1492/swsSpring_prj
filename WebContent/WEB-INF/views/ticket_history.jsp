@@ -28,6 +28,7 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/submenu.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <style type="text/css">
 
 /* 전체 틀 */
@@ -43,7 +44,7 @@
 
 
 /* 테이블 */
-#article_table{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
+#paging{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
 				border-top:2px solid #094d8b;text-align: center; }
 #number{width: 50px;}
 #voucher{width: 120px;}
@@ -66,6 +67,7 @@ p,a{color: black;}
 
 
 </style>
+
 
 
 </head>
@@ -137,22 +139,16 @@ p,a{color: black;}
 </table>
 
 <!-- 페이지번호 -->
-<div id="article_number">
-
-	<nav>
+<div id="paging">
+<nav>
 	  <ul class="pagination">
 	    <li><a href="#"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
 	    <li><a href="#">1</a></li>
 	    <li><a href="#">2</a></li>
-	    <li><a href="#">3</a></li>
-	    <li><a href="#">4</a></li>
-	    <li><a href="#">5</a></li>
 	    <li><a href="#"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
 	  </ul>
 	</nav>
-
 </div>
-
 
 
 </div>
