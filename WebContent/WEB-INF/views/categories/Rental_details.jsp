@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>렌트내역</title>
+<title>빌림내역</title>
 <link rel="stylesheet" type="text/css" href="http://localhost:8080/html_prj/common/css/main.css"/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="js/jquery-3.2.1.min.js"></script>

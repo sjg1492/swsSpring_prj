@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,37 +21,8 @@
 <div class="super_container">
 	
 	<!-- Header -->
-	
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo" ><img style="width:190px;" src="images/BILRIM.jpg" ></div>
-			<nav class="main_nav">
-				<ul>
-					<li><a href="categories.html">가방</a></li>
-					<li><a href="categories.html">시계/악세사리</a></li>
-					<li><a href="categories.html">지갑</a></li>
-					<li><a href="Ticket.html">이용권</a></li>
-					<li><a href="#">BILRIM</a></li>
-					<li><a href="#">고객센터</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				
-				<div class="loginSignup" style="width:300px; height:50px; right:10px; position: absolute; top:-15px">
-					<!-- 로그인 -->
-					<div>
-						<a href="#">
-							<img style="margin-top: 8px" src="images/login.png" alt="이미지를 불러오지 못하였습니다">
-							</a>
-							<!-- 회원가입 -->
-						<a href="#">
-							<img src="images/signUp.png" alt="이미지를 불러오지 못하였습니다">
-						</a>
-					</div>
-				</div><!--shopping  -->
-			</div><!--header_content ml-auto  -->
-		</div>
-	</header>
+	<jsp:include page="../header/header.jsp"></jsp:include>
+	<!-- Header -->
 
 	<!-- Home -->
 
@@ -60,12 +33,16 @@
 				<div class="col">
 					<div class="home_container">
 						<div class="home_content">
-							<div class="home_title">BAG</div>
+							<div class="home_title"><a href="categories.do?target=${categori_name_side }"style="color:white;">${categori_name}</a></div>
 							<div class="breadcrumbs">
 								<ul>
-									<li><a href="index.html">TOTE</a></li>
-									<li><a href="index.html">SHOULDER</a></li>
-									<li>CROSS</li>
+									<c:forEach var="list" items="${sub_categori_list }">
+									<% if("wallet".equals(request.getAttribute("target"))){ %>
+									<li><a href="categories.do?target=${target}&sub_cate=${list.sc_name}">${list.sc_name } wallet</a></li>
+									<%}else{ %>
+									<li><a href="categories.do?target=${target}&sub_cate=${list.sc_name}">${list.sc_name }</a></li>
+									<%}%>
+									</c:forEach>
 								</ul>
 							</div>
 						</div>
@@ -76,15 +53,15 @@
 	</div>
 	<div style="margin-top:50px; border: 1px solid #d7d5d5; height: 250px;">
 		<div style="float: left; margin-left:350px;">
-		 <img src="images/ChanelBac.jpg" alt="">
+		 <img src="images/product_img/${prd.img1 }" style="width:225px;height:225px;" alt="">
 		</div>
 		<div style="float: left; margin-left:100px; margin-top: 50px;">
 			<div style="float: left;">
 				<div style="font-weight: bold; font-size: 25px;">
-				Chanel
+				${prd.brand }
 				</div>
 				<div style="font-weight: bold; font-size: 18px;">	
-				2.55 Flap Bag[Silver]
+				${prd.prd_name }
 				</div>
 				<div style="font-size: 18px; margin-top: 30px;">	
 					렌트기간 > 7일			
@@ -95,10 +72,10 @@
 				주문금액
 				</div>
 				<div style="font-weight: bold; font-size: 25px;">	
-				138,600원
+				${prd.rental_fee*7} 원
 				</div>
 				<div style="font-size: 13px; margin-top: 0px;">	
-					(19,800원x7일)			
+					(${prd.rental_fee}원x7일)			
 				</div>
 			</div>
 				
@@ -116,23 +93,22 @@
 					<div class="billing">
 						<div class="checkout_title">Rent recipient</div>
 						<div class="checkout_form_container">
-							<form action="#" id="checkout_form">
+							<form action="checkout_process.do" id="checkout_form">
 								<input type="text" class="checkout_input" placeholder="이름">
 								<input type="text" class="checkout_input" placeholder="E-mail" required="required">
 								<select name="phone" id="phone" class="country_select checkout_input" style="width:160px">
 									<option value="010">010</option>
-									<option value="011" >011</option>
-									<option value="012" >012</option>
-									<option value="013" >013</option>
-									<option value="016" >016</option>
-									<option value="017" >017</option>
-									<option value="018" >018</option>
-									<option value="019" >019</option>
+									<option value="011">011</option>
+									<option value="012">012</option>
+									<option value="016">016</option>
+									<option value="017">017</option>
+									<option value="018">018</option>
+									<option value="019">019</option>
 								</select>
 								<label style="margin-left:10px; font-size: 20px;">-</label>
-								<input type="text" class="checkout_input" style="width:160px; margin-left: 10px;">
+								<input type="text" class="checkout_input" style="width:158px; margin-left: 10px;">
 								<label style="margin-left:10px; font-size: 20px;">-</label>
-								<input type="text" class="checkout_input" style="width:167px; margin-left: 10px;">
+								<input type="text" class="checkout_input" style="width:158px; margin-left: 10px;">
 								<input type="text" class="checkout_input" placeholder="주소" required="required">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
 									<input type="text" class="checkout_input checkout_input_50" placeholder="우편번호" required="required">
@@ -151,12 +127,12 @@
 						<div class="cart_total">
 							<ul>
 								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="cart_total_title">상품명</div>
+									<div class="cart_total_title"><strong>${prd.prd_name }</strong></div>
 									<div class="cart_total_price ml-auto">금액/기간</div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
 									<div class="cart_total_title">렌트가 일(￦)</div>
-									<div class="cart_total_price ml-auto">30.000￦</div>
+									<div class="cart_total_price ml-auto">${prd.rental_fee}￦</div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
 									<div class="cart_total_title">렌트 기간</div>
@@ -164,12 +140,12 @@
 								</li>
 								<li class="d-flex flex-row align-items-start justify-content-start total_row">
 									<div class="cart_total_title">총 금액</div>
-									<div class="cart_total_price ml-auto">210.000￦</div>
+									<div class="cart_total_price ml-auto">${prd.rental_fee*7}￦</div>
 								</li>
 							</ul>
 						</div>
 						<div class="payment_options">
-							<button class="cart_total_button">구매하기</button>
+							<button class="cart_total_button">대여하기</button>
 						</div>
 					</div>
 				</div>

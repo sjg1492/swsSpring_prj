@@ -60,7 +60,7 @@ function sortingProd(sorting){
 				<div class="col">
 					<div class="home_container">
 						<div class="home_content">
-							<div class="home_title">${categori_name}</div>
+							<div class="home_title"><a href="categories.do?target=${categori_name_side eq 'bag' or categori_name_side eq 'wallet'?categori_name_side:'accessories'}"style="color:white;">${categori_name}</a></div>
 							<div class="breadcrumbs">
 								<ul>
 									<c:forEach var="list" items="${sub_categori_list }">
@@ -111,7 +111,7 @@ function sortingProd(sorting){
 						<!-- Best Sellers -->
 
 					</div>
-					<div class="current_page">${categori_name}                                                                                                                                 </div>
+					<div class="current_page">${categori_name}</div>
 				</div>
 				<div class="col-12">
 					<div class="product_sorting clearfix">
@@ -161,12 +161,12 @@ function sortingProd(sorting){
 							</div> -->
 							<div class="product_content clearfix">
 								<div class="product_info">
-									<div class="product_name"><a href="product.do?prd_num=${prd.product_num }">${prd.prd_name}</a></div>
+									<div class="product_name"><a href="product.do?target=${prd.fc_num}&sub_cate=${prd.sc_num}&prd_num=${prd.product_num }">${prd.prd_name}</a></div>
 									<!-- TODO: -->
-									<div class="product_price">${prd.rental_fee } 원</div>
+									<div class="product_price">${prd.rental_fee }원/1일</div>
 								</div>
 								<div class="product_options">
-									<a href="checkout.html">
+									<a href="product.do?target=${prd.fc_num}&sub_cate=${prd.sc_num}&prd_num=${prd.product_num}">
 										<div class="product_fav product_option">BILRIM</div>
 									</a>
 								</div>

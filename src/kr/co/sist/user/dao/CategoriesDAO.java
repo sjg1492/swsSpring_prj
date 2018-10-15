@@ -49,12 +49,28 @@ public class CategoriesDAO {
 		return list;
 	}
 	
-	public int rowCnt(String sc_num) {
-		int cnt=0;
+
+	public Product selectProduct(String prd_num)throws SQLException {
+		Product prd=null;
+		prd=sst.selectOne("sws.categoriesMapper.selectProduct",prd_num);
+		return prd;
+	}
+
+	public String selectMemberNumber(String id)throws SQLException {
+		String m_num=null;
+		m_num=sst.selectOne("sws.categoriesMapper.selectMemberNumber",id);
+		return m_num;
+	}
+
+	public boolean selectTicket(String m_num)throws SQLException {
+		boolean v_flag=false;
 		
-		cnt=sst.selectOne("selectcontCategoriProduct",sc_num);
+		String ticket=sst.selectOne("sws.categoriesMapper.selectTicket",m_num);
+		if(ticket!=null) {
+			v_flag=true;
+		}
 		
-		return cnt;
+		return v_flag;
 	}
 
 }

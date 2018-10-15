@@ -22,7 +22,6 @@ public class CategoriesService {
 			list=c_dao.selectSubCategori(fc_num);
 		} catch (SQLException e) {
 			System.err.println("DB조회중 error가 발생하였습니다 : subCategori Select");
-			e.printStackTrace();
 		}
 		
 		return list;
@@ -35,7 +34,6 @@ public class CategoriesService {
 			mainCate=c_dao.selectMainCategori(fc_num);
 		} catch (SQLException e) {
 			System.err.println("DB조회중 error가 발생하였습니다 : MainCategori Select");
-			e.printStackTrace();
 		}
 		
 		return mainCate;
@@ -47,7 +45,6 @@ public class CategoriesService {
 			list=c_dao.selectCategoriProductAll(fc_num);
 		} catch (SQLException e) {
 			System.err.println("DB조회중 error가 발생하였습니다 : CategoriProductAll Select");
-			e.printStackTrace();
 		}
 		
 		return list;
@@ -59,11 +56,40 @@ public class CategoriesService {
 			list=c_dao.selectCategoriProduct(sc_num);
 		} catch (SQLException e) {
 			System.err.println("DB조회중 error가 발생하였습니다 : CategoriProductAll Select");
-			e.printStackTrace();
 		}
 		
-		System.out.println("service: "+list.size());
 		return list;
+	}
+
+	public Product searchProduct(String prd_num) {
+		Product prd=null;
+		try {
+			prd=c_dao.selectProduct(prd_num);
+		} catch (SQLException e) {
+			System.err.println("DB조회중 error가 발생하였습니다 : searchProduct Select");
+		}
+		return prd;
+	}
+	
+	//아이디로 회원번호 조회
+	public String searchMemberNumber(String id) {
+		String m_num=null;
+		try {
+			m_num=c_dao.selectMemberNumber(id);
+		} catch (SQLException e) {
+			System.err.println("DB조회중 error가 발생하였습니다 : searchMemberNumber Select");
+		}
+		return m_num;
+	}
+
+	public boolean searchTicket(String m_num) {
+		boolean v_flag=false;
+		try {
+			v_flag=c_dao.selectTicket(m_num);
+		} catch (SQLException e) {
+			System.err.println("DB조회중 error가 발생하였습니다 : searchTicket Select");
+		}
+		return v_flag;
 	}
 	
 	

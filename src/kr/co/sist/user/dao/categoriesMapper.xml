@@ -28,5 +28,19 @@
    select cnt(product_num) cnt from product
    where sc_num=#{sc_num}
 </select>
-
+<select id="selectProduct" resultType="kr.co.sist.user.domain.Product" parameterType="String">
+   select product_num, category, brand, prd_name, price, rental_fee, input_date, 
+   img1, img2, img3, img4, product_count, fc_num, sc_num from product
+   where product_num=#{prd_num}
+</select>
+<select id="selectMemberNumber" resultType="String" parameterType="String">
+   select member_number 
+   from member
+   where id=#{id}
+</select>
+<!-- 이용권 구매 조회 -->
+<select id="selectTicket" resultType="String" parameterType="String">
+   select v_num from voucher_buying
+   where member_number=#{m_number} and end_flag='T'
+</select>
 </mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,13 +34,17 @@
 				<div class="col">
 					<div class="home_container">
 						<div class="home_content">
-							<div class="home_title">BAG</div>
+							<div class="home_title"><a href="categories.do?target=${categori_name_side }"style="color:white;">${categori_name}</a></div>
 							<div class="breadcrumbs">
 							
 								<ul>
-									<li><a href="index.html">TOTE</a></li>
-									<li>SHOULDER</li>
-									<li>CROSS</li>
+									<c:forEach var="list" items="${sub_categori_list }">
+									<% if("wallet".equals(request.getAttribute("target"))){ %>
+									<li><a href="categories.do?target=${target}&sub_cate=${list.sc_name}">${list.sc_name } wallet</a></li>
+									<%}else{ %>
+									<li><a href="categories.do?target=${target}&sub_cate=${list.sc_name}">${list.sc_name }</a></li>
+									<%}%>
+									</c:forEach>
 								</ul>
 								
 							</div>
@@ -56,9 +61,9 @@
 				<div class="col">
 					<div class="current_page">
 						<ul>
-							<li><a href="categories.html">BAG</a></li>
-							<li><a href="categories.html">SHOULDER</a></li>
-							<li>CHENEL 2.55</li>
+							<li><a href="categories.do?target=${categori_name_side }">${categori_name}</a></li>
+							<li><a href="categories.do?target=${categori_name_side }&sub_cate=${sub_cate}">${sub_cate }</a></li>
+							<li>${prd.brand}</li>
 						</ul>
 					</div>
 				</div>
@@ -67,27 +72,27 @@
  				<!-- Product Image -->
 				<div class="col-lg-7">
 					<div class="product_image">
-						<div class="product_image_large"><img src="images/ChanelBac.jpg" alt=""></div>
+						<div class="product_image_large"><img src="images/product_img/${prd.img1 }" alt=""></div>
 						<div class="product_image_thumbnails d-flex flex-row align-items-start justify-content-start">
-							<div class="product_image_thumbnail" style="background-image:url(images/ChanelBac.jpg)" data-image="images/ChanelBac.jpg"></div>
-							<div class="product_image_thumbnail" style="background-image:url(images/ChanelBac.jpg)" data-image="images/ChanelBac.jpg"></div>
+							<div class="product_image_thumbnail" style="background-image:url(images/product_img/${prd.img2 })" data-image="images/product_img/${prd.img2 }"></div>
+							<div class="product_image_thumbnail" style="background-image:url(images/product_img/${prd.img3 })" data-image="images/product_img/${prd.img3 }"></div>
 						</div>
 					</div>
 				</div>
  				<!-- Product Content -->
 				<div class="col-lg-5">
 					<div class="product_content">
-						<div class="product_name">CHANEL</div>
-						<div class="product_price">2.55 Flap Bag[Silver]</div>
+						<div class="product_name">${prd.prd_name }</div>
+						<div class="product_price">${prd.price}\</div>
 						<!-- In Stock -->
 						<div class="product_text">
 							<span style="font-weight: bold;">상품번호</span>
-							<span style="margin-left: 55px">1670420</span><br/>
+							<span style="margin-left: 55px">${prd.product_num }</span><br/>
 							<span style="font-weight: bold;">시중가</span>
-							<span style="margin-left: 70px">6,000,000￦</span><br/>
+							<span style="margin-left: 70px">${prd.price }￦</span><br/>
 							<span style="font-weight: bold;">렌트가</span>
-							<span style="margin-left: 70px">35,000￦</span>
-							<span>(최소 7일~최대 90일 사용가능)</span><br/>
+							<span style="margin-left: 70px">${prd.rental_fee }￦</span>
+							<span>(7일 사용가능)</span><br/>
 						</div>
 						<!-- Product Quantity -->
 						<div class="product_quantity_container">
@@ -102,7 +107,7 @@
 						</div>
 						<!-- Product Size -->
 						<div class="product_size_container">
-							<div class="button cart_button" style="float: left;"><a href="#">렌트하기</a></div>
+							<div class="button cart_button" style="float: left;"><a href="rental.do?target=${target}&sub_cate=${sub_num}&prd_num=${prd.product_num}">렌트하기</a></div>
 							<div class="button cart_button" style="float: left; margin-left: 10px"><a href="#">상품문의</a></div>
 							<div class="button cart_button" style="float: left; margin-left: 10px"><a href="#">장바구니</a></div>
 						</div>
