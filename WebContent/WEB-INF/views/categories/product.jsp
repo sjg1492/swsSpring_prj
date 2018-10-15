@@ -108,7 +108,7 @@
 						<!-- Product Size -->
 						<div class="product_size_container">
 							<div class="button cart_button" style="float: left;"><a href="rental.do?target=${target}&sub_cate=${sub_num}&prd_num=${prd.product_num}">렌트하기</a></div>
-							<div class="button cart_button" style="float: left; margin-left: 10px"><a href="#">상품문의</a></div>
+							<div class="button cart_button" style="float: left; margin-left: 10px"><a href="inquiry1.do">상품문의</a></div>
 							<div class="button cart_button" style="float: left; margin-left: 10px"><a href="#">장바구니</a></div>
 						</div>
 					</div>

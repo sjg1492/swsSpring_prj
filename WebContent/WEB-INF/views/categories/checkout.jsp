@@ -18,11 +18,9 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	$("total_button").click(function){
+	$("button").click(function(){
 		$("#checkout_form").submit();
-	}
-	
-	
+	})
 });//ready
 </script>
 </head>
@@ -104,7 +102,7 @@ $(function(){
 						<div class="checkout_title">Rent recipient</div>
 						<div class="checkout_form_container">
 							<form action="checkout_process.do" id="checkout_form" method="post">
-								<input type="text" class="checkout_input" placeholder="이름">
+								<input type="text" class="checkout_input" placeholder="이름" >
 								<input type="text" class="checkout_input" placeholder="E-mail" required="required">
 								<select name="phone" id="phone" class="country_select checkout_input" style="width:160px">
 									<option value="010">010</option>
@@ -155,7 +153,7 @@ $(function(){
 							</ul>
 						</div>
 						<div class="payment_options">
-							<input type="button" class="cart_total_button" id="total_button" value="대여하기"/>
+							<button class="cart_total_button">대여하기</button>
 						</div>
 					</div>
 				</div>

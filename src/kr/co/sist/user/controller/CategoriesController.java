@@ -234,7 +234,7 @@ public class CategoriesController {
 	}
 	@RequestMapping(value="checkout_process.do",method={GET,POST})
 	public String checkoutProcess() {
-		String url="";
+		String url="categories/checkout_result";
 		
 		
 		
