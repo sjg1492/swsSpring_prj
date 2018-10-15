@@ -107,7 +107,7 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public JSONObject userInfoUpdate(ChangeInfoVO civ) {
-		int result = userDAO.updateUser(civ);//?좎??뺣낫 蹂寃?寃곌낵
+		String result = String.valueOf(userDAO.updateUser(civ));
 		JSONObject jo = new JSONObject();
 		jo.put("result", result);
 		return jo;

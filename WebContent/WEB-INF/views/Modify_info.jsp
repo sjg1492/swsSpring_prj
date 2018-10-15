@@ -88,7 +88,6 @@ $(function() {
 		var zipcode=$("#zipcode").val();
 		var addr=$("#addr1").val()+"/"+$("#addr2").val();
 		var id="${sessionScope.id}";
-		alert(id)
 		if(new_pass !=""){
 			if(new_pass==new_pass_confirm){
 				current_pass=new_pass;
@@ -110,10 +109,6 @@ $(function() {
 				addr: addr
 		 };
 		
-		alert("이름 : "+name+" 현재 비밀번호 : "+current_pass+" 새 비밀번호 : "+new_pass
-				+"비밀번호확인 : "+new_pass_confirm+"\n 비밀번호 질문 : "+pw_question+"비밀번호 질문답변 : "+pw_answer+
-				"\n 핸드폰번호 : "+phone+"이메일 : "+email+"우편번호 : "+zipcode
-				+"\n 주소 : "+addr)
 				
 		if(current_pass!=null){
 				$.ajax({
@@ -122,11 +117,11 @@ $(function() {
 					url : 'changInfo.do',
 					dataType : 'json',
 					success : function(data) {
-						if (data.loginResult == "1") {
-							alert("정보 수정이 완료되었습니다.")
-							$("#lFrm").submit()
+						if (data.result == "1") {
+							alert("정보수정이 완료되었습니다.")
+							$("#mFrm").submit()
 						} else {
-							alert("로그인 실패")
+							alert("정보수정 실패")
 						}
 					}
 				});//ajax
@@ -225,7 +220,7 @@ $(function() {
 
 
 <div style="padding-top: 30px;">
-
+<form id="mFrm" method="post" action="index.do">
 <table>
 		<tr>
 			<td colspan="2" style="text-align:right; padding-right: 20px">
@@ -243,7 +238,7 @@ $(function() {
 			<td><label><span class="red">*</span>현재 비밀번호</label></td>
 			<td>
 			<input type="password" class="inputBox" id="current_pass" style="width:220px" 
-			maxlength="15"> 
+			maxlength="15" readonly="readonly"> 
 			</td>
 		</tr>
 		<tr>
@@ -323,6 +318,7 @@ $(function() {
 
 
 		</table>
+		</form>
 </div>
 <br/>
 

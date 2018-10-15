@@ -81,7 +81,7 @@ $(function() {
 					if (data.result != null) {
 						$("#mFrm").submit()
 					} else {
-						alert("로그인 실패")
+						alert("비밀번호가 틀렸습니다. 다시 입력해주세요")
 					}
 				}
 
