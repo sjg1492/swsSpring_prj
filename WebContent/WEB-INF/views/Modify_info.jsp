@@ -122,7 +122,7 @@ $(function() {
 					url : 'changInfo.do',
 					dataType : 'json',
 					success : function(data) {
-						if (data.loginResult = "1") {
+						if (data.loginResult == "1") {
 							alert("정보 수정이 완료되었습니다.")
 							$("#lFrm").submit()
 						} else {
@@ -190,42 +190,7 @@ $(function() {
 
 	<!-- Header -->
 	
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><img style="width:190px;" src="images/BILRIM.jpg" ></div>
-			<nav class="main_nav">
-				<ul>
-					<li><a href="categories.html">가방</a></li>
-					<li><a href="#">시계/악세사리</a></li>
-					<li><a href="#">지갑</a></li>
-					<li><a href="#">이용권</a></li>
-					<li><a href="#">BILRIM</a></li>
-					<li><a href="#">고객센터</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				<div class="search header_search" style="top:-30px ">
-					<form action="#">
-						<input type="search" class="search_input" required="required">
-						<button type="submit" id="search_button" class="search_button"><img src="images/magnifying-glass.svg" alt=""></button>
-					</form>
-				</div><!--search header_search  -->
-				
-				<div class="loginSignup" style="width:300px; height:50px; left:150px; position: absolute; top:-15px">
-					<!-- 로그인 -->
-					<div>
-						<a href="#">
-							<img style="margin-top: 8px" src="images/login.png" alt="이미지를 불러오지 못하였습니다">
-							</a>
-							<!-- 회원가입 -->
-						<a href="#">
-							<img src="images/signUp.png" alt="이미지를 불러오지 못하였습니다">
-						</a>
-					</div>
-				</div><!--shopping  -->
-			</div><!--header_content ml-auto  -->
-		</div>
-	</header>
+	<jsp:include page="header/header.jsp"></jsp:include>
 	
 </div><!--super_container  -->
 
