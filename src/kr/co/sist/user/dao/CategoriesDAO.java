@@ -48,5 +48,13 @@ public class CategoriesDAO {
 		
 		return list;
 	}
+	
+	public int rowCnt(String sc_num) {
+		int cnt=0;
+		
+		cnt=sst.selectOne("selectcontCategoriProduct",sc_num);
+		
+		return cnt;
+	}
 
 }

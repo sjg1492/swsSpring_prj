@@ -4,6 +4,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -86,5 +87,13 @@ public class CategoriesController {
 		}
 		
 		return returnURL;
+	}
+	@RequestMapping(value="product.do", method= {GET,POST})
+	public String product(HttpServletRequest request) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
+		String prd_num=request.getParameter("prd_num");
+		
+		return "categories/product";
 	}
 }

@@ -24,5 +24,9 @@
    img1, img2, img3, img4, product_count, fc_num, sc_num from product
    where sc_num=#{sc_num}
 </select>
+<select id="selectcontCategoriProduct" resultType="int" parameterType="String">
+   select cnt(product_num) cnt from product
+   where sc_num=#{sc_num}
+</select>
 
 </mapper>

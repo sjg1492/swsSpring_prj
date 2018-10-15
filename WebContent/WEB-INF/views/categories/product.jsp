@@ -21,47 +21,9 @@
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
 </head>
 <body>
- 	<!-- Header -->
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><img style="width:190px;" src="images/BILRIM.jpg" ></div>
-			<nav class="main_nav" style="padding-left: 92px;">
-				<ul>
-					<li><a href="categories.html">가방</a></li>
-					<li><a href="categories.html">시계/악세사리</a></li>
-					<li><a href="categories.html">지갑</a></li>
-					<li><a href="Ticket.html">이용권</a></li>
-					<li><a href="#">BILRIM</a></li>
-					<li><a href="#">고객센터</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				<div class="shopping">
-					<!-- 장바구니 -->
-					<a href="#">
-						<div class="cart">
-							<img src="images/shopping-bag.svg" alt="">
-						</div>
-					</a>
-					
-					<!-- 위시리스트 -->
-					<a href="#">
-						<div class="wish">
-							<img src="images/wish.png" alt="">
-						</div>
-					</a>
-					
-					<!-- 사용자정보 -->
-					<a href="#">
-						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
-						</div>
-					</a>
-					<span> 사용자님 </span>
-				</div>
-			</div>
-		</div>
-	</header>
+ 	<!--  -->
+ 	<jsp:include page="../header/header.jsp"></jsp:include>
+ 	<!--  -->
  <div class="super_container">
 	<!-- Home -->
 	<div class="home">

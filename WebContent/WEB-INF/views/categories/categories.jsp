@@ -1,3 +1,4 @@
+<%@page import="kr.co.sist.user.dao.CategoriesDAO"%>
 <%@page import="org.springframework.ui.Model"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -25,7 +26,7 @@
 </style>
 <%}%>
 <script type="text/javascript">
-$(function(){
+<%-- $(function(){
 	$("#sorting_6").click(function(){
 		var sorting=$("#sorting_6");
 		sortingProd(sorting);
@@ -38,7 +39,7 @@ $(function(){
 function sortingProd(sorting){
 	location.href="categories.do?target=${target}"<%if(request.getAttribute("sub_cate")!=null){%>
 	+"&sub_cate=${sub_cate}"<%}%>+"&sorting="+sorting.text();
-}
+} --%>
 
 </script>
 </head>
@@ -122,17 +123,17 @@ function sortingProd(sorting){
 									<ul>
 										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Show All</span></li>
 										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "stars" }'><span>Stars</span></li>
+										<!-- <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "stars" }'><span>Stars</span></li> -->
 									</ul>
 								</li>
 								<li>
 									<span class="sorting_text">Show</span>
 									<span class="num_sorting_text">12</span>
 									<i class="fa fa-caret-down" aria-hidden="true"></i>
-									<ul>
+									<!-- <ul>
 										<li class="num_sorting_btn"><span id="sorting_6">6</span></li>
 										<li class="num_sorting_btn"><span id="sorting_12">12</span></li>
-									</ul>
+									</ul> -->
 								</li>
 							</ul>
 						</div>
@@ -146,21 +147,23 @@ function sortingProd(sorting){
 					<!-- Products -->
 					<c:if test="${not empty prd_list }">
 					<div class="product_grid">
-
+						<c:forEach var="prd" items="${prd_list }">
+						
 						<!-- Product -->
 						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_4" data-rating="4">
+							<div class="product_image"><img src="images/product_img/${prd.img1 }" style="width:300px;height:300px;" alt=""></div>
+							<!-- <div class="rating rating_4" data-rating="4">
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
-							</div>
+							</div> -->
 							<div class="product_content clearfix">
 								<div class="product_info">
-									<div class="product_name"><a href="product.html">Woman's</a></div>
-									<div class="product_price">$45.00</div>
+									<div class="product_name"><a href="product.do?prd_num=${prd.product_num }">${prd.prd_name}</a></div>
+									<!-- TODO: -->
+									<div class="product_price">${prd.rental_fee } 원</div>
 								</div>
 								<div class="product_options">
 									<a href="checkout.html">
@@ -169,252 +172,14 @@ function sortingProd(sorting){
 								</div>
 							</div>
 						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_5" data-rating="5">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">2 Piece Swimsuit</a></div>
-									<div class="product_price">$35.00</div>
-								</div>
-								<div class="product_options">
-									 
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$145.00</div>
-								</div>
-							<div class="product_options">
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$143.00</div>
-								</div>
-								<div class="product_options">
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$144.00</div>
-								</div>
-								<div class="product_options">
-									 
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$146.00</div>
-								</div>
-								<div class="product_options">
-									 
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$148.00</div>
-								</div>
-								<div class="product_options">
-									 
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$140.00</div>
-								</div>
-								<div class="product_options">
-									 
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$130.00</div>
-								</div>
-								<div class="product_options">
-									
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$12.00</div>
-								</div>
-								<div class="product_options">
-									
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$28.00</div>
-								</div>
-								<div class="product_options">
-									
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/ChanelBac.jpg" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$145.00</div>
-								</div>
-								<div class="product_options">
-									
-									<div class="product_fav product_option">BILRIM</div>
-								</div>
-							</div>
-						</div>
-
+						</c:forEach>
 					</div>
 					</c:if>
-					<div style="text-align: center">
+					<c:if test="${empty prd_list }">
+					<div style="text-align: center;font-size:22px;">
 						등록된 상품이 존재하지 않습니다.
 					</div>
+					</c:if>
 				</div>
 					
 			</div>
