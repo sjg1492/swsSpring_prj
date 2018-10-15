@@ -14,6 +14,20 @@
    SELECT id  FROM member
    WHERE ID = #{id} AND PASSWORD = #{pass}
 </select>
+<select id="idCheck" resultType="String" parameterType="kr.co.sist.user.vo.IdCheckVO">
+
+   SELECT id  
+   FROM member
+   WHERE name = #{name} AND email = #{email}
+</select>
+
+<select id="pwCheck" resultType="String" parameterType="kr.co.sist.user.vo.PwCheckVO">
+
+   SELECT password  
+   FROM member
+   WHERE id = #{id} AND QUESTION_NUM = #{pw_hint} AND answer = #{pw_answer}
+</select>
+
 <select id="userInfo" resultType="kr.co.sist.user.domain.UserInfo" parameterType="String">
 
    SELECT name,password,question_num,answer,phone,email,zipcode,address

@@ -14,8 +14,12 @@
 <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
 <script src="js/custom.js"></script>
 <script type="text/javascript">
-  $(function() {
-	
+function findIdPw() {
+	window.open("idpw_find.do","ow1","width=800,height=400,top="+(screen.availHeight/2-100)+",left="+(screen.availWidth/2-100)+"");
+}
+
+
+ $(function() {
 		$("#login_btn").click(function() {
 			var id=$("#id").val();
 			var pass=$("#pass").val();	
@@ -122,11 +126,10 @@
 			<input type="password" id="pass" value="비밀번호" style="width: 100%;height: 50%" >
 		</div>
 		<div style=" top:25px; width: 350px; height: 50px;  margin:0px auto;">
-				<input type="checkbox" name="keep_id" />&nbsp; 아이디 저장
-				<a href="#" style="font-size: 7px; float: right; color: #C0C0C0">아이디/비밀번호를 잊으셨습니까?</a>
+				<a href="#" style="font-size: 11px; float: right; color: #A5A5A5" onclick="findIdPw(); return false">아이디/비밀번호를 잊으셨습니까?</a>
 		</div>
 		<div style=" top:20px; width: 350px; height: 50px;  margin:0px auto;">
-			<input type="button" id="login_btn" value="로그인" style="width: 100%;height: 100%" >
+			<input type="button" id="login_btn" value="로그인" style="width: 100%;height: 100%;" >
 		</div>
 		<div style=" top:25px; width: 350px; height: 50px;  margin:0px auto;">
 			<input type="button" value="회원가입" style="width: 100%;height: 100%;">

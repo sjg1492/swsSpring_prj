@@ -15,6 +15,8 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.sist.user.domain.UserInfo;
 import kr.co.sist.user.vo.ChangeInfoVO;
+import kr.co.sist.user.vo.IdCheckVO;
+import kr.co.sist.user.vo.PwCheckVO;
 import kr.co.sist.user.vo.SignUpVO;
 import kr.co.sist.user.vo.loginVO;
 
@@ -52,6 +54,16 @@ public class UserDAO {
 		 String id = sst.selectOne("loginCheck", lv);
 		 System.out.println("유저다오 확인 : "+id);
 	     return id; // 
+	}
+	public String selectUserId(IdCheckVO icv) {
+		String id = sst.selectOne("idCheck", icv);
+		System.out.println("유저다오 확인 : "+id);
+		return id; // 
+	}
+	public String selectUserPass(PwCheckVO pcv) {
+		String pass = sst.selectOne("pwCheck", pcv);
+		System.out.println("유저비밀번호 확인 : "+pass);
+		return pass; // 
 	}
 	public int insertUser(SignUpVO suv) {
 		System.out.println("회원가입 다오에서 본 데이터 : "+suv);

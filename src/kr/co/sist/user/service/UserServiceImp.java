@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import kr.co.sist.user.dao.UserDAO;
 import kr.co.sist.user.domain.UserInfo;
 import kr.co.sist.user.vo.ChangeInfoVO;
+import kr.co.sist.user.vo.IdCheckVO;
+import kr.co.sist.user.vo.PwCheckVO;
 import kr.co.sist.user.vo.SignUpVO;
 import kr.co.sist.user.vo.User_infoVO;
 import kr.co.sist.user.vo.loginVO;
@@ -108,6 +110,23 @@ public class UserServiceImp implements UserService {
 		int result = userDAO.updateUser(civ);//?좎??뺣낫 蹂寃?寃곌낵
 		JSONObject jo = new JSONObject();
 		jo.put("result", result);
+		return jo;
+	}
+
+	@Override
+	public JSONObject userIdFind(IdCheckVO icv) {
+		
+		String id = userDAO.selectUserId(icv);//?좎??뺣낫 蹂寃?寃곌낵
+		JSONObject jo = new JSONObject();
+		jo.put("id", id);
+		return jo;
+	}
+
+	@Override
+	public JSONObject userPwFind(PwCheckVO pcv) {
+		String pass = userDAO.selectUserPass(pcv);//?좎??뺣낫 蹂寃?寃곌낵
+		JSONObject jo = new JSONObject();
+		jo.put("pass", pass);
 		return jo;
 	}
 }// end class

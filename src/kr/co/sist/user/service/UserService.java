@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 
 import kr.co.sist.user.vo.ChangeInfoVO;
+import kr.co.sist.user.vo.IdCheckVO;
+import kr.co.sist.user.vo.PwCheckVO;
 import kr.co.sist.user.vo.SignUpVO;
 import kr.co.sist.user.vo.User_infoVO;
 import kr.co.sist.user.vo.loginVO;
@@ -15,6 +17,8 @@ public interface UserService {
 	public JSONObject signUpUserInsert(SignUpVO suv);
 	public JSONObject userInfoCheck(loginVO lv);
 	public JSONObject userInfoUpdate(ChangeInfoVO civ);
+	public JSONObject userIdFind(IdCheckVO icv);
+	public JSONObject userPwFind(PwCheckVO pcv);
 	public User_infoVO userInfoValue();
 	public boolean loginSessionCheck(HttpSession session);
 }
