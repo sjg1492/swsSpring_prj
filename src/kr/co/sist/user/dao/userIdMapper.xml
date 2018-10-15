@@ -14,10 +14,20 @@
    SELECT id  FROM member
    WHERE ID = #{id} AND PASSWORD = #{pass}
 </select>
+<select id="userInfo" resultType="kr.co.sist.user.domain.UserInfo" parameterType="String">
+
+   SELECT name,password,question_num,answer,phone,email,zipcode,address
+   FROM member
+   WHERE ID = #{id} 
+</select>
 
 <insert id="userInsert" parameterType="kr.co.sist.user.vo.SignUpVO">
 	insert into member(MEMBER_NUMBER, ID, NAME, PASSWORD, PHONE, EMAIL, ZIPCODE, ADDRESS,INPUT_DATE, ANSWER, QUESTION_NUM, STATUS,gender)
-	values('MEM-'||to_char(mem_seq.nextval,'0000000'),#{id},#{name},#{pass},#{phone},#{email},#{zip},#{addr}||' '||#{addr_detail},sysdate,#{pw_answer},#{pw_hint},'0',#{gender})
+	values('MEM-'||to_char(mem_seq.nextval,'0000000'),#{id},#{name},#{pass},#{phone},#{email},#{zip},#{addr}||'/'||#{addr_detail},sysdate,#{pw_answer},#{pw_hint},'0',#{gender})
 </insert>
-
+<update id="userUpdate" parameterType="kr.co.sist.user.vo.ChangeInfoVO">
+	update member
+	set name=#{name}, password=#{current_pass},question_num=#{pw_question},answer=#{pw_answer},phone=#{phone},email=#{email},zipcode=#{zipcode},address=#{addr}
+	where id=#{id}
+</update>
 </mapper>

@@ -57,6 +57,7 @@
 						</div>
 					</a>
 					<span id="userName">   ${sessionScope.id}  님 </span>
+					<span id="logout"><input type="button" id="logout_btn" value="LOGOUT"  style="width: 60px; background-color: #FFFFFF; margin-left: 10px;"/></span>
 				</div>
 				<%} %>
 			</div><!--header_content ml-auto  -->

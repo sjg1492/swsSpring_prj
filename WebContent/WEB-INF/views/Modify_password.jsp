@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>정보수정-비밀번호 재확인</title>
-<link rel="stylesheet" type="text/css" href="http://localhost:8080/prj_final/common/css/main.css"/>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -60,12 +60,38 @@ table{width: 800px; height:160px; border:none;margin-left: 150px;
 			margin-top: 20px;background-color: #EBEBF0;}
 label{font-weight: bold; font-size: 17px;}
 p,a{color: black;}
-
-
-
-
 </style>
+<script type="text/javascript">
+$(function() {
+	$("#btn_ok").click(function() {
+		var id='${id}';
+		var pass=$("#pass").val();	
+			
+		var form_data = {
+		        id: id,
+		        pass: pass
+		 };
+		alert("아이디 값 : "+id+"패스워드 값 : "+pass)
+		$.ajax({
+				type : 'POST',
+				data : form_data,
+				url : 'userinfo.do',
+				dataType : 'json',
+				success : function(data) {
+					if (data.result != null) {
+						alert("회원정보 수정 이동")
+						$("#mFrm").submit()
+					} else {
+						alert("로그인 실패")
+					}
+				}
 
+		});//ajax
+	});//click
+	
+});//function 
+
+</script>
 
 </head>
 
@@ -79,10 +105,10 @@ p,a{color: black;}
 			<div class="logo"><img style="width:190px;" src="images/BILRIM.jpg" ></div>
 			<nav class="main_nav">
 				<ul>
-					<li><a href="#">가방</a></li>
-					<li><a href="categories.html">시계/악세사리</a></li>
-					<li><a href="#">지갑</a></li>
-					<li><a href="#">이용권</a></li>
+					<li><a href="categories.do">가방</a></li>
+					<li><a href="categories.do">시계/악세사리</a></li>
+					<li><a href="categories.do">지갑</a></li>
+					<li><a href="Ticket.do">이용권</a></li>
 					<li><a href="#">BILRIM</a></li>
 					<li><a href="#">고객센터</a></li>
 				</ul>
@@ -116,7 +142,7 @@ p,a{color: black;}
 							<img src="images/avatar.svg" alt="">
 						</div>
 					</a>
-					<span>  ${sessionScope.id}  님 </span>
+					<span> ${sessionScope.id}님 </span>
 				</div>
 			</div>
 		</div>
@@ -127,7 +153,7 @@ p,a{color: black;}
 
 <div id="wrap">
 	<!-- wrap 1400(w)x1000(h) -->
-
+<form id="mFrm" method="post" action="Modify_info.do">
 <div id="contents">
 <div id="aside">
 	<p style="font-size: 35px;margin-top: 80px; padding-left: 60px;font-weight: bold;">나의 정보</p>
@@ -152,9 +178,8 @@ p,a{color: black;}
 보다 다양한 서비스를 받으시려면 정확한 정보를 항상 유지해 주셔야 합니다.</li>
 </ul>
 
-<form id="mFrm" method="post" name="lFrm" action="indexMember.do"  >
-<p style="font-weight: bold;font-size: 25px;margin-top: 20px;margin-left: 150px">비밀번호 재확인</p>
 
+<p style="font-weight: bold;font-size: 25px;margin-top: 20px;margin-left: 150px">비밀번호 재확인</p>
 
 <div>
 
@@ -169,7 +194,7 @@ p,a{color: black;}
 	<tr>
 			<td><label>비밀번호</label></td>
 			<td>
-			<input type="password" class="inputBox" name="pass" style="width:200px; height: 25px"
+			<input type="password" class="inputBox" id="pass" style="width:200px; height: 25px"
 				maxlength="10"> 
 			</td>
 			<td style="color: #C96505">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.</td>
@@ -178,13 +203,15 @@ p,a{color: black;}
 </div>
 <!-- 버튼 -->
 <div id="btn_wrap" >
- <input type="button" value="취소" class="btn" id="btn_cancle" name="btn_cancle" />
- <input type="submit" value="확인" class="btn" id="btn_ok" name="btn_ok" />
+ <input type="button" value="확인" class="btn" id="btn_ok"  />
+ <input type="button" value="취소" class="btn" id="btn_cancle"  />
+</div>
+
+
+</div>
+
 </div>
 </form>
-
-</div>
-
 </div>
 
 <footer>
@@ -202,10 +229,5 @@ p,a{color: black;}
 	</div>
 </footer>
 	
-</head>
-<body>
-
-
-
 </body>
 </html>

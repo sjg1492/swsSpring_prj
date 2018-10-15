@@ -14,6 +14,7 @@
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
 <script src="js/custom.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Wish shop project">
@@ -60,7 +61,126 @@ p,a{color: black;}
 label{font-size: 15px;}
 
 </style>
+<script type="text/javascript">
+$(function() {
+	
+		$("#name").val("${user_info.name}");
+		$("#current_pass").val("${user_info.current_pass}");
+		$("#pw_question").val("${user_info.pw_question}");
+		$("#pw_answer").val("${user_info.pw_answer}");
+		$("#mobile1").val("${user_info.phone1}");
+		$("#mobile2").val("${user_info.phone2}");
+		$("#mobile3").val("${user_info.phone3}");
+		$("#email").val("${user_info.email}");
+		$("#zipcode").val("${user_info.zipcode}");
+		$("#addr1").val("${user_info.addr}");
+		$("#addr2").val("${user_info.addr_detail}");
+		
+	$("#btn_adj").click(function() {
+		var name=$("#name").val();
+		var current_pass=$("#current_pass").val();
+		var new_pass=$("#new_pass").val();
+		var new_pass_confirm=$("#new_pass_confirm").val();
+		var pw_question=$("#pw_question").val();//값 1~4
+		var pw_answer=$("#pw_answer").val();
+		var phone=$("#mobile1").val()+$("#mobile2").val()+$("#mobile3").val();
+		var email=$("#email").val();
+		var zipcode=$("#zipcode").val();
+		var addr=$("#addr1").val()+"/"+$("#addr2").val();
+		var id="${sessionScope.id}";
+		alert(id)
+		if(new_pass !=""){
+			if(new_pass==new_pass_confirm){
+				current_pass=new_pass;
+			}else{
+				alert("변경하실 비밀번호와 비밀번호 확인이 같지 않습니다.")
+				return
+			}
+		}
+		
+		var info_data = {
+				id: id,
+				name: name,
+				current_pass: current_pass,
+				pw_question: pw_question,
+				pw_answer: pw_answer,
+				phone: phone,
+				email: email,
+				zipcode: zipcode,
+				addr: addr
+		 };
+		
+		alert("이름 : "+name+" 현재 비밀번호 : "+current_pass+" 새 비밀번호 : "+new_pass
+				+"비밀번호확인 : "+new_pass_confirm+"\n 비밀번호 질문 : "+pw_question+"비밀번호 질문답변 : "+pw_answer+
+				"\n 핸드폰번호 : "+phone+"이메일 : "+email+"우편번호 : "+zipcode
+				+"\n 주소 : "+addr)
+				
+		if(current_pass!=null){
+				$.ajax({
+					type : 'POST',
+					data : info_data,
+					url : 'changInfo.do',
+					dataType : 'json',
+					success : function(data) {
+						if (data.loginResult = "1") {
+							alert("정보 수정이 완료되었습니다.")
+							$("#lFrm").submit()
+						} else {
+							alert("로그인 실패")
+						}
+					}
+				});//ajax
+		}//end if
+		
+		
+	});//click
+	
+	$("#btn_zipcode").click(function(){
+		new daum.Postcode({
+			oncomplete: function(data) {
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
+				// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				var fullAddr = ''; // 최종 주소 변수
+				var extraAddr = ''; // 조합형 주소 변수
+
+				// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+				if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+					fullAddr = data.roadAddress;
+
+				} else { // 사용자가 지번 주소를 선택했을 경우(J)
+					fullAddr = data.jibunAddress;
+				}
+
+				// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+				if(data.userSelectedType === 'R'){
+					//법정동명이 있을 경우 추가한다.
+					if(data.bname !== ''){
+						extraAddr += data.bname;
+					}
+					// 건물명이 있을 경우 추가한다.
+					if(data.buildingName !== ''){
+						extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+					}
+					// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+					fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+				}
+
+				// 우편번호와 주소 정보를 해당 필드에 넣는다.
+				document.getElementById('zipcode').value = data.zonecode; //5자리 새우편번호 사용
+				document.getElementById('addr1').value = fullAddr;
+
+				// 커서를 상세주소 필드로 이동한다.
+				document.getElementById('addr2').focus();
+			}
+		}).open();
+	});
+	
+	
+});//function 
+
+</script>
 
 </head>
 
@@ -150,90 +270,89 @@ label{font-size: 15px;}
 		<tr>
 			<td><label>이름</label></td>
 			<td>
-			<input type="text" class="inputBox" name="name" size="15" 
+			<input type="text" class="inputBox" id="name" size="15" 
 					maxlength="10" style="width:220px">  
 			</td>
 		</tr>
 		<tr>
 			<td><label><span class="red">*</span>현재 비밀번호</label></td>
 			<td>
-			<input type="password" class="inputBox" name="pass" style="width:220px" 
+			<input type="password" class="inputBox" id="current_pass" style="width:220px" 
 			maxlength="15"> 
 			</td>
 		</tr>
 		<tr>
-			<td><label><span class="red">*</span>새 비밀번호</label></td>
+			<td><label>새 비밀번호</label></td>
 			<td>
-			<input type="password" class="inputBox" name="new_pass" style="width:220px"
+			<input type="password" class="inputBox" id="new_pass" style="width:220px"
 				maxlength="15"> 
 				<label style="font-size: 12px">비밀번호는 숫자,영어 대/소문자,특수문자 포함 10자 이상으로 입력하시오.</label>
 			</td>
 		
 		</tr>
 		<tr>
-			<td><label><span class="red">*</span>새 비밀번호 확인</label></td>
+			<td><label>새 비밀번호 확인</label></td>
 			<td>
-			<input type="password" class="inputBox" name="new_pass_confirm" style="width:220px" maxlength="15"> 
+			<input type="password" class="inputBox" id="new_pass_confirm" style="width:220px" maxlength="15"> 
 			</td>
 		</tr>
 		<tr>
 			<td><label>비밀번호 확인 질문</label></td>
 			<td>
-				<select name="question" class="inputBox" style="width:220px;">
-				<option value="1" >제일 좋아하는 친구는?</option>
-				<option value="2" >가장 기억에 남는 장소는?</option>
-				<option value="3" >졸업한 초등학교 이름은?</option>
-				<option value="3" >나의 보물 1호는?</option>
-				<option value="4" >중학교 담임선생님 성함은?</option>
+				<select id="pw_question" class="inputBox" style="width:220px;">
+				<option value="1" >가장 기억에 남는 장소는?</option>
+				<option value="2" >출신한 초등학교 이름은?</option>
+				<option value="3" >어린시절 별명은?</option>
+				<option value="4" >아버님의 성함은?</option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td><label>비밀번호 확인 답변</label></td>
 			<td>
-			<input type="text" class="inputBox" name="answer" size="30" style="width:220px" >
+			<input type="text" class="inputBox" id="pw_answer" size="30" style="width:220px" >
 			</td>
 		</tr>
 
 		<tr>
 			<td><label>연락처</label></td>
 			<td>
-				<select name="mobile1" class="inputBox">
+				<select id="mobile1" class="inputBox">
 				<option value="010" >010</option>
 				<option value="011" >011</option>
 				<option value="018" >018</option>
 				<option value="019" >019</option>
 				</select>
 					<label>-</label>
-				<input type="text" class="inputBox" style="width:50px; " name="mobile2"  maxlength="4"/>
+				<input type="text" class="inputBox" style="width:50px;" id="mobile2"  maxlength="4"/>
 				<label>-</label>
-				<input type="text" class="inputBox" style="width:50px" name="mobile3" maxlength="4"/>
+				<input type="text" class="inputBox" style="width:50px" id="mobile3" maxlength="4"/>
 			</td>
 		</tr>
 		
 		<tr>
 			<td><label>이메일</label></td>
 			<td>
-			<input type="email" class="inputBox" name="email" style="width:300px" >
+			<input type="email" class="inputBox" id="email" style="width:300px" >
 			</td>
 		</tr>
 		<tr>
 		<td><label><span class="red">*</span> 우편번호</label></td>
 		<td>
-			<input type="text" class="inputBox" style="width:50px" readonly="readonly" name="zipcode" />
+			<input type="text" class="inputBox" style="width:50px" readonly="readonly" id="zipcode" />
 			<input type="button" value="우편번호검색" id="btn_zipcode" class="zipcode" style="width:100px"/><br/>
 		</td>
 		</tr>
 		<tr>
 			<td><label><span class="red">*</span> 주소</label></td>
 			<td>
-			<input type="text" class="inputBox" name="addr1" style="width:300px" readonly="readonly"> 
+			<input type="text" class="inputBox" id="addr1" style="width:300px" readonly="readonly"> 
 			</td>
 		</tr>
 		<tr>
 			<td><label>  상세주소</label></td>
 			<td>
-			<input type="text" class="inputBox" name="addr2" style="width:300px"> 
+			<input type="text" class="inputBox" id="addr2" style="width:300px"> 
 			</td>
 		</tr>
 
@@ -245,8 +364,8 @@ label{font-size: 15px;}
 
 
 <div id="btn_wrap" style="padding-right: 100px;">
- <input type="button" value="취소" class="btn" id="btn_cancle" name="btn_cancle" />
- <input type="button" value="수정" class="btn" id="btn_adj" name="btn_adj"/>
+ <input type="button" value="수정" class="btn" id="btn_adj"/>
+ <input type="button" value="취소" class="btn" id="btn_cancle"/>
 </div>
 
 

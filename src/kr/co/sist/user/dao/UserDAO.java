@@ -2,6 +2,7 @@ package kr.co.sist.user.dao;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import kr.co.sist.user.domain.UserInfo;
+import kr.co.sist.user.vo.ChangeInfoVO;
 import kr.co.sist.user.vo.SignUpVO;
 import kr.co.sist.user.vo.loginVO;
 
@@ -57,6 +60,27 @@ public class UserDAO {
 		return resultCnt;
 		
 	}
+	public int updateUser(ChangeInfoVO civ) {
+		System.out.println("업데이트 다오에서 본 데이터 : "+civ);
+		int resultCnt=0; // 유저업데이트 정보 결과확인
+		resultCnt=sst.update("userUpdate", civ);
+		System.out.println("변경됬을려나 : "+resultCnt);
+		return resultCnt;
+		
+	}
+	
+	//유저정보 를 뿌려줄 메소드
+	public List<UserInfo> selectUser(String id) {
+//		String addr_full="서울 중구 난계로 125 (신당동, 신당동 K47빌딩)/중구가시키드나";
+//		int idx=addr_full.indexOf("/");
+//		String addr=addr_full.substring(0, idx);;
+//		String addrDetail=addr_full.substring(idx+1);
+		List<UserInfo> list=sst.selectList("userInfo",id);
+		
+		return list; // 
+	}
+	
+	
 	
 	 
 }

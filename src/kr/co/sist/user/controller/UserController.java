@@ -4,6 +4,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import javax.activation.CommandMap;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.sist.user.service.UserService;
+import kr.co.sist.user.vo.ChangeInfoVO;
 import kr.co.sist.user.vo.SignUpVO;
+import kr.co.sist.user.vo.User_infoVO;
 import kr.co.sist.user.vo.loginVO;
 
 @Controller
@@ -27,17 +30,19 @@ public class UserController {
 	public String Modify_password() {
 		return "Modify_password";
 	}
-
-	@RequestMapping(value = "Modify_info.do", method = GET)
-	public String Modify_info() {
-		return "Modify_info";
-	}
-
-	@RequestMapping(value = "index.do", method = GET)
+	//페이지 이동 및 값 넘기기
+		@RequestMapping(value="Modify_info.do", method=POST)
+		public String Modify_info(Model m) {
+			User_infoVO uiv=us.userInfoValue();
+			m.addAttribute("user_info",uiv);
+			
+			return "Modify_info";
+		}
+	@RequestMapping(value="index.do", method= {GET,POST})
 	public String Index(HttpSession session) {
-		boolean flag = false;
-		flag = us.loginSessionCheck(session);
-
+		boolean flag=false;
+		flag=us.loginSessionCheck(session);
+			
 		return "indexNonMember";
 	}
 
@@ -110,7 +115,13 @@ public class UserController {
 		JSONObject signUpDate = us.signUpUserInsert(suv);
 		return signUpDate.toJSONString();
 	}
-
-	// }
+	
+	@RequestMapping(value="changInfo.do",method= POST)
+	@ResponseBody
+	public String changInfo(ChangeInfoVO civ){
+		System.out.println("회원정보수정 :"+civ);
+		JSONObject userInfoDate=us.userInfoUpdate(civ);
+		return userInfoDate.toJSONString();
+	}
 
 }

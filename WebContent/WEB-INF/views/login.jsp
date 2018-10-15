@@ -17,8 +17,8 @@
   $(function() {
 	
 		$("#login_btn").click(function() {
-			var id=$("#id").val()
-			var pass=$("#pass").val()	
+			var id=$("#id").val();
+			var pass=$("#pass").val();	
 				
 			var form_data = {
 			        id: id,
@@ -36,11 +36,12 @@
 				url : 'loginCheck.do',
 				dataType : 'json',
 				success : function(data) {
-					if (data.loginResult = "1") {
+					if (data.loginResult == "1") {
 						alert(id+"님 환영합니다")
 						$("#lFrm").submit()
 					} else {
-						alert("로그인 실패")
+						alert("아이디 또는 비밀번호가 올바르지 않습니다.")
+						
 					}
 				}
 
@@ -108,7 +109,7 @@
 
 	<div style="height:1000px; top:150px">
 	
-	<form id="lFrm" method="post" name="lFrm" action="indexMember.do"  >
+	<form id="lFrm" method="post" name="lFrm" action="index.do"  >
 		<div style="margin: 0px auto;width: 450px; height: 600px; border: 1px solid #d7d5d5;  top:30px; " >
 			<div style="top:55px; width: 100px; height: 70px; margin:0px auto; font-size: 30px">
 			<img style="width:190px; position:relative;left: -50px" src="images/BILRIM.jpg" >

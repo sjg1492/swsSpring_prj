@@ -50,7 +50,7 @@ $(function(){
 				}
 			},
 			error : function(error){
-				alert("아이디가 존재합니다, 다른아이디를 입력해주세요.")
+				alert(error)
 			}
 			
 		});
