@@ -103,12 +103,12 @@ tr:hover{background-color: #eae9f7;}
 <ul id="submenu" >  
 	<li><img class="images" src="images/mark.png"  >  <a href="ticket_history.do">이용권 내역</a>  </li>  
 	<li><img class="images" src="images/mark.png"  >  <a href="Modify_info.do">빌림 내역</a>  </li>  
-	<li><img class="images"  src="images/mark.png"  >  <a href="#">문의 내역</a>  </li>  
+	<li><img class="images"  src="images/mark.png"  >  <a href="inquiry1.do">문의 내역</a>  </li>  
 	<li><img class="images"  src="images/mark.png" >  <a href="Modify_password.do">정보 수정</a>  </li>  
 </ul>  
 </div>
 
-<form name="frm" id="frm" name="inquiry" action="inquiry3.do" method="post">
+<form name="frm" id="frm" name="inquiry" action="inquiry4.do" method="post">
 <div id="frame" style="width:800px; margin-left:50px">
 	<p style="font-size:35px; font-weight: bold; margin-top: 60px;margin-left: 50px;letter-spacing:3px; color:black">1:1 문의</p>
 	<br/>

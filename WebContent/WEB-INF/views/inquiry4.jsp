@@ -29,6 +29,7 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
 <link rel="stylesheet" type="text/css" href="http://localhost:8080/html_prj/common/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="styles/s_style/submenu.css">
 <script type="text/javascript">
 $(function(){
 
@@ -55,15 +56,10 @@ $(function(){
 .use_Date{width: 120px;}
 .times{width: 120px;}
 .submenu{font-size: 25px;letter-spacing:2px;}
-
-/* 문의 등록 버튼 */
-#registration, #cancel{width:80px; height:30px; background-color:black; color:white}
-
 th{border-bottom:1px solid #e7e7e7; height:50px; text-align: center;
 background-color: #fdfdfd;color:#545454;font-size: 15px;font-weight: bold;}
 td{border-bottom: 1px solid #e7e7e7;height:35px; text-align: center;}
 tr:hover{background-color: #eae9f7;}
-
 </style>
 
 </head>
@@ -74,29 +70,28 @@ tr:hover{background-color: #eae9f7;}
 	<jsp:include page="header/header.jsp"></jsp:include>
 </div>
 
-<div id="wrap">
+<div id="wrap" style="margin-top:100px">
  <!-- wrap 1400(w)x1000(h) -->
-<div id="menubar">
-<p style="text-decoration: underline; font-size: 35px;margin-top: 80px;">고객센터</p>
-<ul class="top_bar">   
-<li>
-<a href="#"> </a>  
-<ul class="submenu" style="position: absolute ;">  
-<li style="margin-top: 10px;">  <a href="#">렌트 내역</a>  </li>  
-<li style="margin-top: 10px;">  <a href="#"> 내역</a>  </li>  
-<li style="margin-top: 10px;">  <a href="#">문의 내역</a>  </li>  
-<li style="margin-top: 10px;">  <a href="#">정보 수정</a>  </li>  
-</ul>  
-</li>  
+<div id="aside">
+	<p style="font-size: 35px;margin-top: 80px; padding-left: 60px;font-weight: bold; color:black">고객 센터</p>
+
+<div id="line" >
+
+</div>	  
+
+<ul id="submenu" >  
+	<li><img class="images" src="images/mark.png"  >  <a href="ticket_history.do">이용권 내역</a>  </li>  
+	<li><img class="images" src="images/mark.png"  >  <a href="Modify_info.do">빌림 내역</a>  </li>  
+	<li><img class="images"  src="images/mark.png"  >  <a href="inquiry1.do">문의 내역</a>  </li>  
+	<li><img class="images"  src="images/mark.png" >  <a href="Modify_password.do">정보 수정</a>  </li>  
 </ul>  
 </div>
-
 <form name="frm" name="inquiry" action="inquiry1.do" method="post">
 <div id="frame" style="width:800px">
-	<p style="font-size:35px; font-weight: bold; margin-top: 60px;margin-left: 50px;letter-spacing:3px;">1:1 문의</p>
+	<p style="font-size:35px; font-weight: bold; margin-top: 60px;margin-left: 50px;letter-spacing:3px; color:black">1:1 문의</p>
 	<br/>
-	<div style="text-align: center; margin-right:25px;">
-		<strong>문의사항이 작성되었습니다.</strong><br/><br/>
+	<div style="text-align: center; margin-left:50px;">
+		<br/><strong><big>문의사항이 작성되었습니다.</big></strong><br/><br/>
 		<a href="inquiry1.do">문의 사항 리스트</a>
 	</div><br/>
 	

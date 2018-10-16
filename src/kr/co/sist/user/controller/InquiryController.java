@@ -16,6 +16,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -28,17 +29,20 @@ public class InquiryController {
 		return "customer_main";
 	}
 
-	@RequestMapping(value = "inquiry.do", method= {POST,GET})
+/*	@RequestMapping(value = "inquiry.do", method= {POST,GET})
 	public String inquiry(Model model) throws SQLException {
 		List<Inquiry> list = is.searchAllInq();
 
 		model.addAttribute("inq_list", list);
-		return "inquiry";
-	}
+		return "inquiry1";
+	}*/
 
 	@RequestMapping(value = "inquiry1.do", method = {POST,GET})
 	public String inquiry1(Model model) throws SQLException {
 		List<Inquiry> list = is.searchAllInq();
+		for(Inquiry iq:list) {
+			System.out.println(iq);
+		}
 
 		model.addAttribute("inq_list", list);
 		return "inquiry1";
@@ -51,13 +55,26 @@ public class InquiryController {
 	}
 	
 	@RequestMapping(value = "inquiry3.do", method = {POST,GET})
-	public String inquiry3(Model model, InquiryVO iv, HttpSession session) throws SQLException {
+	public String inquiry3(HttpServletRequest request,Model model) throws SQLException {
+		String i_number=request.getParameter("i_number");
+		//i넘으로 1:1문의 조회
+		InquiryVO iv=is.searchInq(i_number);
+		//모델에 addattribute
+		model.addAttribute("iv",iv);
+		
+		return "inquiry3";
+	}
+	
+	@RequestMapping(value = "inquiry4.do", method = {POST,GET})
+	public String inquiry4(HttpServletRequest request,Model model, HttpSession session) throws SQLException {
 		int count=0;
+		InquiryVO iv=null;
+		
 		System.out.println("====="+iv);
 		
 //		 String n_num=(String)session.getAttribute("n_num");
 		String n_num = "2214";
-		iv.setN_num(n_num);
+//		iv.setN_num(n_num);
 		try {
 			iv.setI_type(new String(iv.getI_type().getBytes("8859_1"),"utf-8"));
 			iv.setTitle(new String(iv.getTitle().getBytes("8859_1"),"utf-8"));

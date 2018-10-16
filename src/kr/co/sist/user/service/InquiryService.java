@@ -27,4 +27,11 @@ public class InquiryService {
 
 		return count;
 	}// searchAllInq
+
+	public InquiryVO searchInq(String i_number) throws SQLException {
+		//다오부르기
+		InquiryVO iv=null;
+		iv=i_dao.searchInq(i_number);
+		return null;
+	}
 }

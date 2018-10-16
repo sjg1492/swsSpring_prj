@@ -70,25 +70,25 @@ table{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
 </div>
 
 <div id="wrap">
-
-		
 		<div id="contents">
 			<div id="content">
-			
 				<div id="content_title"><strong>공지사항</strong></div>
 				<div id="email_wrap">
-					<table>
+					<table style="border-bottom: solid #5b7ce5">
 						<tr>
-						<td id="title">제목</td>
-						<td>${notice_list.title}</td>
+							<td id="title">제목</td>
+							<td>${notice_list.title}</td>
 						</tr>
 						<tr>
-						<td id="writer">작성자</td>
-						<td>${notice_list.writer}</td>
+							<td id="writer">작성자</td>
+							<td>${notice_list.writer}</td>
 						</tr>
 						<tr>
-						<td id="input_date">게시일</td>
-						<td>${notice_list.input_date}</td>
+							<td id="input_date">게시일</td>
+							<td>${notice_list.input_date}</td>
+						</tr>
+						<tr>
+							<td id="content">${notice_list.content}</td>
 						</tr>
 					</table>
 					<div>
@@ -97,7 +97,6 @@ table{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
 			</div>
 		</div>
 	</div>
-
 <footer>
 	<div>
 	<div class="footerLogo">

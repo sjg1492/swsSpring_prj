@@ -29,4 +29,12 @@ public class InquiryDAO {
 		
 		return count;
 	}// selectAllInq
+
+	public InquiryVO searchInq(String i_number) {
+		InquiryVO iv=null;
+		//데이터베이스에서 셀릭트
+		iv=sst.selectOne("kr.co.sist.user.dao.inquiryMapper.showInqContent",i_number);
+		
+		return iv;
+	}
 }

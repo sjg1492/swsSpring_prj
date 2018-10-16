@@ -4,7 +4,7 @@
     
 <mapper namespace="kr.co.sist.user.dao.inquiryMapper">
 	<select id="selectAllInq" resultType="kr.co.sist.user.domain.Inquiry">
-		select	title, to_char(input_date, 'yyyy-MM-dd') input_date, answer_check
+		select	title, to_char(input_date, 'yyyy-MM-dd') input_date, answer_check,i_number
 		from	inquiry
 		order	by input_date
 	</select>
@@ -16,10 +16,10 @@
 
 	</insert>
 
-	<select id="showInq" resultType="kr.co.sist.user.domain.Inquiry">
-		select	title, content
+	<select id="showInqContent" resultType="kr.co.sist.user.vo.InquiryVO" parameterType="String">
+		select	content,title,i_number,i_type
 		from	inquiry
-		where	title=#{title}
+		where	i_number=#{i_number}
 	</select>
 
 </mapper>

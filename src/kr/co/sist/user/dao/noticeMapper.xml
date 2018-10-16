@@ -4,15 +4,15 @@
     
 <mapper namespace="kr.co.sist.user.dao.noticeMapper">
 	<select id="selectAllNotice" resultType="kr.co.sist.user.domain.Notice">
-		select N_NUMBER, TITLE, id, to_char(input_date, 'yyyy-MM-dd') input_date
+		select N_NUMBER, TITLE, to_char(input_date, 'yyyy-MM-dd') input_date
 		from notice
 		order by n_number
 	</select>
 	
-	<select id="showNotice" resultType="kr.co.sist.user.domain.Notice">
+	<!-- <select id="showNotice" resultType="kr.co.sist.user.domain.Notice">
 		select	title, id, content, to_char(input_date, 'yyyy-MM-dd') input_date
 		from	inquiry
 		where	title=#{title}
-	</select>
+	</select> -->
 	
 </mapper>
