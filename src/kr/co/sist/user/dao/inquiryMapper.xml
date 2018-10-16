@@ -8,4 +8,18 @@
 		from	inquiry
 		order	by input_date
 	</select>
+
+	<insert id="insertInq" parameterType="kr.co.sist.user.vo.InquiryVO">
+		insert into inquiry (I_NUMBER, CONTENT, I_TYPE,title ,INPUT_DATE, 
+		ANSWER_CHECK,  MEMBER_NUMBER)
+		values(seq_inquiry.nextval, #{content}, #{i_type}, #{title}, sysdate, '0', #{n_num})
+
+	</insert>
+
+	<select id="showInq" resultType="kr.co.sist.user.domain.Inquiry">
+		select	title, content
+		from	inquiry
+		where	title=#{title}
+	</select>
+
 </mapper>

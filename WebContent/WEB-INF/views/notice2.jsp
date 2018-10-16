@@ -37,6 +37,8 @@ $(function(){
 </script>
 <style type="text/css">
 #a_tag a{color:black}
+
+#btn{width:80px; height:30px; background-color:black; color:white}
 </style>
 <link rel="stylesheet" type="text/css" href="http://localhost:8080/html_prj/common/css/main.css"/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -52,18 +54,8 @@ $(function(){
 #section{width:1100px; height:500px; float:left;}
 
 /* 테이블 */
-#article_table{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
+table{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
     border-top:2px solid #5b7ce5; text-align: center;}
-#number{width: 50px;}
-#title{width: 400px;}
-#writer{width: 50px;}
-#input_date{width:150px;}
-
-/* 페이지번호 */
-#article_number{text-align: center;margin-top: 60px;}
-
-a{color: black;}
-th{text-align:center; border-bottom: solid #5b7ce5;}
 
 /* footer 시작 */
 #footer{width:1400px; height:200px; bottom:0;}
@@ -76,59 +68,35 @@ th{text-align:center; border-bottom: solid #5b7ce5;}
 	<!-- Header -->
 	<jsp:include page="header/header.jsp"></jsp:include>
 </div>
+
 <div id="wrap">
- <!-- wrap 1400(w)x1000(h) -->
 
-<div id="contents">
-
-<div id="section" style="margin-left:100px" >
- <p style="font-size:40px;font-weight:bold;margin-top:200px; color:black; margin-left: 50px;letter-spacing:3px;">공지사항</p>
-
-<table id="article_table"  >
-<thead>
- <tr>
-   <th id="number">번호</th>
-   <th id="title">제목</th>
-   <th id="wirter">작성자</th>
-   <th id="input_date">게시일</th>
- </tr>
-</thead>
-
-<tbody>
- <c:forEach var="notice" items="${notice_list }">
-			<c:set var="i" value="${i+1 }"/>
-			<tr>
-				<td><c:out value="${i }"/></td>
-				<td><a href="notice.do?title=${notice.title }"><c:out value="${notice.title }"/></a></td>
-				<td><c:out value="${notice.id }"/></td>
-				<td><c:out value="${notice.input_date }"/></td>
-			</tr>
-</c:forEach>
-</tbody>
-</table>
-
-<!-- 페이지번호 -->
-<div id="article_number">
-
- <nav>
-   <ul class="pagination">
-     <li><a href="#"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
-     <li><a href="#">1</a></li>
-     <li><a href="#">2</a></li>
-     <li><a href="#">3</a></li>
-     <li><a href="#">4</a></li>
-     <li><a href="#">5</a></li>
-     <li><a href="#"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
-   </ul>
- </nav>
-
-</div>
-
- 
-
-</div>
-
-</div>
+		
+		<div id="contents">
+			<div id="content">
+			
+				<div id="content_title"><strong>공지사항</strong></div>
+				<div id="email_wrap">
+					<table>
+						<tr>
+						<td id="title">제목</td>
+						<td>${notice_list.title}</td>
+						</tr>
+						<tr>
+						<td id="writer">작성자</td>
+						<td>${notice_list.writer}</td>
+						</tr>
+						<tr>
+						<td id="input_date">게시일</td>
+						<td>${notice_list.input_date}</td>
+						</tr>
+					</table>
+					<div>
+						<input type="button" value="목록" id="btn"/>
+					</div>
+			</div>
+		</div>
+	</div>
 
 <footer>
 	<div>

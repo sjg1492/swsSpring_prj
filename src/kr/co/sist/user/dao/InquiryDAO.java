@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import kr.co.sist.user.domain.Inquiry;
+import kr.co.sist.user.vo.InquiryVO;
 
 @Component
 public class InquiryDAO {
@@ -20,5 +21,12 @@ public class InquiryDAO {
 		list = sst.selectList("selectAllInq");
 
 		return list;
+	}// selectAllInq
+
+	public int insertInq(InquiryVO lv) throws SQLException {
+		System.out.println("-----------------------"+lv);
+		int count = sst.insert("insertInq", lv);
+		
+		return count;
 	}// selectAllInq
 }

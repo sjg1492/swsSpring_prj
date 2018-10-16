@@ -216,7 +216,7 @@ $(function(){
 					<div class="extra_2_top">NOTICE</div>
 				</div>
 				<div class="extra_2_text"></div>
-				<div class="button extra_2_button"><a href="checkout.html">check out</a></div>
+				<div class="button extra_2_button"><a href="notice.do">check out</a></div>
 			</div>
 		</div>
 	</div>

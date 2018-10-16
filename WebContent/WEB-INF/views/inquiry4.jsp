@@ -29,34 +29,15 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
 <link rel="stylesheet" type="text/css" href="http://localhost:8080/html_prj/common/css/main.css"/>
-<link rel="stylesheet" type="text/css" href="styles/s_style/submenu.css">
 <script type="text/javascript">
-$(function() {
-	$("#registration").click(function() {
-		$("#logout_btn").click(function(){
-				if(window.confirm("로그아웃 하시겠습니까?")){
-					location.href="logout.do";
-				}
-			});
+$(function(){
 
-		//공백 막기
-		var title_ck =$.trim($("#title").val());
-		var content_ck =$.trim($("#content").val());
-
-		if(title_ck.length==0){
-			$("[name='title']").focus();
-			alert("제목을 입력해주세요!");
-			return;
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
 		}
-		if(content_ck.length==0){
-			$("[name='content']").focus();
-			alert("문의 내역을 입력해주세요!");
-			return;
-		}
-
-		$("#frm").submit();
 	});
-});//ready
+});
 </script>
 <style type="text/css">
 #wrap{margin: 0px auto; width:1400px; height:800px; font-family: Malgun Gothic;}
@@ -82,6 +63,7 @@ th{border-bottom:1px solid #e7e7e7; height:50px; text-align: center;
 background-color: #fdfdfd;color:#545454;font-size: 15px;font-weight: bold;}
 td{border-bottom: 1px solid #e7e7e7;height:35px; text-align: center;}
 tr:hover{background-color: #eae9f7;}
+
 </style>
 
 </head>
@@ -91,54 +73,47 @@ tr:hover{background-color: #eae9f7;}
 	<!-- Header -->
 	<jsp:include page="header/header.jsp"></jsp:include>
 </div>
-<div id="wrap" style="margin-top:100px">
+
+<div id="wrap">
  <!-- wrap 1400(w)x1000(h) -->
-<div id="aside">
-	<p style="font-size: 35px;margin-top: 80px; padding-left: 60px;font-weight: bold; color:black">고객 센터</p>
-
-<div id="line" >
-
-</div>	  
-
-<ul id="submenu" >  
-	<li><img class="images" src="images/mark.png"  >  <a href="ticket_history.do">이용권 내역</a>  </li>  
-	<li><img class="images" src="images/mark.png"  >  <a href="Modify_info.do">빌림 내역</a>  </li>  
-	<li><img class="images"  src="images/mark.png"  >  <a href="#">문의 내역</a>  </li>  
-	<li><img class="images"  src="images/mark.png" >  <a href="Modify_password.do">정보 수정</a>  </li>  
+<div id="menubar">
+<p style="text-decoration: underline; font-size: 35px;margin-top: 80px;">고객센터</p>
+<ul class="top_bar">   
+<li>
+<a href="#"> </a>  
+<ul class="submenu" style="position: absolute ;">  
+<li style="margin-top: 10px;">  <a href="#">렌트 내역</a>  </li>  
+<li style="margin-top: 10px;">  <a href="#"> 내역</a>  </li>  
+<li style="margin-top: 10px;">  <a href="#">문의 내역</a>  </li>  
+<li style="margin-top: 10px;">  <a href="#">정보 수정</a>  </li>  
+</ul>  
+</li>  
 </ul>  
 </div>
 
-<form name="frm" id="frm" name="inquiry" action="inquiry3.do" method="post">
-<div id="frame" style="width:800px; margin-left:50px">
-	<p style="font-size:35px; font-weight: bold; margin-top: 60px;margin-left: 50px;letter-spacing:3px; color:black">1:1 문의</p>
+<form name="frm" name="inquiry" action="inquiry1.do" method="post">
+<div id="frame" style="width:800px">
+	<p style="font-size:35px; font-weight: bold; margin-top: 60px;margin-left: 50px;letter-spacing:3px;">1:1 문의</p>
 	<br/>
-	<div style="text-align: right; margin-right:25px">
-		<strong>*표시는 필수 항목입니다.</strong>
+	<div style="text-align: center; margin-right:25px;">
+		<strong>문의사항이 작성되었습니다.</strong><br/><br/>
+		<a href="inquiry1.do">문의 사항 리스트</a>
 	</div><br/>
 	
-	<div>
-		*제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="text" id="title" name="title" style="height:20px; width:700px; border:1px solid #333"/>
-	</div><br/>
-	<div>
-		*유형&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<select name="i_type">
-		 <option value="배송">배송</option>
-		 <option value="주문">주문</option>
-		 <option value="결제">결제</option>
-		</select>
-	</div><br/>
-	
-	<div>
-		*문의 내역&nbsp;&nbsp;<input type="text" id="content" name="content" style="height:150px; width:700px; border:1px solid #333"/>
-	</div><br/>
-	
-	<div style="float:right; margin-right:25px">
-		<input type="button" name="regist" id="registration" value="등록"/>&nbsp;
-		<input type="button" id="cancel" value="취소"/>
-	</div>
+				
 </div>
 </form>
+
+<%-- <div>
+   <%
+      String title=request.getParameter("title");
+      String content=request.getParameter("content");
+      
+      InquiryDAO i_dao= new InquiryDAO();
+      InquiryVO ivo=new InquiryVO(title,content);
+   %>
+</div> --%>
+
 </div>
 <footer>
 <div>

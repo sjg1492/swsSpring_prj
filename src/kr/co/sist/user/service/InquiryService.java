@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import kr.co.sist.user.dao.InquiryDAO;
 import kr.co.sist.user.domain.Inquiry;
+import kr.co.sist.user.vo.InquiryVO;
 
 @Component
 public class InquiryService {
@@ -19,5 +20,11 @@ public class InquiryService {
 		list = i_dao.selectAllInq();
 		System.out.println(list);
 		return list;
+	}// searchAllInq
+
+	public int insertInq(InquiryVO lv) throws SQLException {
+		int count=i_dao.insertInq(lv);
+
+		return count;
 	}// searchAllInq
 }

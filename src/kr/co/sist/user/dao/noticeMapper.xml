@@ -2,10 +2,17 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="kr.co.sist.dao.noticeMapper">
-	<select id="selectAllNotice" resultType="kr.co.sist.domain.Basket">
-		select N_NUMBER, TITLE, CONTENTS, INPUT_DATE, NOTICE_FLAG, ID, MANAGER_NUMBER
+<mapper namespace="kr.co.sist.user.dao.noticeMapper">
+	<select id="selectAllNotice" resultType="kr.co.sist.user.domain.Notice">
+		select N_NUMBER, TITLE, id, to_char(input_date, 'yyyy-MM-dd') input_date
 		from notice
 		order by n_number
 	</select>
+	
+	<select id="showNotice" resultType="kr.co.sist.user.domain.Notice">
+		select	title, id, content, to_char(input_date, 'yyyy-MM-dd') input_date
+		from	inquiry
+		where	title=#{title}
+	</select>
+	
 </mapper>

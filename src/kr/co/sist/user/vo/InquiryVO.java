@@ -1,50 +1,10 @@
 package kr.co.sist.user.vo;
 
 public class InquiryVO {
-	private int i_number, member_number, manager_number;
-	private String content, title, i_type, input_date, answer_date, answer_check;
+	private String content,title,n_num,i_type;
 
 	public InquiryVO() {
-		super(); 
-		// TODO Auto-generated constructor stub
-	}
-
-	public InquiryVO(int i_number, int member_number, int manager_number, String content, String title, String i_type,
-			String input_date, String answer_date, String answer_check) {
 		super();
-		this.i_number = i_number;
-		this.member_number = member_number;
-		this.manager_number = manager_number;
-		this.content = content;
-		this.title = title;
-		this.i_type = i_type;
-		this.input_date = input_date;
-		this.answer_date = answer_date;
-		this.answer_check = answer_check;
-	}
-
-	public int getI_number() {
-		return i_number;
-	}
-
-	public void setI_number(int i_number) {
-		this.i_number = i_number;
-	}
-
-	public int getMember_number() {
-		return member_number;
-	}
-
-	public void setMember_number(int member_number) {
-		this.member_number = member_number;
-	}
-
-	public int getManager_number() {
-		return manager_number;
-	}
-
-	public void setManager_number(int manager_number) {
-		this.manager_number = manager_number;
 	}
 
 	public String getContent() {
@@ -63,6 +23,14 @@ public class InquiryVO {
 		this.title = title;
 	}
 
+	public String getN_num() {
+		return n_num;
+	}
+
+	public void setN_num(String n_num) {
+		this.n_num = n_num;
+	}
+
 	public String getI_type() {
 		return i_type;
 	}
@@ -71,28 +39,12 @@ public class InquiryVO {
 		this.i_type = i_type;
 	}
 
-	public String getInput_date() {
-		return input_date;
+	@Override
+	public String toString() {
+		return "InquiryVO [content=" + content + ", title=" + title + ", n_num=" + n_num + ", i_type=" + i_type + "]";
 	}
 
-	public void setInput_date(String input_date) {
-		this.input_date = input_date;
-	}
+	
 
-	public String getAnswer_date() {
-		return answer_date;
-	}
-
-	public void setAnswer_date(String answer_date) {
-		this.answer_date = answer_date;
-	}
-
-	public String getAnswer_check() {
-		return answer_check;
-	}
-
-	public void setAnswer_check(String answer_check) {
-		this.answer_check = answer_check;
-	}
 	
 }

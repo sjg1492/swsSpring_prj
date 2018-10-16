@@ -66,18 +66,17 @@ a{text-decoration: none; color:black}
 				</ul></li>
 			<li><a href="javascrpt:void(0)">배송지(연락처)를 변경하고 싶습니다.</a>
 				<ul>
-					<li><a href="javascrpt:void(0)">상품이 배송 전이라면 변경할 주소지를 1:1 게시판 또는 콜센터(1577-3683, 오전 10시~오후 6시)로 문의 주시면 변경된 주소로 출고가 가능합니다.<br/> 
+					<li><a href="javascrpt:void(0)">상품이 배송 전이라면 변경할 주소지를 1:1 게시판 또는 콜센터(1577-0000, 오전 10시~오후 6시)로 문의 주시면 변경된 주소로 출고가 가능합니다.<br/> 
 					하지만 상품이 출고되어 배송이 진행되고 있는 상태라면 주소지(연락처) 변경은 불가능합니다.
 </a></li>
 				</ul></li>
-			<li><a href="javascrpt:void(0)">주문을 하고 싶은데 빌림중이라고 뜹니다.</a>
+			<li><a href="javascrpt:void(0)">주말(공휴일)에도 상품 출고 되나요?</a>
 				<ul>
-					<li><a href="javascrpt:void(0)">주말(공휴일)에도 상품 출고 되나요?<br/>
-					평일에만 택배 출고가 진행되어 공휴일에는 상품 발송이 어려운 점 양해 부탁드립니다.</a></li>
+					<li><a href="javascrpt:void(0)">평일에만 택배 출고가 진행되어 공휴일에는 상품 발송이 어려운 점 양해 부탁드립니다.</a></li>
 				</ul></li>
 			<li><a href="javascrpt:void(0)">해외에서 받고 싶습니다.</a>
 				<ul>
-					<li><a href="javascrpt:void(0)">아직 리본즈에서는 국내 배송만 가능하며, 해외배송은 불가능한 점 양해 부탁드립니다.</a></li>
+					<li><a href="javascrpt:void(0)">아직 빌림에서는 국내 배송만 가능하며, 해외배송은 불가능한 점 양해 부탁드립니다.</a></li>
 				</ul></li>
 		</ul>
 	</div>

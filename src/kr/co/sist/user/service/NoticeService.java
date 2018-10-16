@@ -16,7 +16,7 @@ public class NoticeService {
 	@Autowired
 	private NoticeDAO n_dao;
 
-	public List<Notice> searchAllInq() throws SQLException {
+	public List<Notice> selectAllNotice() throws SQLException {
 		List<Notice> list = null;
 		list = n_dao.selectAllNotice();
 		return list;
