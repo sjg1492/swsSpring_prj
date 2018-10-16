@@ -63,6 +63,14 @@ p,a{color: black;}
 </style>
 <script type="text/javascript">
 $(function() {
+	
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+	
+	
 	$("#btn_ok").click(function() {
 		var id='${id}';
 		var pass=$("#pass").val();	

@@ -63,6 +63,12 @@ label{font-size: 15px;}
 </style>
 <script type="text/javascript">
 $(function() {
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+	
 	
 		$("#name").val("${user_info.name}");
 		$("#current_pass").val("${user_info.current_pass}");
@@ -93,8 +99,40 @@ $(function() {
 				current_pass=new_pass;
 			}else{
 				alert("변경하실 비밀번호와 비밀번호 확인이 같지 않습니다.")
-				return
+				return;
 			}
+		}
+		if(name ==""){
+			alert("이름을 입력해주세요.")
+			return;
+		}
+		if(pw_answer ==""){
+			alert("비밀번호 답변을 입력해주세요.")
+			return;
+		}
+		if(email ==""){
+			alert("이메일을 입력해주세요.")
+			return;
+		}
+		if(zipcode ==""){
+			alert("우편번호를 입력해주세요.")
+			return;
+		}
+		if(addr ==""){
+			alert("주소를 입력해주세요.")
+			return;
+		}
+		if($("#mobile1").val() ==""){
+			alert("핸드폰 번호를 입력해주세요.")
+			return;
+		}
+		if($("#mobile2").val() ==""){
+			alert("핸드폰 번호를 입력해주세요.")
+			return;
+		}
+		if($("#mobile3").val() ==""){
+			alert("핸드폰 번호를 입력해주세요.")
+			return;
 		}
 		
 		var info_data = {
@@ -129,6 +167,8 @@ $(function() {
 		
 		
 	});//click
+	
+
 	
 	$("#btn_zipcode").click(function(){
 		new daum.Postcode({
@@ -179,16 +219,12 @@ $(function() {
 
 </head>
 
-<body >
+<body>
 
 <div class="super_container">
 
-	<!-- Header -->
-	
+<!-- Header -->
 	<jsp:include page="header/header.jsp"></jsp:include>
-	
-</div><!--super_container  -->
-
 
 <div id="wrap">
 	<!-- wrap 1400(w)x1000(h) -->
@@ -228,7 +264,7 @@ $(function() {
 			</td>
 		</tr>
 		<tr>
-			<td><label>이름</label></td>
+			<td><span class="red">*</span><label>이름</label></td>
 			<td>
 			<input type="text" class="inputBox" id="name" size="15" 
 					maxlength="10" style="width:220px">  
@@ -268,14 +304,14 @@ $(function() {
 			</td>
 		</tr>
 		<tr>
-			<td><label>비밀번호 확인 답변</label></td>
+			<td><span class="red">*</span><label>비밀번호 확인 답변</label></td>
 			<td>
 			<input type="text" class="inputBox" id="pw_answer" size="30" style="width:220px" >
 			</td>
 		</tr>
 
 		<tr>
-			<td><label>연락처</label></td>
+			<td><span class="red">*</span><label>연락처</label></td>
 			<td>
 				<select id="mobile1" class="inputBox">
 				<option value="010" >010</option>
@@ -291,7 +327,7 @@ $(function() {
 		</tr>
 		
 		<tr>
-			<td><label>이메일</label></td>
+			<td><span class="red">*</span><label>이메일</label></td>
 			<td>
 			<input type="email" class="inputBox" id="email" style="width:300px" >
 			</td>
@@ -310,7 +346,7 @@ $(function() {
 			</td>
 		</tr>
 		<tr>
-			<td><label>  상세주소</label></td>
+			<td><span class="red">*</span><label>  상세주소</label></td>
 			<td>
 			<input type="text" class="inputBox" id="addr2" style="width:300px"> 
 			</td>
@@ -354,10 +390,10 @@ $(function() {
 
 	
 
-</head>
-<body>
 
 
+
+</div><!--super_container  -->
 
 </body>
 </html>
