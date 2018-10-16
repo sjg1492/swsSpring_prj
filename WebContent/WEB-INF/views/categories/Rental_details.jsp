@@ -28,6 +28,18 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/submenu.css">
+<script type="text/javascript">
+$(function(){
+
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+	
+	
+});
+</script>
 <style type="text/css">
 
 /* 전체 틀 */

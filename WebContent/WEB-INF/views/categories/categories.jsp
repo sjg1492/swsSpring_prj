@@ -26,21 +26,16 @@
 </style>
 <%}%>
 <script type="text/javascript">
-<%-- $(function(){
-	$("#sorting_6").click(function(){
-		var sorting=$("#sorting_6");
-		sortingProd(sorting);
-	});
-	$("#sorting_12").click(function(){
-		var sorting=$("#sorting_12");
-		sortingProd(sorting);
-	});
-});
-function sortingProd(sorting){
-	location.href="categories.do?target=${target}"<%if(request.getAttribute("sub_cate")!=null){%>
-	+"&sub_cate=${sub_cate}"<%}%>+"&sorting="+sorting.text();
-} --%>
+$(function(){
 
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+	
+	
+});
 </script>
 </head>
 <body>

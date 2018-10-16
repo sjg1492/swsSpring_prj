@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import kr.co.sist.user.dao.CategoriesDAO;
+import kr.co.sist.user.domain.Member;
 import kr.co.sist.user.domain.Product;
 import kr.co.sist.user.domain.SubCategory;
 
@@ -90,6 +91,12 @@ public class CategoriesService {
 			System.err.println("DB조회중 error가 발생하였습니다 : searchTicket Select");
 		}
 		return v_flag;
+	}
+
+	public Member searchMemberAll(String m_num) {
+		Member member=null;
+		member=c_dao.selectMemberAll(m_num);
+		return member;
 	}
 	
 	

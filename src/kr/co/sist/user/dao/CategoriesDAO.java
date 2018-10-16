@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import kr.co.sist.user.domain.Member;
 import kr.co.sist.user.domain.Product;
 import kr.co.sist.user.domain.SubCategory;
 
@@ -71,6 +72,14 @@ public class CategoriesDAO {
 		}
 		
 		return v_flag;
+	}
+
+	public Member selectMemberAll(String m_num) {
+		Member member=null;
+		
+		member=sst.selectOne("sws.categoriesMapper.selectMemberAll",m_num);
+		
+		return member;
 	}
 
 }

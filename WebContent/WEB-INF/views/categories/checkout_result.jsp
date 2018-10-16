@@ -15,6 +15,18 @@
 <link rel="stylesheet" type="text/css" href="styles/checkout.css">
 <link rel="stylesheet" type="text/css" href="styles/checkout_responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
+<script type="text/javascript">
+$(function(){
+
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+	
+	
+});
+</script>
 </head>
 <body>
 
@@ -52,7 +64,7 @@
 		</div>
 	</div>
 	<div style="margin-top:50px; padding-top:100px;font-size:25px; border: 1px solid #d7d5d5; height: 250px;text-align: center;vertical-align:middle ">
-		대여에 성공하셨습니다!
+		${result}
 	</div>
 
 	<!-- Footer -->

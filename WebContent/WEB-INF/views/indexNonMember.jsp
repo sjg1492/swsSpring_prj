@@ -213,7 +213,7 @@ $(function(){
 			<div class="extra_promo_image" style="background-image:url(images/extra_2.jpg)"></div>
 			<div class="extra_2_content d-flex flex-column align-items-center justify-content-center text-center">
 				<div class="extra_2_title">
-					<div class="extra_2_top">FAQ</div>
+					<div class="extra_2_top">NOTICE</div>
 				</div>
 				<div class="extra_2_text"></div>
 				<div class="button extra_2_button"><a href="checkout.html">check out</a></div>

@@ -21,6 +21,13 @@ $(function(){
 	$("button").click(function(){
 		$("#checkout_form").submit();
 	})
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+		
+		
 });//ready
 </script>
 </head>
@@ -102,27 +109,15 @@ $(function(){
 						<div class="checkout_title">Rent recipient</div>
 						<div class="checkout_form_container">
 							<form action="checkout_process.do" id="checkout_form" method="post">
-								<input type="text" class="checkout_input" placeholder="이름" >
-								<input type="text" class="checkout_input" placeholder="E-mail" required="required">
-								<select name="phone" id="phone" class="country_select checkout_input" style="width:160px">
-									<option value="010">010</option>
-									<option value="011">011</option>
-									<option value="012">012</option>
-									<option value="016">016</option>
-									<option value="017">017</option>
-									<option value="018">018</option>
-									<option value="019">019</option>
-								</select>
-								<label style="margin-left:10px; font-size: 20px;">-</label>
-								<input type="text" class="checkout_input" style="width:158px; margin-left: 10px;">
-								<label style="margin-left:10px; font-size: 20px;">-</label>
-								<input type="text" class="checkout_input" style="width:158px; margin-left: 10px;">
-								<input type="text" class="checkout_input" placeholder="주소" required="required">
+								<input type="text" class="checkout_input" placeholder="이름" value=${member.name } readonly="readonly" >
+								<input type="text" class="checkout_input" placeholder="E-mail" readonly="readonly" value="${member.email}">
+								<input type="text" class="checkout_input" style="width:554px; "readonly="readonly" value="${member.phone }">
+								<input type="text" class="checkout_input" placeholder="주소" required="required" readonly="readonly" value="${member.address }">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
-									<input type="text" class="checkout_input checkout_input_50" placeholder="우편번호" required="required">
-									<input type="text" class="checkout_input checkout_input_50"  required="required">
+									<input type="text" class="checkout_input checkout_input_50" placeholder="우편번호" required="required"readonly="readonly">
+									<input type="text" class="checkout_input checkout_input_50"  required="required"readonly="readonly" value="${member.zipcode }">
 								</div>
-								<textarea name="checkout_comment" id="checkout_comment" class="checkout_comment" placeholder="배송 요청사항"></textarea>
+								<textarea name="checkout_comment" id="checkout_comment" class="checkout_comment" placeholder="배송 요청사항">배송요청사항</textarea>
 							</form>
 						</div>
 					</div>

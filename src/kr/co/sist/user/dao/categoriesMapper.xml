@@ -43,4 +43,10 @@
    select v_num from voucher_buying
    where member_number=#{m_number} and end_flag='T'
 </select>
+<!-- member -->
+<select id="selectMemberAll" resultType="kr.co.sist.user.domain.Member" parameterType="String">
+	select member_number, id, name, birth, gender, marriage, password, phone, email, zipcode, address, status, input_date, answer, question_num
+	from member
+	where member_number=#{m_num}
+</select>
 </mapper>

@@ -4,25 +4,22 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import kr.co.sist.user.domain.Member;
 import kr.co.sist.user.domain.Product;
 import kr.co.sist.user.domain.SubCategory;
 import kr.co.sist.user.service.CategoriesService;
-import kr.co.sist.user.service.UserService;
 
 @Controller
 @SessionAttributes({ "prd_list", "sub_categori_list", "categori_name", "categori_name_side" })
@@ -185,7 +182,8 @@ public class CategoriesController {
 	}
 
 	@RequestMapping(value = "rental.do", method = { GET, POST })
-	public String rental(HttpServletRequest request, Model m, HttpSession session) {
+	public String rental(HttpServletRequest request, Model m, HttpSession session)throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String id = (String) session.getAttribute("id");
 		String url = "login";
 		System.out.println("controller   ++  : ["+id+"]");
@@ -214,9 +212,12 @@ public class CategoriesController {
 				if (target != "" && prd_num != "" && sub_cate != "") {
 
 					prd = cs.searchProduct(prd_num);
+					//유저정보를 조회하여 addAttribute에 추가
+					Member mem=cs.searchMemberAll(m_num);
 
 					m.addAttribute("target", target);
 					m.addAttribute("prd", prd);
+					m.addAttribute("member",mem);
 
 					url = "categories/checkout";
 
@@ -233,10 +234,15 @@ public class CategoriesController {
 		return url;
 	}
 	@RequestMapping(value="checkout_process.do",method={GET,POST})
-	public String checkoutProcess() {
+	public String checkoutProcess(HttpServletRequest request,Model m)throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String url="categories/checkout_result";
+		String result="죄송합니다. 잠시후에 다시 시도해주시기 바랍니다.";
+		String rental_request=request.getParameter("checkout_comment");
 		
+		result="결제에 성공하셨습니다.";
 		
+		m.addAttribute("result",result);
 		
 		return url;
 	}
