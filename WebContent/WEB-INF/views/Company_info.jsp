@@ -63,62 +63,27 @@ p{font-size: 30px;letter-spacing:1px;}
 
 
 </style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+	
+	
+});
+</script>
 </head>
 <body>
 
 <div class="super_container">
-
 	<!-- Header -->
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><img style="width:190px;" src="images/BILRIM.jpg" ></div>
-			<nav class="main_nav">
-				<ul>
-					<li><a href="#">가방</a></li>
-					<li><a href="categories.html">시계/악세사리</a></li>
-					<li><a href="#">지갑</a></li>
-					<li><a href="#">이용권</a></li>
-					<li><a href="#">BILRIM</a></li>
-					<li><a href="#">고객센터</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				<div class="search header_search">
-					<form action="#">
-						<input type="search" class="search_input" required="required" style="left:250px; top:-22px">
-						<button type="submit" id="search_button" class="search_button" style="left:470px; top:-5px"><img src="images/magnifying-glass.svg" alt=""></button>
-					</form>
-				</div>
-				<div class="shopping">
-				
-					<!-- 장바구니 -->
-					<a href="#">
-						<div class="cart">
-							<img src="images/shopping-bag.svg" alt="">
-						</div>
-					</a>
-					
-					<!-- 위시리스트 -->
-					<a href="#">
-						<div class="wish">
-							<img src="images/wish.png" alt="">
-						</div>
-					</a>
-					
-					<!-- 사용자정보 -->
-					<a href="#">
-						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
-						</div>
-					</a>
-					<span> 사용자님 </span>
-				</div>
-			</div>
-		</div>
-		
-		
-		
-	</header>
+	<jsp:include page="header/header.jsp"></jsp:include>
+	<!-- Header -->
+
 	
 </div><!-- super_container -->
 

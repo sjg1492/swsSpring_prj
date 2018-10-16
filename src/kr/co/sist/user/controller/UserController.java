@@ -60,15 +60,11 @@ public class UserController {
 		return "signUp";
 	}
 
-	@RequestMapping(value = "Company_info.do", method = GET)
+	@RequestMapping(value="Company_info.do", method = GET)
 	public String Company_info() {
 		return "Company_info";
 	}
 
-	// @RequestMapping(value="Company_info.do", method=GET)
-	// public String Company_info() {
-	// return "Company_info";
-	// } // ∞Ì∞¥ºæ≈Õ
 	@RequestMapping(value = "signUpTerms.do", method = GET)
 	public String signUpTerms() {
 		return "signUpTerms";
@@ -82,12 +78,6 @@ public class UserController {
 	
 	
 	
-	// @RequestMapping(value="indexMember.do", method=POST)
-	// public String indexMember(HttpSession session) {
-	// boolean flag=false;
-	// flag=us.loginSessionCheck(session);
-	// return "indexMember";
-	// }
 
 	@RequestMapping(value = "login.do", method = GET)
 	public String login() {

@@ -123,10 +123,10 @@ $(function() {
 <div id="line">
 </div>
 <ul id="submenu" >  
-	<li><img class="images" src="http://211.63.89.142:11095/swsSpring_prj/images/mark.png"  >  <a href="#">이용권 내역</a>  </li>  
-	<li><img class="images" src="http://211.63.89.142:11095/swsSpring_prj/images/mark.png"  >  <a href="#">대여 내역</a>  </li>  
-	<li><img class="images"  src="http://211.63.89.142:11095/swsSpring_prj/images/mark.png"  >  <a href="#">문의 내역</a>  </li>  
-	<li><img class="images"  src="http://211.63.89.142:11095/swsSpring_prj/images/mark.png" >  <a href="#">정보 수정</a>  </li>  
+		<li><img class="images" src="images/mark.png"  >  <a href="ticket_history.do">이용권 내역</a>  </li>  
+	<li><img class="images" src="images/mark.png"  >  <a href="rental_detail.do">빌림 내역</a>  </li>  
+	<li><img class="images"  src="images/mark.png"  >  <a href="inquiry1.do">문의 내역</a>  </li>  
+	<li><img class="images"  src="images/mark.png" >  <a href="Modify_password.do">정보 수정</a>  </li> 
 </ul>   
 
 </div>
