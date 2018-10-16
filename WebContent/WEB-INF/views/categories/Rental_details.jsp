@@ -85,57 +85,9 @@ p,a{color: black;}
 
 <div class="super_container">
 
+		<!-- Header -->
+	<jsp:include page="../header/header.jsp"></jsp:include>
 	<!-- Header -->
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><img style="width:190px;" src="images/BILRIM.jpg" ></div>
-			<nav class="main_nav">
-				<ul>
-					<li><a href="#">가방</a></li>
-					<li><a href="categories.html">시계/악세사리</a></li>
-					<li><a href="#">지갑</a></li>
-					<li><a href="#">이용권</a></li>
-					<li><a href="#">BILRIM</a></li>
-					<li><a href="#">고객센터</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				<div class="search header_search">
-					<form action="#">
-						<input type="search" class="search_input" required="required" style="left:250px; top:-22px">
-						<button type="submit" id="search_button" class="search_button" style="left:470px; top:-5px"><img src="images/magnifying-glass.svg" alt=""></button>
-					</form>
-				</div>
-				<div class="shopping">
-				
-					<!-- 장바구니 -->
-					<a href="#">
-						<div class="cart">
-							<img src="images/shopping-bag.svg" alt="">
-						</div>
-					</a>
-					
-					<!-- 위시리스트 -->
-					<a href="#">
-						<div class="wish">
-							<img src="images/wish.png" alt="">
-						</div>
-					</a>
-					
-					<!-- 사용자정보 -->
-					<a href="#">
-						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
-						</div>
-					</a>
-					<span> 사용자님 </span>
-				</div>
-			</div>
-		</div>
-		
-		
-		
-	</header>
 	
 </div><!-- super_container -->
 
@@ -152,8 +104,8 @@ p,a{color: black;}
 </div>	  
 
 <ul id="submenu" >  
-	<li><img class="images" src="images/mark.png"  >  <a href="#">이용권 내역</a>  </li>  
-	<li><img class="images" src="images/mark.png"  >  <a href="#">대여 내역</a>  </li>  
+	<li><img class="images" src="images/mark.png"  >  <a href="ticket_history.do">이용권 내역</a>  </li>  
+	<li><img class="images" src="images/mark.png"  >  <a href="rent_detail.do">빌림 내역</a>  </li>  
 	<li><img class="images"  src="images/mark.png"  >  <a href="#">문의 내역</a>  </li>  
 	<li><img class="images"  src="images/mark.png" >  <a href="#">정보 수정</a>  </li>  
 </ul>  
@@ -171,7 +123,7 @@ p,a{color: black;}
 <table id="article_table"  >
 <thead>
 	<tr>
-			<th id="number">No</th>
+			<th id="number">번호</th>
 			<th id="product">상품</th>
 			<th id="start_time">대여일</th>
 			<th id="end_time">반납일</th>
@@ -185,30 +137,8 @@ p,a{color: black;}
 			<td>2018/08/31</td>
 			<td>2018/09/30</td>
 	</tr>
-	<tr>
-			<td>1</td>
-			<td>신발</td>
-			<td>2018/08/31</td>
-			<td>2018/09/30</td>
-	</tr>
-	<tr>
-			<td>1</td>
-			<td>구두</td>
-			<td>2018/08/31</td>
-			<td>2018/09/30</td>
-	</tr>
-	<tr>
-			<td>1</td>
-			<td>구두</td>
-			<td>2018/08/31</td>
-			<td>2018/09/30</td>
-	</tr>
-	<tr>
-			<td>5</td>
-			<td>구두</td>
-			<td>2018/08/31</td>
-			<td>2018/09/30</td>
-	</tr>
+
+
 </tbody>
 </table>
 
@@ -219,10 +149,6 @@ p,a{color: black;}
 	  <ul class="pagination">
 	    <li><a href="#"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
 	    <li><a href="#">1</a></li>
-	    <li><a href="#">2</a></li>
-	    <li><a href="#">3</a></li>
-	    <li><a href="#">4</a></li>
-	    <li><a href="#">5</a></li>
 	    <li><a href="#"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
 	  </ul>
 	</nav>
