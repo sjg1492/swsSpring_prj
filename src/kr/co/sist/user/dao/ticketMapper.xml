@@ -4,11 +4,15 @@
 
 <mapper namespace="kr.co.sist.user.dao.ticketMapper">
 
+	<select id="selectuserId" resultType="String" parameterType="String">
+		select member_number from member where id=#{id}
+	</select>
+
 	<select id="selectAllTicket"
-		resultType="kr.co.sist.user.domain.TicketDo">
+		resultType="kr.co.sist.user.domain.TicketDo" parameterType="String">
 		select v.v_name, to_char(vb.start_date,'yyyy-mm-dd')start_date,to_char(vb.end_date,'yyyy-mm-dd')end_date
 		from voucher v, voucher_buying vb
-		where v.v_num=vb.v_num
+		where v.v_num=vb.v_num and vb.member_number=#{m_num}
 
 	</select>
 

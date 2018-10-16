@@ -40,15 +40,15 @@ public class TicketController {
 	public String ticketCheckout(HttpSession session,HttpServletRequest request,HttpServletResponse response,String ticket_type,Model model) {
 		
 		model.addAttribute("ticket_type",ticket_type);
-/*		String id=(String)session.getAttribute("id");
+		String id=(String)session.getAttribute("id");
 		System.out.println("------"+id);
 		String url="login";
 		
 		if(id!=null) {
 			url="ticket_checkout";
 		}
-		return url;*/
-		return "ticket_checkout";
+		return url;
+		//return "ticket_checkout";
 	}
 
 	@RequestMapping(value = "payment.do", method = {GET,POST})
@@ -63,24 +63,22 @@ public class TicketController {
 	/*	String id=(String)session.getAttribute("id");
 		String url="login";
 		if(id!=null) {*/
-		
-			// String m_num=(String)session.getAttribute("num");
-			String m_num = "2222";
+			//String m_num=(String)session.getAttribute("num");
+		try {
+			String id=(String)session.getAttribute("id");
+			String m_num=ts.searchNumber(id);
+			//String m_num = "2222";
 			civ.setM_num(m_num);
 			
-			try {
 				civ.setCard(new String(civ.getCard().getBytes("8859_1"), "UTF-8"));
-			} catch (UnsupportedEncodingException e1) {
-				e1.printStackTrace();
-			}
-			try {
 				model.addAttribute("result", ts.insertCard(civ));
 				//model.addAttribute("result", ts.insertTicket(tiv));
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		//}
 			//return url;
 			return "payment_end";
 
@@ -91,8 +89,11 @@ public class TicketController {
 	
 	
 	@RequestMapping(value = "ticket_history.do", method = GET)
-	public String ticket_history(Model model) throws SQLException {
-		List<TicketDo> list = ts.searchAllTicket();
+	public String ticket_history(Model model,HttpSession session) throws SQLException {
+		String id=(String)session.getAttribute("id");
+		String m_num=ts.searchNumber(id);
+		List<TicketDo> list = ts.searchAllTicket(m_num);
+		
 		model.addAttribute("ticket_list", list);
 
 		return "ticket_history";

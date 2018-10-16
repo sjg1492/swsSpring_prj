@@ -88,7 +88,7 @@ $(function(){
 				<div style="font-size: 18px; margin-top: 10px;">	
 				일주간 원하는 아이템 무엇이든 이용 가능
 				</div>
-			</div>
+			</div> 
 			<div style="float: left; text-align: center; margin-left: 340px; margin-top: 20px;">
 				<div style="font-weight: bold; font-size: 20px;">
 				주문금액

@@ -18,11 +18,17 @@ public class TicketService {
 	private TicketDAO t_dao;
 	
 	//이용권내역 조회
-	public List<TicketDo> searchAllTicket()throws SQLException{
+	public List<TicketDo> searchAllTicket(String m_num)throws SQLException{
 		List<TicketDo> list=null;
-		list=t_dao.selectAllTicket();
+		list=t_dao.selectAllTicket(m_num);
 		
 		return list;
+	}//searchAllTicket
+	
+	public String searchNumber(String id)throws SQLException{
+		String m_num = t_dao.searchNumber(id);
+		
+		return m_num;
 	}//searchAllTicket
 	
 	

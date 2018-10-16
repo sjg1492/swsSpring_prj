@@ -44,7 +44,7 @@
 
 
 /* 테이블 */
-#paging{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
+#article_table{width: 900px;height:300px; margin-left: 100px;margin-top: 60px;
 				border-top:2px solid #094d8b;text-align: center; }
 #number{width: 50px;}
 #voucher{width: 120px;}
@@ -53,14 +53,14 @@
 #times{width: 120px;}
 
 /* 페이지번호 */
-#article_number{margin-left:435px; margin-top: 60px;}
+#paging{margin-left:470px; margin-top: 50px;}
 
 th{border-bottom:1px solid #333; 
 height:50px; text-align: center;font-size: 18px;font-weight: bold;}
 
 td{border-bottom: 1px solid #e7e7e7;height:35px; text-align: center;
 	font-size: 14px;letter-spacing:1px; border-bottom: 1px solid #333;}
-tr:hover{background-color: #eae9f7;}
+tr:hover{background-color: #eae9f7; height: 30px;}
 p,a{color: black;}
 
 
@@ -110,7 +110,7 @@ p,a{color: black;}
 
 <div id="section" >
 	<p style="font-size:40px;font-weight:bold;margin-top: 60px;margin-left: 50px;letter-spacing:3px;">이용권내역</p>
-
+<c:if test="${not empty ticket_list }">
 <table id="article_table"  >
 <thead>
 	<tr>
@@ -118,33 +118,35 @@ p,a{color: black;}
 			<th id="voucher">이용권명</th>
 			<th id="buy_Date">구매날짜</th>
 			<th id="use_Date">사용기간</th>
-			<th id="times">사용횟수/남은횟수</th>
 	</tr>
 </thead>
 
-<tbody>
+<tbody >
 	<c:forEach var="ticket" items="${ticket_list}">
 		<c:set var="i" value="${i+1 }"/>
-	<tr>
+	<tr style="height:30px; " >
 			<td><c:out value="${i}"/></td>
 			<td><c:out value="${ticket.v_name }"/></td>
 			<td><c:out value="${ticket.start_date }"/></td>
 			<td><c:out value="${ticket.end_date }"/></td>
-			<td>1/2</td>
 	</tr>
 	</c:forEach>
 	
 	
 </tbody>
 </table>
-
+	</c:if>
+					<c:if test="${empty ticket_list }">
+					<div style="text-align: center;font-size:22px;">
+						구매하신 이용권이 존재하지 않습니다.
+					</div>
+					</c:if>
 <!-- 페이지번호 -->
 <div id="paging">
 <nav>
 	  <ul class="pagination">
 	    <li><a href="#"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
 	    <li><a href="#">1</a></li>
-	    <li><a href="#">2</a></li>
 	    <li><a href="#"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
 	  </ul>
 	</nav>

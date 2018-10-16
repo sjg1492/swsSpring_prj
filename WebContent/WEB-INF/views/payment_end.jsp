@@ -54,7 +54,7 @@ function winClose(){
 </c:if>
 <div style="text-align: center;">
 <label>결제가 완료되었습니다.</label>
-</div>
+</div><br/><br/>
 
 <div>
 	 <input type="button" value="확인" class="btn" id="btn" name="btn" onclick="winClose()"

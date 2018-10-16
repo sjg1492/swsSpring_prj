@@ -32,7 +32,7 @@
 $(function(){
 	
 	$("#btn").click(function(){
-		$("#ticket_type").val("2")
+		$("#ticket_type").val("1")
 		$("#frm").submit();
 	});	
 });

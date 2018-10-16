@@ -6,7 +6,7 @@ import lombok.Data;
 public class TicketDo {
 	private String v_name,start_date,end_date ;
  
-	
+	 
 	
 	
 	public TicketDo(String v_name, String start_date, String end_date) {

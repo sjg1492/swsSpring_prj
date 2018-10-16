@@ -16,13 +16,21 @@ public class TicketDAO {
 	@Autowired
 	private SqlSessionTemplate sst;
 
-	public List<TicketDo> selectAllTicket() throws SQLException {
+	public List<TicketDo> selectAllTicket(String m_num) throws SQLException {
 		List<TicketDo> list = null;
-
-		list = sst.selectList("selectAllTicket");
+		System.out.println("----"+m_num);
+		list = sst.selectList("selectAllTicket",m_num);
 
 		return list;
 	}// selectAllTicket
+	
+	public String searchNumber(String id) throws SQLException {
+		String m_num = sst.selectOne("selectuserId",id);
+		
+		return m_num;
+	}// selectAllTicket
+	
+	
 
 	public int insertCardInfo(CardInfoVO civ) throws SQLException {
 
