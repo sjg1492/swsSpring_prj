@@ -290,7 +290,7 @@ function checkIt() {
 	<footer>
 	<div>
 	<div class="footerLogo">
-		<img style="width:220px;" src="images/bilrimMent.png" >
+		<img style="width:220px;" src="http://211.63.89.142:11095/swsSpring_prj/images/bilrimMent.png" >
 	</div>
 	<div class="text">
 		(주)빌림|대표 : 송재원|사업자등록번호 : 111-11-11111 [사업자정보확인]<br/>

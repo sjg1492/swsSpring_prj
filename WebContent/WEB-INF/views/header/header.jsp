@@ -26,34 +26,35 @@
 					<!-- 로그인 -->
 					<div>
 						<a href="login.do">
-							<img style="margin-top: 8px" src="images/login.png" alt="이미지를 불러오지 못하였습니다">
+							<img style="margin-top: 8px" src="http://211.63.89.142:11095/swsSpring_prj/images/login.png" alt="이미지를 불러오지 못하였습니다">
 							</a>
 							<!-- 회원가입 -->
 						<a href="signUpTerms.do">
-							<img src="images/signUp.png" alt="이미지를 불러오지 못하였습니다">
+							<img src="http://211.63.89.142:11095/swsSpring_prj/images/signUp.png" alt="이미지를 불러오지 못하였습니다">
 						</a>
 					</div>
 				</div><!--shopping  -->
 				<%}else{ %>
 				<div class="shopping">
 					<!-- 장바구니 -->
+					
 					<a href="#">
 						<div class="cart">
-							<img src="images/shopping-bag.svg" alt="">
+							<img src="http://211.63.89.142:11095/swsSpring_prj/images/shopping-bag.svg" alt="">
 						</div>
 					</a>
 					
 					<!-- 위시리스트 -->
 					<a href="#">
 						<div class="wish">
-							<img src="images/wish.png" alt="">
+							<img src="http://211.63.89.142:11095/swsSpring_prj/images/wish.png" alt="">
 						</div>
 					</a>
 					
 					<!-- 사용자정보 -->
 					<a href="Modify_password.do">
 						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
+							<img src="http://211.63.89.142:11095/swsSpring_prj/images/avatar.svg" alt="">
 						</div>
 					</a>
 					<span id="userName">   ${sessionScope.id}  님 </span>

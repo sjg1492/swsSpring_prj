@@ -71,7 +71,7 @@ $(function(){
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(images/memory.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(http://211.63.89.142:11095/swsSpring_prj/images/memory.jpg)"></div>
 					<div class="home_slider_content">
 						<div class="home_slider_content_inner">
 							<div class="home_slider_subtitle">빌려드립니다</div>
@@ -123,7 +123,7 @@ $(function(){
 				<div class="col-lg-4 product_col">
 					<div class="product">
 						<div class="product_image">
-							<img src="images/mainRolex.png" alt="">
+							<img src="http://211.63.89.142:11095/swsSpring_prj/images/mainRolex.png" alt="">
 						</div>
 						<div class="rating rating_4">
 							<i class="fa fa-star"></i>
@@ -138,7 +138,7 @@ $(function(){
 								<div class="product_price">40,000￦(일)</div>
 							</div>
 							<div class="product_options">
-								<div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
+								<div class="product_buy product_option"><img src="http://211.63.89.142:11095/swsSpring_prj/images/shopping-bag-white.svg" alt=""></div>
 							</div>
 						</div>
 					</div>
@@ -148,7 +148,7 @@ $(function(){
 				<div class="col-lg-4 product_col">
 					<div class="product">
 						<div class="product_image">
-							<img src="images/chanel.png" alt="">
+							<img src="http://211.63.89.142:11095/swsSpring_prj/images/chanel.png" alt="">
 						</div>
 						<div class="rating rating_4">
 							<i class="fa fa-star"></i>
@@ -163,7 +163,7 @@ $(function(){
 								<div class="product_price">30,000￦(일)</div>
 							</div>
 							<div class="product_options">
-								<div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
+								<div class="product_buy product_option"><img src="http://211.63.89.142:11095/swsSpring_prj/images/shopping-bag-white.svg" alt=""></div>
 							</div>
 						</div>
 					</div>
@@ -173,7 +173,7 @@ $(function(){
 				<div class="col-lg-4 product_col">
 					<div class="product">
 						<div class="product_image">
-							<img src="images/gucciMain.JPG" alt="">
+							<img src="http://211.63.89.142:11095/swsSpring_prj/images/gucciMain.JPG" alt="">
 						</div>
 						<div class="rating rating_4">
 							<i class="fa fa-star"></i>
@@ -210,7 +210,7 @@ $(function(){
 		</div>
 		
 		<div class="extra_promo extra_promo_2">
-			<div class="extra_promo_image" style="background-image:url(images/extra_2.jpg)"></div>
+			<div class="extra_promo_image" style="background-image:url(http://211.63.89.142:11095/swsSpring_prj/images/extra_2.jpg)"></div>
 			<div class="extra_2_content d-flex flex-column align-items-center justify-content-center text-center">
 				<div class="extra_2_title">
 					<div class="extra_2_top">NOTICE</div>
@@ -223,7 +223,7 @@ $(function(){
 	<footer>
 	<div>
 	<div class="footerLogo">
-		<img style="width:220px;" src="images/bilrimMent.png" >
+		<img style="width:220px;" src="http://211.63.89.142:11095/swsSpring_prj/images/bilrimMent.png" >
 	</div>
 	<div class="text">
 		(주)빌림|대표 : 송재원|사업자등록번호 : 111-11-11111 [사업자정보확인]<br/>

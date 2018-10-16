@@ -86,7 +86,7 @@ function findIdPw() {
 	<form id="lFrm" method="post" name="lFrm" action="index.do"  >
 		<div style="margin: 0px auto;width: 450px; height: 600px; border: 1px solid #d7d5d5;  top:30px; " >
 			<div style="top:55px; width: 100px; height: 70px; margin:0px auto; font-size: 30px">
-			<img style="width:190px; position:relative;left: -50px" src="images/BILRIM.jpg" >
+			<img style="width:190px; position:relative;left: -50px" src="http://211.63.89.142:11095/swsSpring_prj/images/BILRIM.jpg" >
 		</div>
 		<div style="margin: 0px auto; width: 300px; height: 70px; top:60px; left:70px; font-size: 23px; font-family: 고딕; font-weight: bold;" >사용자 로그인</div>
 		<div style="top:80px; width: 350px; height: 90px;  margin:0px auto;">
@@ -112,7 +112,7 @@ function findIdPw() {
 <div class="footers">
 	<div>
 	<div class="footerLogo">
-		<img style="width:220px;" src="images/bilrimMent.png" >
+		<img style="width:220px;" src="http://211.63.89.142:11095/swsSpring_prj/images/bilrimMent.png" >
 	</div>
 	<div class="text">
 		(주)빌림|대표 : 송재원|사업자등록번호 : 111-11-11111 [사업자정보확인]<br/>
