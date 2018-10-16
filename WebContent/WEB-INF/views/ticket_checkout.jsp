@@ -37,6 +37,17 @@ $(function(){
 		window.open('payment.do','id','width=400,height=300,top=100 ,left=100');
 	});
 });
+
+$(function(){
+
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+	
+	
+});
 	
 
 

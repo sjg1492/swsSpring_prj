@@ -29,7 +29,21 @@
 <link rel="stylesheet" type="text/css" href="styles/s_style/main.css">
 <link rel="stylesheet" type="text/css" href="styles/s_style/submenu.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+	
+	
+});
+
+</script>
 <style type="text/css">
+
 
 /* 전체 틀 */
 #wrap{margin: 0px auto;width:1400px;height:1100px; 

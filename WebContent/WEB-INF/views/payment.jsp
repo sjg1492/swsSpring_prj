@@ -40,6 +40,18 @@
 </style>
 
 <script type="text/javascript">
+$(function(){
+
+	$("#logout_btn").click(function(){
+		if(window.confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}
+	});
+	
+	
+});
+
+
 function winClose(){
 	self.close();	//팝업창 닫기
 }//winClose
