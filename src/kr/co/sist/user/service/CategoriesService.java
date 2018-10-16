@@ -10,6 +10,7 @@ import kr.co.sist.user.dao.CategoriesDAO;
 import kr.co.sist.user.domain.Member;
 import kr.co.sist.user.domain.Product;
 import kr.co.sist.user.domain.SubCategory;
+import kr.co.sist.user.vo.insertProductRentalVO;
 
 @Component
 public class CategoriesService {
@@ -99,10 +100,16 @@ public class CategoriesService {
 		return member;
 	}
 
-	public boolean insertProductRental(String prd_num, String m_num) {
-		
-		return false;
+	public boolean insertProductRental(String prd_num, String m_num,String rental_request) {
+		boolean flag=false;
+		insertProductRentalVO iprVO=new insertProductRentalVO();
+		iprVO.setM_num(m_num);
+		iprVO.setPrd_num(prd_num);
+		iprVO.setRental_request(rental_request);
+		flag=c_dao.insertProductRental(iprVO);
+		return flag;
 	}
+
 	
 	
 }

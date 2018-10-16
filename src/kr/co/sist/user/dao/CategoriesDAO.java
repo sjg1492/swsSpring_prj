@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import kr.co.sist.user.domain.Member;
 import kr.co.sist.user.domain.Product;
 import kr.co.sist.user.domain.SubCategory;
+import kr.co.sist.user.vo.insertProductRentalVO;
 
 @Component
 public class CategoriesDAO {
@@ -80,6 +81,17 @@ public class CategoriesDAO {
 		member=sst.selectOne("sws.categoriesMapper.selectMemberAll",m_num);
 		
 		return member;
+	}
+
+	public boolean insertProductRental(insertProductRentalVO iprVO) {
+		boolean flag=false;
+		System.out.println("µé¾î°¬´Ï :"+iprVO);
+		int insertCnt=sst.insert("sws.categoriesMapper.insertProductRental", iprVO);
+		System.out.println("dao cnt:"+insertCnt);
+		if(insertCnt!=0) {
+			flag=true;
+		}
+		return flag;
 	}
 
 }

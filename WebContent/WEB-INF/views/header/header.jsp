@@ -44,13 +44,6 @@
 						</div>
 					</a>
 					
-					<!-- 위시리스트 -->
-					<a href="#">
-						<div class="wish">
-							<img src="http://211.63.89.142:11095/swsSpring_prj/images/wish.png" alt="">
-						</div>
-					</a>
-					
 					<!-- 사용자정보 -->
 					<a href="Modify_password.do">
 						<div class="avatar">

@@ -241,19 +241,30 @@ public class CategoriesController {
 		request.setCharacterEncoding("UTF-8");
 		String url="categories/checkout_result";
 		String result="죄송합니다. 잠시후에 다시 시도해주시기 바랍니다.";
+		//request.getParameter
 		String rental_request=request.getParameter("checkout_comment");
 		String target=request.getParameter("target");
 		String sub_cate=request.getParameter("sub_cate");
 		String prd_num=request.getParameter("prd_num");
 		String m_num=request.getParameter("m_num");
+		String prd_name=request.getParameter("prd_name");
+		String rental_fee=request.getParameter("rental_fee");
+		String rent_date=request.getParameter("rent_date");
+		String total_rental_fee=request.getParameter("total_rental_fee");
+		
 		System.out.println(target+" / "+sub_cate+" / "+prd_num+" / "+m_num+" / "+rental_request);
 		
-		boolean insertFlag=cs.insertProductRental(prd_num,m_num);
-		
-		result="결제에 성공하셨습니다.";
-		
-		m.addAttribute("result",result);
+		boolean insertFlag=cs.insertProductRental(prd_num,m_num,rental_request);
+		if(insertFlag) {
+			result="결제에 성공하셨습니다.";
+			m.addAttribute("result",result);
+		}
 		
 		return url;
 	}
+	@RequestMapping(value="rent_detail.do",method= {GET,POST})
+	public String rentDetail() {
+		return "categories/rental_details";
+	}
+	
 }

@@ -49,4 +49,9 @@
 	from member
 	where member_number=#{m_num}
 </select>
+<insert id="insertProductRental" parameterType="kr.co.sist.user.vo.insertProductRentalVO">
+		insert into product_rent(RENT_DATE, INPUT_DATE, END_DATE, RENT_STATUS, END_STATUS, RENT_REQUEST, PRODUCT_NUM, MEMBER_NUMBER)
+		values(sysdate,sysdate,sysdate+7,'T','F',#{rental_request},#{prd_num},#{m_num})
+</insert>
+
 </mapper>

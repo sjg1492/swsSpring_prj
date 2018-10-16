@@ -106,7 +106,7 @@ p,a{color: black;}
 <ul id="submenu" >  
 	<li><img class="images" src="images/mark.png"  >  <a href="ticket_history.do">이용권 내역</a>  </li>  
 	<li><img class="images" src="images/mark.png"  >  <a href="rent_detail.do">빌림 내역</a>  </li>  
-	<li><img class="images"  src="images/mark.png"  >  <a href="#">문의 내역</a>  </li>  
+	<li><img class="images"  src="images/mark.png"  >  <a href="inquiry1.do">문의 내역</a>  </li>  
 	<li><img class="images"  src="images/mark.png" >  <a href="#">정보 수정</a>  </li>  
 </ul>  
 
