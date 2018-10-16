@@ -98,6 +98,11 @@ public class CategoriesService {
 		member=c_dao.selectMemberAll(m_num);
 		return member;
 	}
+
+	public boolean insertProductRental(String prd_num, String m_num) {
+		
+		return false;
+	}
 	
 	
 }

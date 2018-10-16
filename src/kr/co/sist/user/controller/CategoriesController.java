@@ -218,6 +218,9 @@ public class CategoriesController {
 					m.addAttribute("target", target);
 					m.addAttribute("prd", prd);
 					m.addAttribute("member",mem);
+					m.addAttribute("sub_cate",sub_cate);
+					m.addAttribute("prd_num",prd_num);
+					m.addAttribute("m_num",m_num);
 
 					url = "categories/checkout";
 
@@ -239,6 +242,13 @@ public class CategoriesController {
 		String url="categories/checkout_result";
 		String result="죄송합니다. 잠시후에 다시 시도해주시기 바랍니다.";
 		String rental_request=request.getParameter("checkout_comment");
+		String target=request.getParameter("target");
+		String sub_cate=request.getParameter("sub_cate");
+		String prd_num=request.getParameter("prd_num");
+		String m_num=request.getParameter("m_num");
+		System.out.println(target+" / "+sub_cate+" / "+prd_num+" / "+m_num+" / "+rental_request);
+		
+		boolean insertFlag=cs.insertProductRental(prd_num,m_num);
 		
 		result="결제에 성공하셨습니다.";
 		

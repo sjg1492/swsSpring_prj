@@ -118,6 +118,10 @@ $(function(){
 									<input type="text" class="checkout_input checkout_input_50"  required="required"readonly="readonly" value="${member.zipcode }">
 								</div>
 								<textarea name="checkout_comment" id="checkout_comment" class="checkout_comment" placeholder="배송 요청사항">배송요청사항</textarea>
+								<input type="hidden" value="${target }" id="target" name=target/>
+								<input type="hidden" value="${sub_cate }" id="sub_cate" name=sub_cate/>
+								<input type="hidden" value="${prd_num }" id="prd_num" name=prd_num/>
+								<input type="hidden" value="${m_num }" id="m_num" name=m_num/>
 							</form>
 						</div>
 					</div>

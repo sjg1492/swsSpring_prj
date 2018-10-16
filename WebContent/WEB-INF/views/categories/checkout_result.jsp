@@ -65,6 +65,8 @@ $(function(){
 	</div>
 	<div style="margin-top:50px; padding-top:100px;font-size:25px; border: 1px solid #d7d5d5; height: 250px;text-align: center;vertical-align:middle ">
 		${result}
+		<br>
+		<a href="#" style="font-size:16px;color:black;" >메인으로 가기</a>
 	</div>
 
 	<!-- Footer -->
