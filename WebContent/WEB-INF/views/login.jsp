@@ -23,6 +23,12 @@ function findIdPw() {
 		$("#signup").click(function() {
 			location.href="signUpTerms.do";
 		});
+		$("#id").click(function() {
+			$("#id").val("");
+		});
+		$("#pass").click(function() {
+			$("#pass").val("");
+		});
 		$("#login_btn").click(function() {
 			var id=$("#id").val();
 			var pass=$("#pass").val();	
@@ -90,7 +96,7 @@ function findIdPw() {
 		</div>
 		<div style="margin: 0px auto; width: 300px; height: 70px; top:60px; left:70px; font-size: 23px; font-family: 고딕; font-weight: bold;" >사용자 로그인</div>
 		<div style="top:80px; width: 350px; height: 90px;  margin:0px auto;">
-			<input type="text" value="아이디를 입력해주세요" id="id" style="width: 100%;height: 50%" >
+			<input type="text" value="아이디를 입력해주세요" id="id" style="width: 100%;height: 50%">
 		</div>
 		<div style=" top:50px; width: 350px; height: 90px;  margin:0px auto;">
 			<input type="password" id="pass" value="비밀번호" style="width: 100%;height: 50%" >
