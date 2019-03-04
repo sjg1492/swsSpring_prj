@@ -19,8 +19,7 @@ import kr.co.sist.user.vo.SignUpVO;
 import kr.co.sist.user.vo.User_infoVO;
 import kr.co.sist.user.vo.loginVO;
 
-@Service("userService")
-@Component
+@Service
 public class UserServiceImp implements UserService {
 	public String id;
 	public UserServiceImp() {
@@ -116,7 +115,7 @@ public class UserServiceImp implements UserService {
 	@Override
 	public JSONObject userIdFind(IdCheckVO icv) {
 		
-		String id = userDAO.selectUserId(icv);//?좎??뺣낫 蹂寃?寃곌낵
+		String id = userDAO.selectUserId(icv);//?醫�??類ｋ궖 癰궰�野�?野껉퀗�궢
 		JSONObject jo = new JSONObject();
 		jo.put("id", id);
 		return jo;
@@ -124,7 +123,7 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public JSONObject userPwFind(PwCheckVO pcv) {
-		String pass = userDAO.selectUserPass(pcv);//?좎??뺣낫 蹂寃?寃곌낵
+		String pass = userDAO.selectUserPass(pcv);//?醫�??類ｋ궖 癰궰�野�?野껉퀗�궢
 		JSONObject jo = new JSONObject();
 		jo.put("pass", pass);
 		return jo;

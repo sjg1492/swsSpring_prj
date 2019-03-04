@@ -132,7 +132,7 @@ $(function() {
 		<div style="margin-top: 60px;">
 			<div style="float: left">비밀번호 힌트</div>
 			<div style="float: left;  margin-left: 57px;">
-				<select  id="pw_hint" >
+				<select  id="pw_hint" style="height: 23px;" >
 						<option value="1">가장기억에남는장소는?</option>
 						<option value="2">출신한 초등학교 이름은?</option>
 						<option value="3">어린시절 별명은?</option>
@@ -148,7 +148,7 @@ $(function() {
 			
 		</div>
 		<div style="margin-top: 140px; margin-left: 110px;" >
-			<input type="button" value="비밀번호찾기" style="width: 100px;" id="pw_find">
+			<input type="button" value="비밀번호찾기" style="width: 100px;" id="pw_find"> 
 		</div>
 		
 	</div>

@@ -47,7 +47,6 @@ public class UserController {
 			return "Modify_info";
 		}
 	@RequestMapping(value="index.do", method= {GET,POST})
-	
 	public String Index(HttpSession session) {
 		boolean flag=false;
 		flag=us.loginSessionCheck(session);
